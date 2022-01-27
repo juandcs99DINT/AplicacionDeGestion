@@ -18,13 +18,13 @@ namespace AplicacionDeGestion.vistas
     /// <summary>
     /// Lógica de interacción para CrearUsuarioUserControl.xaml
     /// </summary>
-    public partial class CrearUsuarioUserControl : UserControl
+    public partial class ModificarUsuarioUserControl : UserControl
     {
-        private CrearUsuarioUserControlVM vm;
-        public CrearUsuarioUserControl()
+        private ModificarUsuarioUserControlVM vm;
+        public ModificarUsuarioUserControl()
         {
             InitializeComponent();
-            vm = new CrearUsuarioUserControlVM();
+            vm = new ModificarUsuarioUserControlVM();
             this.DataContext = vm;
         }
     }

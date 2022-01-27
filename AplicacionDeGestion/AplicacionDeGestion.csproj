@@ -117,6 +117,11 @@
     <Compile Include="modelos\Cliente.cs" />
     <Compile Include="modelos\Estacionamiento.cs" />
     <Compile Include="modelos\Vehiculo.cs" />
+    <Compile Include="viewmodels\ModificarUsuarioUserControlVM.cs" />
+    <Compile Include="viewmodels\CrearUsuarioUserControlVM.cs" />
+    <Compile Include="vistas\ModificarUsuarioUserControl.xaml.cs">
+      <DependentUpon>ModificarUsuarioUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="vistas\CrearUsuarioUserControl.xaml.cs">
       <DependentUpon>CrearUsuarioUserControl.xaml</DependentUpon>
     </Compile>
@@ -132,6 +137,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="vistas\ModificarUsuarioUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="vistas\CrearUsuarioUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -167,7 +176,6 @@
   <ItemGroup>
     <Folder Include="assets\" />
     <Folder Include="servicios\" />
-    <Folder Include="viewmodels\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
