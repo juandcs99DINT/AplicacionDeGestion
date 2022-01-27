@@ -6,7 +6,11 @@
         xmlns:local="clr-namespace:AplicacionDeGestion"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Margin="20">
+
+        <ContentControl Content="{Binding Path=}">
+            
+        </ContentControl>
         
     </Grid>
 </Window>
