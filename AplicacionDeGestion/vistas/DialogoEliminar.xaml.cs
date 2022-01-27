@@ -1,5 +1,4 @@
-﻿using AplicacionDeGestion.viewmodels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,16 +15,13 @@ using System.Windows.Shapes;
 namespace AplicacionDeGestion.vistas
 {
     /// <summary>
-    /// Lógica de interacción para ModificarUsuarioUserControl.xaml
+    /// Lógica de interacción para DialogoEliminar.xaml
     /// </summary>
-    public partial class ModificarUsuarioUserControl : UserControl
+    public partial class DialogoEliminar : Window
     {
-        private ModificarUsuarioUserControlVM vm;
-        public ModificarUsuarioUserControl()
+        public DialogoEliminar()
         {
             InitializeComponent();
-            vm = new ModificarUsuarioUserControlVM();
-            this.DataContext = vm;
         }
     }
 }

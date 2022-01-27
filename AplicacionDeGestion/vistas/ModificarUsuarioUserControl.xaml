@@ -26,16 +26,16 @@
     </UserControl.Resources>
     <StackPanel Margin="10">
         <TextBlock>Nombre</TextBlock>
-        <TextBox Text="{Binding Path=UsuarioSeleccionado.Nombre}"></TextBox>
+        <TextBox Text="{Binding Path=UsuarioFormularioModificar.Nombre}"></TextBox>
         <TextBlock>Documento</TextBlock>
-        <TextBox Text="{Binding Path=UsuarioSeleccionado.Documento}"></TextBox>
+        <TextBox Text="{Binding Path=UsuarioFormularioModificar.Documento}"></TextBox>
         <TextBlock>Foto</TextBlock>
         <Button Content="Examinar"></Button>
         <TextBlock>Edad</TextBlock>
-        <TextBox Text="{Binding Path=EdadSeleccionada.Edad}"></TextBox>
+        <TextBox Text="{Binding Path=EdadFormularioModificar.Edad}"></TextBox>
         <TextBlock>Genero</TextBlock>
-        <ComboBox Text="{Binding Path=UsuarioSeleccionado.Genero}"></ComboBox>
+        <ComboBox Text="{Binding Path=UsuarioFormularioModificar.Genero}"></ComboBox>
         <TextBlock>Telefono</TextBlock>
-        <TextBox Text="{Binding Path=UsuarioSeleccionado.Telefono}"></TextBox>
+        <TextBox Text="{Binding Path=UsuarioFormularioModificar.Telefono}"></TextBox>
     </StackPanel>
 </UserControl>
