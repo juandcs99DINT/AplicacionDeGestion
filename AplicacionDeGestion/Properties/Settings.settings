@@ -1,7 +1,27 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="AplicacionDeGestion.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="precioParking" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">0.06</Value>
+    </Setting>
+    <Setting Name="licenciaSyncfusion" Type="System.String" Scope="User">
+      <Value Profile="(Default)">NTY2OTI3QDMxMzkyZTM0MmUzMG85Q0toWFI2U2dGcVIwdjlXRHBDVGlHanpxZFlWVEJLcnZWUWtuSE5EekU9</Value>
+    </Setting>
+    <Setting Name="cadenaConexionBlobStorage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">DefaultEndpointsProtocol=https;AccountName=juegopeliculasjuandi;AccountKey=55hpkgqMOrvwuZDsxLmMr/l78pZCJJxaBLDQtIBWFzFKsSuHjS7i/TNpWyXVnJu7wiozsjwVpeOQtfty3asRzQ==;EndpointSuffix=core.windows.net</Value>
+    </Setting>
+    <Setting Name="nombreContenedorBlob" Type="System.String" Scope="User">
+      <Value Profile="(Default)">imagenes-peliculas</Value>
+    </Setting>
+    <Setting Name="numeroPlazasCoche" Type="System.String" Scope="User">
+      <Value Profile="(Default)">50</Value>
+    </Setting>
+    <Setting Name="numeroPlazasMoto" Type="System.String" Scope="User">
+      <Value Profile="(Default)">50</Value>
+    </Setting>
+    <Setting Name="rutaConexionBd" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\parking</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>
