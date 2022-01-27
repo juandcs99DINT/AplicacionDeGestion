@@ -8,14 +8,18 @@ using System.Threading.Tasks;
 
 namespace AplicacionDeGestion.viewmodels
 {
-    class CrearUsuarioUserControlVM : ObservableRecipient
+    class CrearUsuarioUserControlVM : ObservableObject
     {
-        private Cliente clienteSeleccionado;
 
-        public Cliente ClienteSeleccionado
+        private Cliente usuarioFormulario;
+        public CrearUsuarioUserControlVM() { }
+
+        public Cliente UsuarioFormulario
         {
-            get { return clienteSeleccionado; }
-            set { SetProperty(ref clienteSeleccionado, value); }
+            get { return usuarioFormulario; }
+            set { SetProperty(ref usuarioFormulario, value); }
         }
+
+
     }
 }

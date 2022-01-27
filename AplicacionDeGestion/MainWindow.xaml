@@ -6,11 +6,11 @@
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         xmlns:local="clr-namespace:AplicacionDeGestion"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Gestion Parking" Icon="/assets/Icons/parkingIcon.ico" Height="650" Width="1000" MinHeight="450" MinWidth="800">
     <Grid>
         <syncfusion:SfNavigationDrawer
         x:Name="navigationDrawer"
-        DisplayMode="Expanded">
+        DisplayMode="Compact">
         
         <syncfusion:NavigationItem Header="Clientes">
                 <syncfusion:NavigationItem.Icon>
@@ -19,13 +19,13 @@
             </syncfusion:NavigationItem>
             <syncfusion:NavigationItem Header="Vehículos">
                 <syncfusion:NavigationItem.Icon>
-                    <Path Data=""/>
+                    <Image Source="/assets/Icons/clipboard.png"/>
                 </syncfusion:NavigationItem.Icon>
             </syncfusion:NavigationItem>
             <syncfusion:NavigationItem Header="Estacionamiento">
             <syncfusion:NavigationItem.Icon>
-                <Path Data=""/>
-            </syncfusion:NavigationItem.Icon>
+                    <Image Source="/assets/Icons/parking.png"/>
+                </syncfusion:NavigationItem.Icon>
         </syncfusion:NavigationItem>
         
         <syncfusion:SfNavigationDrawer.ContentView>
