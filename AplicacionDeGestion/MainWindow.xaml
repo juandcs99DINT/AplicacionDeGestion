@@ -3,14 +3,38 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         xmlns:local="clr-namespace:AplicacionDeGestion"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid Margin="20">
-
-        <ContentControl Content="{Binding Path=}">
-            
-        </ContentControl>
+    <Grid>
+        <syncfusion:SfNavigationDrawer
+        x:Name="navigationDrawer"
+        DisplayMode="Expanded">
+        
+        <syncfusion:NavigationItem Header="Clientes">
+                <syncfusion:NavigationItem.Icon>
+                    <Image Source="/assets/Icons/customer.png"/>
+                </syncfusion:NavigationItem.Icon>
+            </syncfusion:NavigationItem>
+            <syncfusion:NavigationItem Header="Vehículos">
+                <syncfusion:NavigationItem.Icon>
+                    <Path Data=""/>
+                </syncfusion:NavigationItem.Icon>
+            </syncfusion:NavigationItem>
+            <syncfusion:NavigationItem Header="Estacionamiento">
+            <syncfusion:NavigationItem.Icon>
+                <Path Data=""/>
+            </syncfusion:NavigationItem.Icon>
+        </syncfusion:NavigationItem>
+        
+        <syncfusion:SfNavigationDrawer.ContentView>
+                <ContentControl Content="{Binding Path=UserControlActual}">
+                    
+                </ContentControl>
+        </syncfusion:SfNavigationDrawer.ContentView>
+    </syncfusion:SfNavigationDrawer>
+       
         
     </Grid>
 </Window>
