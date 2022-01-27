@@ -61,6 +61,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="modelos\Cliente.cs" />
+    <Compile Include="modelos\Estacionamiento.cs" />
+    <Compile Include="modelos\Vehiculo.cs" />
     <Compile Include="vistas\CrearUsuarioUserControl.xaml.cs">
       <DependentUpon>CrearUsuarioUserControl.xaml</DependentUpon>
     </Compile>
@@ -110,7 +113,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="assets\" />
-    <Folder Include="modelos\" />
     <Folder Include="servicios\" />
     <Folder Include="viewmodels\" />
   </ItemGroup>
