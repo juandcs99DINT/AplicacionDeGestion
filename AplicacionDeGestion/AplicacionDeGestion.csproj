@@ -174,8 +174,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="assets\" />
     <Folder Include="servicios\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\Icons\clipboard.png" />
+    <Resource Include="assets\Icons\customer.png" />
+    <Resource Include="assets\Icons\parking.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
