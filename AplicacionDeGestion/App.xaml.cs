@@ -13,5 +13,10 @@ namespace AplicacionDeGestion
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(AplicacionDeGestion.Properties.Settings.Default.licenciaSyncfusion);
+        }
+        
     }
 }
