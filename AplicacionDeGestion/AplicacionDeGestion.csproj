@@ -227,7 +227,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="assets\Icons\folder.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="assets\Icons\clipboard.png" />
     <Resource Include="assets\Icons\customer.png" />
