@@ -95,6 +95,9 @@
     <Reference Include="Syncfusion.SfNumericTextBox.XForms, Version=19.4451.0.47, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Syncfusion.Xamarin.SfNumericTextBox.19.4.0.47\lib\netstandard2.0\Syncfusion.SfNumericTextBox.XForms.dll</HintPath>
     </Reference>
+    <Reference Include="Syncfusion.SfTextInputLayout.WPF, Version=19.4460.0.47, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.SfTextInputLayout.WPF.19.4.0.47\lib\net46\Syncfusion.SfTextInputLayout.WPF.dll</HintPath>
+    </Reference>
     <Reference Include="Syncfusion.Shared.WPF, Version=19.4460.0.47, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <HintPath>..\packages\Syncfusion.Shared.WPF.19.4.0.47\lib\net46\Syncfusion.Shared.WPF.dll</HintPath>
     </Reference>

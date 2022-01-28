@@ -4,17 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AplicacionDeGestion.vistas"
+        xmlns:inputLayout="clr-namespace:Syncfusion.UI.Xaml.TextInputLayout;assembly=Syncfusion.SfTextInputLayout.WPF"
         mc:Ignorable="d"
-        Title="Window1" Height="450" Width="600">
+        Title="Window1" Height="480" Width="600">
     <Window.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="Margin" Value="30,10,30,0"></Setter>
-        </Style>
-        <Style TargetType="TextBox">
-            <Setter Property="Margin" Value="30,10,30,10"></Setter>
-            <Setter Property="Width" Value="250"></Setter>
-            <Setter Property="Height" Value="20"></Setter>
-            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
         </Style>
         <Style TargetType="Button">
             <Setter Property="HorizontalAlignment" Value="Left"></Setter>
@@ -23,38 +18,37 @@
             <Setter Property="Height" Value="20"></Setter>
         </Style>
     </Window.Resources>
-    <Grid Margin="10">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition Width="250"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <DockPanel Grid.Column="1">
-            <Image VerticalAlignment="Top" Height="200" Margin="10" Source="{Binding Path=UsuarioFormulario.Foto}" Stretch="UniformToFill"></Image>
-        </DockPanel>
+        <Image Grid.Column="1" VerticalAlignment="Top" Height="200" Margin="10" Source="{Binding Path=UsuarioFormulario.Foto}" Stretch="UniformToFill"></Image>
 
-        <Grid Grid.Column="0" Grid.Row="0">
-            <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-            </Grid.RowDefinitions>
-            
-            <TextBlock Grid.Row="0">Nombre</TextBlock>
-            <TextBox Grid.Row="0" Text="{Binding Path=UsuarioFormulario.Nombre}"></TextBox>
-            <TextBlock Grid.Row="1">Documento</TextBlock>
-            <TextBox Grid.Row="1" Text="{Binding Path=UsuarioFormulario.Documento}"></TextBox>
-            <TextBlock Grid.Row="2">Foto</TextBlock>
-            <Button Grid.Row="2" Content="Examinar"></Button>
-            <TextBlock Grid.Row="3">Edad</TextBlock>
-            <TextBox Grid.Row="3" IsReadOnly="True" Text="{Binding Path=UsuarioFormulario.Edad}"></TextBox>
-            <TextBlock Grid.Row="4">Genero</TextBlock>
-            <TextBox Grid.Row="4" IsReadOnly="True" Text="{Binding Path=UsuarioFormulario.Genero}"></TextBox>
-            <TextBlock Grid.Row="5">Telefono</TextBlock>
-            <TextBox Grid.Row="5" Text="{Binding Path=UsuarioFormulario.Telefono}"></TextBox>
-        </Grid>
+        <StackPanel>
+            <inputLayout:SfTextInputLayout Margin="15" Hint="Nombre"                                      
+                                       HintFloatMode="Float">
+                <TextBox Text="{Binding Path=UsuarioFormulario.Nombre}"></TextBox>
+            </inputLayout:SfTextInputLayout>
+            <inputLayout:SfTextInputLayout Margin="15,0" Hint="Edad"                                      
+                                       HintFloatMode="Float">
+                <TextBox IsReadOnly="True" Text="{Binding Path=UsuarioFormulario.Edad}"></TextBox>
+            </inputLayout:SfTextInputLayout>
+            <inputLayout:SfTextInputLayout Margin="15,0" Hint="Documento"                                      
+                                       HintFloatMode="Float">
+                <TextBox Text="{Binding Path=UsuarioFormulario.Documento}"></TextBox>
+            </inputLayout:SfTextInputLayout>
+            <TextBlock Margin="15,5">Foto</TextBlock>
+            <Button Margin="15,0" Content="Examinar"></Button>
+            <inputLayout:SfTextInputLayout Margin="15,25" Hint="Genero"                                      
+                                       HintFloatMode="Float">
+                <TextBox Text="{Binding Path=UsuarioFormulario.Genero}"></TextBox>
+            </inputLayout:SfTextInputLayout>
+            <inputLayout:SfTextInputLayout Margin="15,0" Hint="Telefono"                                      
+                                       HintFloatMode="Float">
+                <TextBox Text="{Binding Path=UsuarioFormulario.Telefono}"></TextBox>
+            </inputLayout:SfTextInputLayout>
+        </StackPanel>
     </Grid>
 </Window>
