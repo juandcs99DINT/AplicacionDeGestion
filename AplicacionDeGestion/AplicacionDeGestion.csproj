@@ -173,8 +173,8 @@
     <Compile Include="vistas\ClientesUserControl.xaml.cs">
       <DependentUpon>ClientesUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="vistas\CrearModificarUsuarioUserControl.xaml.cs">
-      <DependentUpon>CrearModificarUsuarioUserControl.xaml</DependentUpon>
+    <Compile Include="vistas\CrearModificarUsuarioFormulario.xaml.cs">
+      <DependentUpon>CrearModificarUsuarioFormulario.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -192,7 +192,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="vistas\CrearModificarUsuarioUserControl.xaml">
+    <Page Include="vistas\CrearModificarUsuarioFormulario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
