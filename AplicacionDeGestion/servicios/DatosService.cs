@@ -36,6 +36,28 @@ namespace AplicacionDeGestion.servicios
             return cliente;
         }
 
+        public Cliente GetClienteById(int id)
+        {
+            conexion.Open();
+            Cliente cliente = null;
+            SqliteCommand comando = conexion.CreateCommand();
+            comando.CommandText = "SELECT * FROM clientes WHERE id_cliente = @idCliente";
+            SqliteDataReader cursorClientes = comando.ExecuteReader();
+
+            comando.Parameters.Add("@idCliente", SqliteType.Integer);
+            comando.Parameters["@idCliente"].Value = id;
+
+            if (cursorClientes.HasRows)
+            {
+                cursorClientes.Read();
+                cliente = new Cliente(cursorClientes.GetInt32(0), (string)cursorClientes["nombre"], (string)cursorClientes["documento"],
+                    (string)cursorClientes["foto"], cursorClientes.GetInt32(4), (string)cursorClientes["genero"], (string)cursorClientes["telefono"]);
+            }
+            cursorClientes.Close();
+            conexion.Close();
+            return cliente;
+        }
+
         public ObservableCollection<Cliente> GetClientes()
         {
             ObservableCollection<Cliente> listaClientes = new ObservableCollection<Cliente>();
