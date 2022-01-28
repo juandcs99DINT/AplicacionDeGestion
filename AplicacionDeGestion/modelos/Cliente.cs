@@ -73,12 +73,5 @@ namespace AplicacionDeGestion.modelos
             get => telefono;
             set => SetProperty(ref telefono, value);
         }
-
-        private ObservableCollection<Vehiculo> listaVehiculos;
-        public ObservableCollection<Vehiculo> ListaVehiculos
-        {
-            get => listaVehiculos;
-            set => SetProperty(ref listaVehiculos, value);
-        }
     }
 }
