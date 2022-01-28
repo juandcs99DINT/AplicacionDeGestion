@@ -120,6 +120,7 @@
     <Compile Include="modelos\Cliente.cs" />
     <Compile Include="modelos\Estacionamiento.cs" />
     <Compile Include="modelos\Vehiculo.cs" />
+    <Compile Include="servicios\DatosService.cs" />
     <Compile Include="viewmodels\ModificarUsuarioUserControlVM.cs" />
     <Compile Include="viewmodels\CrearUsuarioUserControlVM.cs" />
     <Compile Include="vistas\ClientesUserControl.xaml.cs">
@@ -183,9 +184,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="servicios\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="assets\Icons\clipboard.png" />
     <Resource Include="assets\Icons\customer.png" />
