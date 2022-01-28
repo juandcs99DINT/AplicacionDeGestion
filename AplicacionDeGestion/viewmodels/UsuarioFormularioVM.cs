@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace AplicacionDeGestion.viewmodels
 {
-    class CrearUsuarioUserControlVM : ObservableObject
+    class UsuarioFormularioVM : ObservableObject
     {
 
         private Cliente usuarioFormulario;
-        public CrearUsuarioUserControlVM() { }
+        public UsuarioFormularioVM() { }
 
         public Cliente UsuarioFormulario
         {
