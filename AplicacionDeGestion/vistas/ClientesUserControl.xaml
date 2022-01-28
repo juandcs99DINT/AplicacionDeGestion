@@ -6,39 +6,41 @@
              xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
              xmlns:local="clr-namespace:AplicacionDeGestion.vistas"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Background="White">
+             d:DesignHeight="450" d:DesignWidth="1000" Background="White">
     <DockPanel> 
         <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Height="60" >
 
-            <syncfusion:ButtonAdv SizeMode="Large" LargeIcon="/assets/Icons/customer.png" Label="Añadir" Width="60"/>
-            <syncfusion:ButtonAdv SizeMode="Large" LargeIcon="/assets/Icons/customer.png" Label="Editar" Width="60"/>
-            <syncfusion:ButtonAdv SizeMode="Large" LargeIcon="/assets/Icons/customer.png" Label="Eliminar" Width="60"/>
+            <syncfusion:ButtonAdv SizeMode="Large" LargeIcon="/assets/Icons/customer.png" Label="Añadir" Width="60" Margin="2"/>
+            <syncfusion:ButtonAdv SizeMode="Large" LargeIcon="/assets/Icons/customer.png" Label="Editar" Width="60" Margin="2"/>
+            <syncfusion:ButtonAdv SizeMode="Large" LargeIcon="/assets/Icons/customer.png" Label="Eliminar" Width="60" Margin="2"/>
             
         </StackPanel>
         
         
         
         
-        <!--
+        
         <syncfusion:SfDataGrid x:Name="dataGrid"  
                        AutoGenerateColumns="False" DockPanel.Dock="Top">
             <syncfusion:SfDataGrid.Columns>
+                <syncfusion:GridTextColumn MappingName="Id" Width="50"/>
                 <syncfusion:GridImageColumn
                                     Padding="2,2,2,2"
                                     HeaderText="Imagen"
                                     MappingName="ImageLink"
                                     TextAlignment="Center"
                                     ValueBinding="{Binding Path=ImageLink}" />
-                <syncfusion:GridTextColumn MappingName="CustomerID"/>
-                <syncfusion:GridTextColumn MappingName="CustomerName"/>
-                <syncfusion:GridTextColumn MappingName="CustomerName"/>
-                <syncfusion:GridTextColumn MappingName="CustomerName"/>
-                <syncfusion:GridTextColumn MappingName="CustomerName"/>
+                <syncfusion:GridTextColumn MappingName="Documento"/>
+                <syncfusion:GridTextColumn MappingName="Nombre"/>
+                <syncfusion:GridTextColumn MappingName="Edad"/>
+                <syncfusion:GridTextColumn MappingName="Genero"/>
+                <syncfusion:GridTextColumn MappingName="Telefono"/>
+                
             </syncfusion:SfDataGrid.Columns>
         </syncfusion:SfDataGrid>
 
 
-        -->
+        
 
 
 
@@ -48,150 +50,6 @@
 
 
 
-        <Grid DockPanel.Dock="Top">
-            <syncfusion:SfDataGrid
-            x:Name="dataGrid"
-            Margin="5"
-            AllowEditing="True"
-            AllowGrouping="True"
-            AutoGenerateColumns="False"
-            HideEmptyGridViewDefinition="True"
-            ItemsSource="{Binding Path=OrdersDetails}"
-            ShowGroupDropArea="True">
-
-               
-
-                <syncfusion:SfDataGrid.DetailsViewDefinition>
-                    <syncfusion:GridViewDefinition RelationalColumn="OrderList">
-                        <syncfusion:GridViewDefinition.DataGrid>
-                            <syncfusion:SfDataGrid
-                            x:Name="FirstDetailsViewGrid"
-                            AllowEditing="True"
-                            AutoGenerateColumns="False">
-                                <syncfusion:SfDataGrid.Columns>
-                                    <syncfusion:GridNumericColumn
-                                    HeaderText="Order ID"
-                                    MappingName="OrderID"
-                                    NumberDecimalDigits="0" />
-                                    <syncfusion:GridTextColumn HeaderText="Customer ID" MappingName="CustomerID" />
-
-                                    <syncfusion:GridTextColumn
-                                    VerticalAlignment="Center"
-                                    HeaderText="Customer Area"
-                                    MappingName="ShipCity" />
-                                    <syncfusion:GridNumericColumn
-                                    HeaderText="Product ID"
-                                    MappingName="ProductID"
-                                    NumberDecimalDigits="0"/>
-
-                                    <syncfusion:GridDateTimeColumn
-                                    HeaderText="Order Date"
-                                    MappingName="OrderDate"
-                                    TextAlignment="Right" />
-                                    <syncfusion:GridMultiColumnDropDownList
-                                    Width="180"
-                                    AutoGenerateColumns="False"
-                                    DisplayMember="SupplierName"
-                                    HeaderText="Supplier Name"
-                                    ItemsSource="{Binding Suppliers}"
-                                    MappingName="SupplierID"
-                                    TextAlignment="Left"
-                                    ValueMember="SupplierID">
-                                        <syncfusion:GridMultiColumnDropDownList.Columns>
-                                            <syncfusion:Columns>
-                                                <syncfusion:GridTextColumn HeaderText="Supplier ID" MappingName="SupplierID" />
-                                                <syncfusion:GridTextColumn HeaderText="Supplier Name" MappingName="SupplierName" />
-                                                <syncfusion:GridTextColumn HeaderText="Supplier City" MappingName="SupplierCity" />
-                                            </syncfusion:Columns>
-                                        </syncfusion:GridMultiColumnDropDownList.Columns>
-                                    </syncfusion:GridMultiColumnDropDownList>
-
-                                    <syncfusion:GridTemplateColumn MappingName="Quantity" TextAlignment="Center">
-                                        <syncfusion:GridTemplateColumn.CellTemplate>
-                                            <DataTemplate>
-                                                <TextBlock
-                                                VerticalAlignment="Center"
-                                                FontStyle="Italic"
-                                                FontWeight="Bold"
-                                                Text="{Binding Quantity}"
-                                                TextAlignment="Center" />
-                                            </DataTemplate>
-                                        </syncfusion:GridTemplateColumn.CellTemplate>
-                                        <syncfusion:GridTemplateColumn.EditTemplate>
-                                            <DataTemplate>
-                                                <TextBox
-                                                syncfusion:FocusManagerHelper.FocusedElement="True"
-                                                FontStyle="Italic"
-                                                FontWeight="Bold"
-                                                Text="{Binding Quantity}"
-                                                TextAlignment="Center" />
-                                            </DataTemplate>
-                                        </syncfusion:GridTemplateColumn.EditTemplate>
-                                    </syncfusion:GridTemplateColumn>
-                                    <syncfusion:GridCurrencyColumn
-                                    CurrencySymbol="$"
-                                    HeaderText="Unit Price"
-                                    MappingName="UnitPrice" />
-                                    <syncfusion:GridUnBoundColumn
-                                    Expression="UnitPrice * Quantity"
-                                    HeaderText="Grand Total"
-                                    MappingName="QuantitiesPrice"
-                                    TextAlignment="Right" />
-                                    <syncfusion:GridPercentColumn MappingName="Discount" />
-                                    <syncfusion:GridTimeSpanColumn HeaderText="Delivery Time" MappingName="DeliveryDelay" />
-                                    <syncfusion:GridImageColumn
-                                    Padding="2,2,2,2"
-                                    HeaderText="Country"
-                                    MappingName="ImageLink"
-                                    TextAlignment="Center"
-                                    ValueBinding="{Binding Path=ImageLink}" />
-
-                                </syncfusion:SfDataGrid.Columns>
-                            </syncfusion:SfDataGrid>
-                        </syncfusion:GridViewDefinition.DataGrid>
-                    </syncfusion:GridViewDefinition>
-                </syncfusion:SfDataGrid.DetailsViewDefinition>
-
-                <syncfusion:SfDataGrid.Columns>
-                    <syncfusion:GridNumericColumn
-                    Width="150"
-                    HeaderText="ID Cliente"
-                    MappingName="IdCliente"
-                    NumberDecimalDigits="0" />
-                    
-                    
-                    
-                    <syncfusion:GridTextColumn
-                    Width="150"
-                    HeaderText="Nombre"
-                    MappingName="Nombre" />
-                    
-                    
-                    <syncfusion:GridTextColumn
-                    Width="150"
-                    HeaderText="Ship City"
-                    MappingName="ShipCity" />
-                    
-                    
-                    
-                    <syncfusion:GridTextColumn
-                    Width="150"
-                    HeaderText="Ship Country"
-                    MappingName="ShipCountry" />
-                    <syncfusion:GridDateTimeColumn
-                    Width="200"
-                    HeaderText="Shipping Date"
-                    MappingName="ShippedDate"
-                    TextAlignment="Right" />
-
-                    <syncfusion:GridCurrencyColumn
-                    CurrencySymbol="$"
-                    HeaderText="Freight"
-                    MappingName="Freight" />
-                    <syncfusion:GridCheckBoxColumn HeaderText="Closed" MappingName="IsShipped" />
-                </syncfusion:SfDataGrid.Columns>
-            </syncfusion:SfDataGrid>
-        </Grid>
 
 
     </DockPanel>
