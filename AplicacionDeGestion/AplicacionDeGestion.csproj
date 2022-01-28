@@ -164,6 +164,9 @@
     <Compile Include="vistas\CrearUsuarioUserControl.xaml.cs">
       <DependentUpon>CrearUsuarioUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="vistas\Window1.xaml.cs">
+      <DependentUpon>Window1.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -185,6 +188,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="vistas\CrearUsuarioUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="vistas\Window1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
