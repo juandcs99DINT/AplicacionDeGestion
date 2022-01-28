@@ -171,8 +171,7 @@
     <Compile Include="servicios\DatosService.cs" />
     <Compile Include="servicios\Mensajes.cs" />
     <Compile Include="servicios\NavigationService.cs" />
-    <Compile Include="viewmodels\ModificarUsuarioUserControlVM.cs" />
-    <Compile Include="viewmodels\CrearUsuarioUserControlVM.cs" />
+    <Compile Include="viewmodels\UsuarioFormularioVM.cs" />
     <Compile Include="vistas\ClientesUserControl.xaml.cs">
       <DependentUpon>ClientesUserControl.xaml</DependentUpon>
     </Compile>
@@ -227,7 +226,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="assets\Icons\folder.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="assets\Icons\clipboard.png" />
     <Resource Include="assets\Icons\customer.png" />
