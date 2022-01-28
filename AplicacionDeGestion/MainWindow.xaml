@@ -14,17 +14,17 @@
         
         <syncfusion:NavigationItem Header="Clientes">
                 <syncfusion:NavigationItem.Icon>
-                    <Image Source="/assets/Icons/customer.png"/>
+                    <Image Source="/assets/Icons/customer.png" Stretch="Uniform"/>
                 </syncfusion:NavigationItem.Icon>
             </syncfusion:NavigationItem>
             <syncfusion:NavigationItem Header="Vehículos">
                 <syncfusion:NavigationItem.Icon>
-                    <Image Source="/assets/Icons/clipboard.png"/>
+                    <Image Source="/assets/Icons/clipboard.png" Stretch="Uniform"/>
                 </syncfusion:NavigationItem.Icon>
             </syncfusion:NavigationItem>
             <syncfusion:NavigationItem Header="Estacionamiento">
             <syncfusion:NavigationItem.Icon>
-                    <Image Source="/assets/Icons/parking.png"/>
+                    <Image Source="/assets/Icons/parking.png" Stretch="Uniform"/>
                 </syncfusion:NavigationItem.Icon>
         </syncfusion:NavigationItem>
         
