@@ -6,15 +6,28 @@
              xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
              xmlns:local="clr-namespace:AplicacionDeGestion.vistas"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" >
-    <Grid>
+             d:DesignHeight="450" d:DesignWidth="800" Background="White">
+    <DockPanel> 
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Height="60" >
 
-        <syncfusion:SfDataGrid  x:Name="dataGrid">
+            <syncfusion:ButtonAdv SizeMode="Large" LargeIcon="/assets/Icons/customer.png" Label="Añadir" Width="60"/>
+            <syncfusion:ButtonAdv SizeMode="Large" LargeIcon="/assets/Icons/customer.png" Label="Editar" Width="60"/>
+            <syncfusion:ButtonAdv SizeMode="Large" LargeIcon="/assets/Icons/customer.png" Label="Eliminar" Width="60"/>
+            
+        </StackPanel>
         
-
-
+        <syncfusion:SfDataGrid x:Name="dataGrid"  
+                       AutoGenerateColumns="False" DockPanel.Dock="Top">
+            <syncfusion:SfDataGrid.Columns>
+                <syncfusion:GridTextColumn MappingName="CustomerID"/>
+                <syncfusion:GridTextColumn MappingName="CustomerName"/>
+                <syncfusion:GridTextColumn MappingName="CustomerName"/>
+                <syncfusion:GridTextColumn MappingName="CustomerName"/>
+                <syncfusion:GridTextColumn MappingName="CustomerName"/>
+            </syncfusion:SfDataGrid.Columns>
         </syncfusion:SfDataGrid>
 
+        
 
-    </Grid>
+    </DockPanel>
 </UserControl>
