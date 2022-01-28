@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace AplicacionDeGestion.servicios
 {
-    class DatosService
+    class Mensajes
     {
-
     }
 }
