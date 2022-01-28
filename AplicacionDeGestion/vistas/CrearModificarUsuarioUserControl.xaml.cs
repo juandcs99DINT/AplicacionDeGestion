@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AplicacionDeGestion.viewmodels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,13 +16,16 @@ using System.Windows.Shapes;
 namespace AplicacionDeGestion.vistas
 {
     /// <summary>
-    /// Lógica de interacción para Window1.xaml
+    /// Lógica de interacción para CrearUsuarioUserControl.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class CrearModificarUsuarioUserControl : UserControl
     {
-        public Window1()
+        private CrearModificarUsuarioUserControlVM vm;
+        public CrearModificarUsuarioUserControl()
         {
             InitializeComponent();
+            vm = new CrearModificarUsuarioUserControlVM();
+            this.DataContext = vm;
         }
     }
 }

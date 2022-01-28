@@ -1,11 +1,12 @@
-﻿<UserControl x:Class="AplicacionDeGestion.vistas.ModificarUsuarioUserControl"
+﻿<Window x:Class="AplicacionDeGestion.vistas.CrearModificarUsuarioUserControl"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="330">
-    <UserControl.Resources>
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AplicacionDeGestion.vistas"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="600">
+    <Window.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="Margin" Value="30,10,30,0"></Setter>
         </Style>
@@ -14,16 +15,12 @@
             <Setter Property="Width" Value="250"></Setter>
             <Setter Property="HorizontalAlignment" Value="Left"></Setter>
         </Style>
-        <Style TargetType="ComboBox">
-            <Setter Property="Margin" Value="30,10,30,10"></Setter>
-            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
-        </Style>
         <Style TargetType="Button">
             <Setter Property="HorizontalAlignment" Value="Left"></Setter>
             <Setter Property="Margin" Value="30,10,30,10"></Setter>
             <Setter Property="Width" Value="100"></Setter>
         </Style>
-    </UserControl.Resources>
+    </Window.Resources>
     <StackPanel Margin="10">
         <TextBlock>Nombre</TextBlock>
         <TextBox Text="{Binding Path=UsuarioFormularioModificar.Nombre}"></TextBox>
@@ -32,10 +29,10 @@
         <TextBlock>Foto</TextBlock>
         <Button Content="Examinar"></Button>
         <TextBlock>Edad</TextBlock>
-        <TextBox Text="{Binding Path=EdadFormularioModificar.Edad}"></TextBox>
+        <TextBox IsReadOnly="True" Text="{Binding Path=EdadFormularioModificar.Edad}"></TextBox>
         <TextBlock>Genero</TextBlock>
-        <ComboBox Text="{Binding Path=UsuarioFormularioModificar.Genero}"></ComboBox>
+        <TextBox IsReadOnly="True" Text="{Binding Path=UsuarioFormularioModificar.Genero}"></TextBox>
         <TextBlock>Telefono</TextBlock>
         <TextBox Text="{Binding Path=UsuarioFormularioModificar.Telefono}"></TextBox>
     </StackPanel>
-</UserControl>
+</Window>
