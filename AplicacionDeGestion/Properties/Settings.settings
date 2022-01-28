@@ -21,7 +21,7 @@
       <Value Profile="(Default)">50</Value>
     </Setting>
     <Setting Name="rutaConexionBd" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\parking</Value>
+      <Value Profile="(Default)">C:/parking</Value>
     </Setting>
   </Settings>
 </SettingsFile>
