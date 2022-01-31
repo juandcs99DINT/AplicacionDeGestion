@@ -59,6 +59,9 @@
     <Reference Include="Microsoft.Toolkit.Mvvm, Version=7.1.0.0, Culture=neutral, PublicKeyToken=4aff67a105548ee2, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Toolkit.Mvvm.7.1.2\lib\netstandard2.0\Microsoft.Toolkit.Mvvm.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="RestSharp, Version=107.1.2.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
       <HintPath>..\packages\RestSharp.107.1.2\lib\netstandard2.0\RestSharp.dll</HintPath>
     </Reference>
@@ -168,15 +171,40 @@
     <Compile Include="modelos\Cliente.cs" />
     <Compile Include="modelos\Estacionamiento.cs" />
     <Compile Include="modelos\Vehiculo.cs" />
+    <Compile Include="servicios\AzureServices.cs" />
     <Compile Include="servicios\DatosService.cs" />
+    <Compile Include="servicios\APIRestService.cs" />
+    <Compile Include="servicios\DialogosService.cs" />
     <Compile Include="servicios\Mensajes.cs" />
     <Compile Include="servicios\NavigationService.cs" />
+    <Compile Include="viewmodels\AñadirMarcaVM.cs" />
+    <Compile Include="viewmodels\ClientesVM.cs" />
+    <Compile Include="viewmodels\EstacionamientosVM.cs" />
+    <Compile Include="viewmodels\FinalizacionEstacionamientoVM.cs" />
+    <Compile Include="viewmodels\MainWindowVM.cs" />
     <Compile Include="viewmodels\UsuarioFormularioVM.cs" />
+    <Compile Include="viewmodels\VehiculoFormularioVM.cs" />
+    <Compile Include="viewmodels\VehiculosVM.cs" />
+    <Compile Include="vistas\AñadirMarcaDialogo.xaml.cs">
+      <DependentUpon>AñadirMarcaDialogo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="vistas\ClientesUserControl.xaml.cs">
       <DependentUpon>ClientesUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="vistas\CrearModificarUsuarioFormulario.xaml.cs">
       <DependentUpon>CrearModificarUsuarioFormulario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="vistas\CrearModificarVehiculoFormulario.xaml.cs">
+      <DependentUpon>CrearModificarVehiculoFormulario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="vistas\EstacionamientosUserControl.xaml.cs">
+      <DependentUpon>EstacionamientosUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="vistas\FinalizacionEstacionamientoDialogo.xaml.cs">
+      <DependentUpon>FinalizacionEstacionamientoDialogo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="vistas\VehiculosUserControl.xaml.cs">
+      <DependentUpon>VehiculosUserControl.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -190,11 +218,31 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="vistas\AñadirMarcaDialogo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="vistas\ClientesUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="vistas\CrearModificarUsuarioFormulario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="vistas\CrearModificarVehiculoFormulario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="vistas\EstacionamientosUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="vistas\FinalizacionEstacionamientoDialogo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="vistas\VehiculosUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
