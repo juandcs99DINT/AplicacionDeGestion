@@ -171,6 +171,7 @@
     </ApplicationDefinition>
     <Compile Include="modelos\Cliente.cs" />
     <Compile Include="modelos\Estacionamiento.cs" />
+    <Compile Include="modelos\FaceAttributes.cs" />
     <Compile Include="modelos\Vehiculo.cs" />
     <Compile Include="servicios\AzureServices.cs" />
     <Compile Include="servicios\DatosService.cs" />
