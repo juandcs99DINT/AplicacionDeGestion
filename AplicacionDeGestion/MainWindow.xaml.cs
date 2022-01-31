@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AplicacionDeGestion.viewmodels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,8 +21,11 @@ namespace AplicacionDeGestion
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly MainWindowVM vm;
         public MainWindow()
         {
+            vm = new MainWindowVM();
+            this.DataContext = vm;
             InitializeComponent();
         }
     }

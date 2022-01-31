@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AplicacionDeGestion.viewmodels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,8 +21,11 @@ namespace AplicacionDeGestion.vistas
     /// </summary>
     public partial class ClientesUserControl : UserControl
     {
+        private readonly ClientesVM vm;
         public ClientesUserControl()
         {
+            vm = new ClientesVM();
+            this.DataContext = vm;
             InitializeComponent();
         }
     }

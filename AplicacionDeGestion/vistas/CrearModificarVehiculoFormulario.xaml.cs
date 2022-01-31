@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AplicacionDeGestion.viewmodels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,8 +20,11 @@ namespace AplicacionDeGestion.vistas
     /// </summary>
     public partial class CrearModificarVehiculoFormulario : Window
     {
+        private readonly VehiculoFormularioVM vm;
         public CrearModificarVehiculoFormulario()
         {
+            vm = new VehiculoFormularioVM();
+            this.DataContext = vm;
             InitializeComponent();
         }
     }

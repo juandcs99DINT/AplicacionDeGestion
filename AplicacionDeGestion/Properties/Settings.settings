@@ -23,5 +23,11 @@
     <Setting Name="rutaConexionBd" Type="System.String" Scope="User">
       <Value Profile="(Default)">C:/parking</Value>
     </Setting>
+    <Setting Name="endpointFace" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://servicioface.cognitiveservices.azure.com/</Value>
+    </Setting>
+    <Setting Name="keyFace" Type="System.String" Scope="User">
+      <Value Profile="(Default)">495d5808afaa455c860b5f8b52f5c22e</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
