@@ -1,4 +1,5 @@
-﻿using Azure.Storage.Blobs;
+﻿using AplicacionDeGestion.modelos;
+using Azure.Storage.Blobs;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -66,9 +67,7 @@ namespace AplicacionDeGestion.servicios
         }
         */
 
-
-        // NO ESTÁ TERMINADO
-        public IRestResponse GetEdadGenero(string url)
+        public FaceAttributes GetEdadGenero(string url)
         {
             var client = new RestClient(Properties.Settings.Default.endpointFace);
             var request = new RestRequest("face/v1.0/detect", Method.POST);
@@ -77,7 +76,9 @@ namespace AplicacionDeGestion.servicios
             request.AddParameter("application/json", JsonConvert.SerializeObject(url), ParameterType.RequestBody);
             request.AddParameter("returnFaceAttributes", "age,gender", ParameterType.QueryString);
             var response = client.Execute(request);
-            return response;
+            // HAY QUE TERMINARLO, LA PETICIÓN DEVUELVE MÁS COSAS, HAY QUE COGER SOLO EL FACEATTRIBUTES
+            FaceAttributes faceAttributes = JsonConvert.DeserializeObject<FaceAttributes>(response.Content);
+            return faceAttributes;
         }
     }
 }
