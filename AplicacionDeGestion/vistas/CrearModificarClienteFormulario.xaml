@@ -7,7 +7,7 @@
         xmlns:inputLayout="clr-namespace:Syncfusion.UI.Xaml.TextInputLayout;assembly=Syncfusion.SfTextInputLayout.WPF"
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         mc:Ignorable="d"
-        Title="Window1" Height="450" Width="600" ShowInTaskbar="False" ResizeMode="NoResize">
+        Title="Cliente Formulario" Height="450" Width="600" ShowInTaskbar="False" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
