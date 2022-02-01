@@ -52,8 +52,8 @@ namespace AplicacionDeGestion.modelos
             set => SetProperty(ref foto, value);
         }
 
-        private int edad;
-        public int Edad
+        private int? edad;
+        public int? Edad
         {
             get => edad;
             set => SetProperty(ref edad, value);

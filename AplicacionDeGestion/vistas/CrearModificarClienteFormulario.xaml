@@ -42,7 +42,7 @@
                                        HintFloatMode="Float">
                 <TextBox Text="{Binding Path=Cliente.Telefono}"></TextBox>
             </inputLayout:SfTextInputLayout>
-            <syncfusion:ButtonAdv HorizontalAlignment="Left" Width="120" Margin="15,0" SizeMode="Normal" Label="Fotografía" SmallIcon ="/assets/Icons/folder.png"/>
+            <syncfusion:ButtonAdv Command="{Binding ExaminarImagenCommand}" HorizontalAlignment="Left" Width="120" Margin="15,0" SizeMode="Normal" Label="Fotografía" SmallIcon ="/assets/Icons/folder.png"/>
         </StackPanel>
     </Grid>
 </Window>

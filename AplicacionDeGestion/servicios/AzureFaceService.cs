@@ -16,24 +16,27 @@ namespace AplicacionDeGestion.servicios
     {
         private readonly DialogosService dialogosService = new DialogosService();
 
+
         public FaceAttributes GetEdadGenero(string url)
         {
             FaceAttributes faceAttributes = new FaceAttributes();
+            IRestResponse response = null;
             try
             {
+                //string urlImagen = "{\"url\":"+ url +"\"}";
                 var client = new RestClient(Properties.Settings.Default.endpointFace);
                 var request = new RestRequest("face/v1.0/detect", Method.POST);
                 request.AddHeader("Ocp-Apim-Subscription-Key", Properties.Settings.Default.keyFace);
                 request.AddHeader("Content-Type", "application/json");
-                request.AddParameter("application/json", JsonConvert.SerializeObject(url), ParameterType.RequestBody);
+                request.AddParameter("url", JsonConvert.SerializeObject(url), ParameterType.RequestBody);
                 request.AddParameter("returnFaceAttributes", "age,gender", ParameterType.QueryString);
-                var response = client.Execute(request);
+                response = client.Execute(request);
                 List<Root> listaRoots = JsonConvert.DeserializeObject<List<Root>>(response.Content);
                 faceAttributes = listaRoots[0].faceAttributes;
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                dialogosService.DialogoError("Se ha producido un error al reconocer la imagen del cliente.");
+                dialogosService.DialogoError(e.Message);
             }
             return faceAttributes;
         }

@@ -107,27 +107,21 @@ namespace AplicacionDeGestion.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("https://servicioface.cognitiveservices.azure.com/")]
         public string endpointFace {
             get {
                 return ((string)(this["endpointFace"]));
             }
-            set {
-                this["endpointFace"] = value;
-            }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("495d5808afaa455c860b5f8b52f5c22e")]
         public string keyFace {
             get {
                 return ((string)(this["keyFace"]));
-            }
-            set {
-                this["keyFace"] = value;
             }
         }
     }

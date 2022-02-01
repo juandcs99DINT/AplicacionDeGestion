@@ -16,31 +16,58 @@ namespace AplicacionDeGestion.viewmodels
 {
     class ClienteFormularioVM : ObservableRecipient
     {
-        private readonly NavigationService navegacion;
+        private readonly NavigationService navegacion = new NavigationService();
         private readonly DialogosService dialogosService = new DialogosService();
         private readonly AzureBlobStorageService azureBlobStorageService = new AzureBlobStorageService();
+        private readonly AzureFaceService azureFaceService = new AzureFaceService();
+        private readonly DatosService datosService = new DatosService();
 
         private Cliente cliente;
 
         public Cliente Cliente
         {
-            get { return Cliente; }
+            get { return cliente; }
             set { SetProperty(ref cliente, value); }
         }
 
-        public RelayCommand AceptarCommand { get; }
-
-        public ClienteFormularioVM() 
+        private Boolean añadirNuevoCliente;
+        public Boolean AñadirNuevoCliente
         {
-            Cliente = WeakReferenceMessenger.Default.Send<ClienteSeleccionadoMessage>();
-            navegacion = new NavigationService();
-            Cliente = new Cliente();
+            get => añadirNuevoCliente;
+            set => SetProperty(ref añadirNuevoCliente, value);
+        }
+
+        public RelayCommand AceptarCommand { get; }
+        public RelayCommand ExaminarImagenCommand { get; }
+
+        public ClienteFormularioVM()
+        {
+            RecibirCliente();
             AceptarCommand = new RelayCommand(AñadirModificarCliente);
+            ExaminarImagenCommand = new RelayCommand(ExaminarImagen);
         }
 
         private void AñadirModificarCliente()
         {
-            WeakReferenceMessenger.Default.Send(new NuevoClienteMessage(Cliente));
+            if (añadirNuevoCliente)
+            {
+                datosService.AñadirCliente(Cliente);
+            }
+            else
+            {
+                datosService.ModificarCliente(Cliente);
+            }
+            WeakReferenceMessenger.Default.Send(new ClienteNuevoModificadoMessage(Cliente));
+        }
+
+        public void RecibirCliente()
+        {
+            Cliente = WeakReferenceMessenger.Default.Send<ClienteSeleccionadoMessage>();
+            if (Cliente == null)
+            {
+                AñadirNuevoCliente = true;
+                Cliente = new Cliente();
+            }
         }
 
 
@@ -51,8 +78,17 @@ namespace AplicacionDeGestion.viewmodels
             if (rutaImagen.Length != 0)
             {
                 BlobContainerClient blobContainerClient = azureBlobStorageService.SubirImagenAzure(rutaImagen);
-                Cliente.Foto = azureBlobStorageService.ObtenerURLImagenAzure(blobContainerClient, rutaImagen);
+                string urlImagenAzure = azureBlobStorageService.ObtenerURLImagenAzure(blobContainerClient, rutaImagen);
+                Cliente.Foto = urlImagenAzure;
+                DeducirEdadYGenero(urlImagenAzure);
             }
+        }
+
+        public void DeducirEdadYGenero(string url)
+        {
+            FaceAttributes faceAttributes = azureFaceService.GetEdadGenero(url);
+            Cliente.Genero = faceAttributes.gender;
+            Cliente.Edad = Convert.ToInt32(faceAttributes.age);
         }
     }
 }

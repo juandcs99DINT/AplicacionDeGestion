@@ -1,4 +1,4 @@
-﻿using AplicacionDeGestion.modelos;
+﻿                        using AplicacionDeGestion.modelos;
 using Microsoft.Toolkit.Mvvm.Messaging.Messages;
 using System;
 using System.Collections.Generic;
@@ -13,9 +13,9 @@ namespace AplicacionDeGestion.servicios
         public MarcaAñadidaMessage(string marca) : base(marca) { }
     }
 
-    internal class NuevoClienteMessage : ValueChangedMessage<Cliente>
+    internal class ClienteNuevoModificadoMessage : ValueChangedMessage<Cliente>
     {
-        public NuevoClienteMessage(Cliente nuevoCliente) : base(nuevoCliente) { }
+        public ClienteNuevoModificadoMessage(Cliente cliente) : base(cliente) { }
     }
 
     internal class ClienteSeleccionadoMessage : RequestMessage<Cliente> { }
