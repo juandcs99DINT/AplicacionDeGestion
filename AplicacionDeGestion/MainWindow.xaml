@@ -6,7 +6,7 @@
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         xmlns:local="clr-namespace:AplicacionDeGestion"
         mc:Ignorable="d"
-        Title="Gestion Parking" Icon="/assets/Icons/parkingIcon.ico" Height="650" Width="1000" MinHeight="450" MinWidth="800">
+        Title="Gestion Parking" Icon="/assets/Icons/parkingIcon.ico" Height="650" Width="1005" MinHeight="450" MinWidth="800">
     <Grid>
         <syncfusion:SfNavigationDrawer
         x:Name="navigationDrawer"

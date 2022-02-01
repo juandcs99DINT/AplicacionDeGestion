@@ -7,19 +7,15 @@
              xmlns:local="clr-namespace:AplicacionDeGestion.vistas"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="1000" Background="White">
-    <DockPanel> 
+    <DockPanel>
         <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Height="60" >
 
             <syncfusion:ButtonAdv SizeMode="Large" LargeIcon="/assets/Icons/customer.png" Label="Añadir" Width="60" Margin="2" Command="{Binding Path=AñadirClienteCommand}"/>
             <syncfusion:ButtonAdv SizeMode="Large" LargeIcon="/assets/Icons/customer.png" Label="Editar" Width="60" Margin="2" Command="{Binding Path=EditarClienteCommand}"/>
             <syncfusion:ButtonAdv SizeMode="Large" LargeIcon="/assets/Icons/customer.png" Label="Eliminar" Width="60" Margin="2" Command="{Binding Path=EliminarClienteCommand}"/>
-            
+
         </StackPanel>
-        
-        
-        
-        
-        
+
         <syncfusion:SfDataGrid x:Name="dataGrid"  
                        AutoGenerateColumns="False" DockPanel.Dock="Top" ItemsSource="{Binding Path=ListaClientes}">
             <syncfusion:SfDataGrid.Columns>
@@ -35,22 +31,8 @@
                 <syncfusion:GridTextColumn MappingName="Edad" ValueBinding="{Binding Path=Edad}"/>
                 <syncfusion:GridTextColumn MappingName="Genero" ValueBinding="{Binding Path=Genero}"/>
                 <syncfusion:GridTextColumn MappingName="Telefono" ValueBinding="{Binding Path=Telefono}"/>
-                
             </syncfusion:SfDataGrid.Columns>
         </syncfusion:SfDataGrid>
-
-
         
-
-
-
-
-
-
-
-
-
-
-
     </DockPanel>
 </UserControl>

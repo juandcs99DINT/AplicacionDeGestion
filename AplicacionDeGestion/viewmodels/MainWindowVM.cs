@@ -35,9 +35,5 @@ namespace AplicacionDeGestion.viewmodels
         public void CambiarAClientes() => UserControlActual = navigationService.CambiarAPestañaClientes();
         public void CambiarAVehiculos() => UserControlActual = navigationService.CambiarAPestañaVehiculos();
         public void CambiarAEstacionamientos() => UserControlActual = navigationService.CambiarAPestañaEstacionamientos();
-
-
-
-
     }
 }

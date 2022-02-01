@@ -1,5 +1,6 @@
 ﻿using AplicacionDeGestion.modelos;
 using AplicacionDeGestion.servicios;
+using Azure.Storage.Blobs;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
 using Microsoft.Toolkit.Mvvm.Messaging;
@@ -16,6 +17,8 @@ namespace AplicacionDeGestion.viewmodels
     class ClienteFormularioVM : ObservableRecipient
     {
         private readonly NavigationService navegacion;
+        private readonly DialogosService dialogosService = new DialogosService();
+        private readonly AzureBlobStorageService azureBlobStorageService = new AzureBlobStorageService();
 
         private Cliente cliente;
 
@@ -38,6 +41,18 @@ namespace AplicacionDeGestion.viewmodels
         private void AñadirModificarCliente()
         {
             WeakReferenceMessenger.Default.Send(new NuevoClienteMessage(Cliente));
+        }
+
+
+        // He puesto ésto aquí para que ya lo tengas.
+        public void ExaminarImagen()
+        {
+            string rutaImagen = dialogosService.DialogoOpenFile();
+            if (rutaImagen.Length != 0)
+            {
+                BlobContainerClient blobContainerClient = azureBlobStorageService.SubirImagenAzure(rutaImagen);
+                Cliente.Foto = azureBlobStorageService.ObtenerURLImagenAzure(blobContainerClient, rutaImagen);
+            }
         }
     }
 }

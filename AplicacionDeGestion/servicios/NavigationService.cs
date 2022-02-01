@@ -21,10 +21,10 @@ namespace AplicacionDeGestion.servicios
             AñadirMarcaDialogo añadirMarcaDialogo = new AñadirMarcaDialogo();
             añadirMarcaDialogo.ShowDialog();
         }
-        public void AbrirDialogoCrearModificarUsuario()
+        public void AbrirDialogoCrearModificarCliente()
         {
-            CrearModificarUsuarioFormulario dialogoUsuarioFormulario = new CrearModificarUsuarioFormulario();
-            dialogoUsuarioFormulario.ShowDialog();
+            CrearModificarClienteFormulario dialogoClienteFormulario = new CrearModificarClienteFormulario();
+            dialogoClienteFormulario.ShowDialog();
         }
         public void AbrirDialogoCrearModificarVehiculo()
         {
