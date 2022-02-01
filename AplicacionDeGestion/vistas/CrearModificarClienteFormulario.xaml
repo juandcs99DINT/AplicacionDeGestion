@@ -14,7 +14,7 @@
             <ColumnDefinition Width="250"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Image Grid.Column="1" VerticalAlignment="Top" Height="200" Margin="10" Source="{Binding Path=UsuarioFormulario.Foto}" Stretch="UniformToFill"></Image>
+        <Image Grid.Column="1" VerticalAlignment="Top" Height="200" Margin="10" Source="{Binding Path=Cliente.Foto}" Stretch="UniformToFill"></Image>
         <StackPanel Margin="35,10,35,50" Grid.Column="1" HorizontalAlignment="Center" Orientation="Horizontal">
             <Button Width="70" Margin="10" VerticalAlignment="Bottom" x:Name="AceptarButton" Command="{Binding AceptarCommand}" Click="AceptarButton_Click" IsDefault="True" RenderTransformOrigin="0.5,0.5">Aceptar
             </Button>
@@ -22,25 +22,25 @@
         </StackPanel>
 
         <StackPanel>
-            <inputLayout:SfTextInputLayout Margin="15" Hint="Nombre"                                      
+            <inputLayout:SfTextInputLayout Margin="15,15,15,0" Hint="Nombre"                                      
                                        HintFloatMode="Float">
-                <TextBox Text="{Binding Path=UsuarioFormulario.Nombre}"></TextBox>
+                <TextBox Text="{Binding Path=Cliente.Nombre}"></TextBox>
             </inputLayout:SfTextInputLayout>
             <inputLayout:SfTextInputLayout Margin="15,0" Hint="Edad"                                      
                                        HintFloatMode="Float">
-                <TextBox IsReadOnly="True" Text="{Binding Path=UsuarioFormulario.Edad}"></TextBox>
+                <TextBox IsReadOnly="True" Text="{Binding Path=Cliente.Edad}"></TextBox>
             </inputLayout:SfTextInputLayout>
             <inputLayout:SfTextInputLayout Margin="15,0" Hint="Documento"                                      
                                        HintFloatMode="Float">
-                <TextBox Text="{Binding Path=UsuarioFormulario.Documento}"></TextBox>
+                <TextBox Text="{Binding Path=Cliente.Documento}"></TextBox>
             </inputLayout:SfTextInputLayout>
             <inputLayout:SfTextInputLayout Margin="15,0" Hint="Genero"                                      
                                        HintFloatMode="Float">
-                <TextBox Text="{Binding Path=UsuarioFormulario.Genero}"></TextBox>
+                <TextBox Text="{Binding Path=Cliente.Genero}"></TextBox>
             </inputLayout:SfTextInputLayout>
             <inputLayout:SfTextInputLayout Margin="15,0" Hint="Telefono"                                      
                                        HintFloatMode="Float">
-                <TextBox Text="{Binding Path=UsuarioFormulario.Telefono}"></TextBox>
+                <TextBox Text="{Binding Path=Cliente.Telefono}"></TextBox>
             </inputLayout:SfTextInputLayout>
             <syncfusion:ButtonAdv HorizontalAlignment="Left" Width="120" Margin="15,0" SizeMode="Normal" Label="Fotografía" SmallIcon ="/assets/Icons/folder.png"/>
         </StackPanel>

@@ -29,8 +29,9 @@ namespace AplicacionDeGestion.servicios
             if (cursorClientes.HasRows)
             {
                 cursorClientes.Read();
-                cliente = new Cliente(cursorClientes.GetInt32(0), (string)cursorClientes["nombre"], (string)cursorClientes["documento"],
-                    (string)cursorClientes["foto"], cursorClientes.GetInt32(4), (string)cursorClientes["genero"], (string)cursorClientes["telefono"]);
+                cliente = new Cliente(cursorClientes.GetInt32(0), cursorClientes["nombre"] != DBNull.Value ? (string)cursorClientes["nombre"] : "", cursorClientes["documento"] != DBNull.Value ? (string)cursorClientes["documento"] : "",
+                           cursorClientes["foto"] != DBNull.Value ? (string)cursorClientes["foto"] : "", cursorClientes.GetInt32(4),
+                           cursorClientes["genero"] != DBNull.Value ? (string)cursorClientes["genero"] : "", cursorClientes["telefono"] != DBNull.Value ? (string)cursorClientes["telefono"] : "");
             }
             cursorClientes.Close();
             conexion.Close();
@@ -51,8 +52,9 @@ namespace AplicacionDeGestion.servicios
             if (cursorClientes.HasRows)
             {
                 cursorClientes.Read();
-                cliente = new Cliente(cursorClientes.GetInt32(0), (string)cursorClientes["nombre"], (string)cursorClientes["documento"],
-                    (string)cursorClientes["foto"], cursorClientes.GetInt32(4), (string)cursorClientes["genero"], (string)cursorClientes["telefono"]);
+                cliente = new Cliente(cursorClientes.GetInt32(0), cursorClientes["nombre"] != DBNull.Value ? (string)cursorClientes["nombre"] : "", cursorClientes["documento"] != DBNull.Value ? (string)cursorClientes["documento"] : "",
+                           cursorClientes["foto"] != DBNull.Value ? (string)cursorClientes["foto"] : "", cursorClientes.GetInt32(4),
+                           cursorClientes["genero"] != DBNull.Value ? (string)cursorClientes["genero"] : "", cursorClientes["telefono"] != DBNull.Value ? (string)cursorClientes["telefono"] : "");
             }
             cursorClientes.Close();
             conexion.Close();
@@ -62,26 +64,26 @@ namespace AplicacionDeGestion.servicios
         public ObservableCollection<Cliente> GetClientes()
         {
             ObservableCollection<Cliente> listaClientes = new ObservableCollection<Cliente>();
-          
-                conexion.Open();
-                SqliteCommand comando = conexion.CreateCommand();
-                comando.CommandText = "SELECT * FROM clientes";
-                SqliteDataReader cursorClientes = comando.ExecuteReader();
 
-                if (cursorClientes.HasRows)
+            conexion.Open();
+            SqliteCommand comando = conexion.CreateCommand();
+            comando.CommandText = "SELECT * FROM clientes";
+            SqliteDataReader cursorClientes = comando.ExecuteReader();
+
+            if (cursorClientes.HasRows)
+            {
+                while (cursorClientes.Read())
                 {
-                    while (cursorClientes.Read())
-                    {
-                        Cliente cliente = new Cliente(cursorClientes.GetInt32(0), cursorClientes["nombre"] != DBNull.Value ? (string)cursorClientes["nombre"] : "", cursorClientes["documento"] != DBNull.Value ? (string)cursorClientes["documento"] : "",
-                            cursorClientes["foto"] != DBNull.Value ? (string)cursorClientes["foto"] : "", cursorClientes.GetInt32(4),
-                            cursorClientes["genero"] != DBNull.Value ? (string)cursorClientes["genero"] : "", cursorClientes["telefono"] != DBNull.Value ? (string)cursorClientes["telefono"] : "");
-                        listaClientes.Add(cliente);
-                    }
+                    Cliente cliente = new Cliente(cursorClientes.GetInt32(0), cursorClientes["nombre"] != DBNull.Value ? (string)cursorClientes["nombre"] : "", cursorClientes["documento"] != DBNull.Value ? (string)cursorClientes["documento"] : "",
+                        cursorClientes["foto"] != DBNull.Value ? (string)cursorClientes["foto"] : "", cursorClientes.GetInt32(4),
+                        cursorClientes["genero"] != DBNull.Value ? (string)cursorClientes["genero"] : "", cursorClientes["telefono"] != DBNull.Value ? (string)cursorClientes["telefono"] : "");
+                    listaClientes.Add(cliente);
                 }
-                cursorClientes.Close();
-                conexion.Close();
-            
-           
+            }
+            cursorClientes.Close();
+            conexion.Close();
+
+
             return listaClientes;
         }
 
@@ -161,9 +163,10 @@ namespace AplicacionDeGestion.servicios
 
             if (cursorVehiculos.HasRows)
             {
+
                 cursorVehiculos.Read();
-                vehiculo = new Vehiculo(cursorVehiculos.GetInt32(0), cursorVehiculos.GetInt32(1), (string)cursorVehiculos["matricula"],
-                      cursorVehiculos.GetInt32(3), (string)cursorVehiculos["modelo"], (string)cursorVehiculos["tipo"]);
+                vehiculo = new Vehiculo(cursorVehiculos.GetInt32(0), cursorVehiculos.GetInt32(1), cursorVehiculos["matricula"] != DBNull.Value ? (string)cursorVehiculos["matricula"] : "",
+                      cursorVehiculos.GetInt32(3), cursorVehiculos["modelo"] != DBNull.Value ? (string)cursorVehiculos["modelo"] : "", cursorVehiculos["tipo"] != DBNull.Value ? (string)cursorVehiculos["tipo"] : "");
             }
             cursorVehiculos.Close();
             conexion.Close();
@@ -182,8 +185,8 @@ namespace AplicacionDeGestion.servicios
             {
                 while (cursorVehiculos.Read())
                 {
-                    Vehiculo vehiculo = new Vehiculo(cursorVehiculos.GetInt32(0), cursorVehiculos.GetInt32(1), (string)cursorVehiculos["matricula"],
-                        cursorVehiculos.GetInt32(3), (string)cursorVehiculos["modelo"], (string)cursorVehiculos["tipo"]);
+                    Vehiculo vehiculo = new Vehiculo(cursorVehiculos.GetInt32(0), cursorVehiculos.GetInt32(1), cursorVehiculos["matricula"] != DBNull.Value ? (string)cursorVehiculos["matricula"] : "",
+                      cursorVehiculos.GetInt32(3), cursorVehiculos["modelo"] != DBNull.Value ? (string)cursorVehiculos["modelo"] : "", cursorVehiculos["tipo"] != DBNull.Value ? (string)cursorVehiculos["tipo"] : "");
                     listaVehiculos.Add(vehiculo);
                 }
             }
@@ -262,8 +265,9 @@ namespace AplicacionDeGestion.servicios
             {
                 while (cursorEstacionamientos.Read())
                 {
-                    Estacionamiento estacionamiento = new Estacionamiento(cursorEstacionamientos.GetInt32(0), cursorEstacionamientos.GetInt32(1), (string)cursorEstacionamientos["matricula"],
-                        (string)cursorEstacionamientos["entrada"], (string)cursorEstacionamientos["salida"], cursorEstacionamientos.GetFloat(5), (string)cursorEstacionamientos["tipo"]);
+                    Estacionamiento estacionamiento = new Estacionamiento(cursorEstacionamientos.GetInt32(0), cursorEstacionamientos.GetInt32(1), cursorEstacionamientos["matricula"] != DBNull.Value ? (string)cursorEstacionamientos["matricula"] : "",
+                        cursorEstacionamientos["entrada"] != DBNull.Value ? (string)cursorEstacionamientos["entrada"] : "", cursorEstacionamientos["salida"] != DBNull.Value ? (string)cursorEstacionamientos["salida"] : "",
+                        cursorEstacionamientos.GetFloat(5), cursorEstacionamientos["tipo"] != DBNull.Value ? (string)cursorEstacionamientos["tipo"] : "");
                     listaEstacionamientos.Add(estacionamiento);
                 }
             }

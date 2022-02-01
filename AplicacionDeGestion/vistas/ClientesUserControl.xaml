@@ -7,17 +7,45 @@
              xmlns:local="clr-namespace:AplicacionDeGestion.vistas"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="1000" Background="White">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type syncfusion:ButtonAdv}">
+            <Setter Property="Width" Value="80"></Setter>
+            <Setter Property="Margin" Value="2"></Setter>
+        </Style>
+        <Style TargetType="{x:Type syncfusion:ButtonAdv}" x:Key="AñadirClienteButton" BasedOn="{StaticResource {x:Type syncfusion:ButtonAdv}}">
+            <Setter Property="IsEnabled" Value="False"></Setter>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ClienteSeleccionado}" Value="{x:Null}">
+                    <Setter Property="IsEnabled" Value="True"></Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="{x:Type syncfusion:ButtonAdv}" x:Key="EditarClienteButton" BasedOn="{StaticResource {x:Type syncfusion:ButtonAdv}}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ClienteSeleccionado}" Value="{x:Null}">
+                    <Setter Property="IsEnabled" Value="False"></Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="{x:Type syncfusion:ButtonAdv}" x:Key="EliminarClienteButton" BasedOn="{StaticResource {x:Type syncfusion:ButtonAdv}}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ClienteSeleccionado}" Value="{x:Null}">
+                    <Setter Property="IsEnabled" Value="False"></Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
     <DockPanel>
-        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Height="60" >
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Height="80" >
 
-            <syncfusion:ButtonAdv SizeMode="Large" LargeIcon="/assets/Icons/customer.png" Label="Añadir" Width="60" Margin="2" Command="{Binding Path=AñadirClienteCommand}"/>
-            <syncfusion:ButtonAdv SizeMode="Large" LargeIcon="/assets/Icons/customer.png" Label="Editar" Width="60" Margin="2" Command="{Binding Path=ModificarClienteCommand}"/>
-            <syncfusion:ButtonAdv SizeMode="Large" LargeIcon="/assets/Icons/customer.png" Label="Eliminar" Width="60" Margin="2" Command="{Binding Path=EliminarClienteCommand}"/>
-
+            <syncfusion:ButtonAdv Style="{StaticResource AñadirClienteButton}" SizeMode="Large" LargeIcon="/assets/Icons/anadirCliente.png" Label="Añadir" Command="{Binding Path=AñadirClienteCommand}"/>
+            <syncfusion:ButtonAdv Style="{StaticResource EditarClienteButton}" SizeMode="Large" LargeIcon="/assets/Icons/editar.png" Label="Editar" Command="{Binding Path=ModificarClienteCommand}"/>
+            <syncfusion:ButtonAdv Style="{StaticResource EliminarClienteButton}" SizeMode="Large" LargeIcon="/assets/Icons/eliminarCliente.png" Label="Eliminar" Command="{Binding Path=EliminarClienteCommand}"/>
+            <syncfusion:ButtonAdv SizeMode="Large"  LargeIcon="/assets/Icons/borrar.png" Label="Deselección" Command="{Binding Path=DeseleccionarClienteCommand}"></syncfusion:ButtonAdv>
         </StackPanel>
 
         <syncfusion:SfDataGrid x:Name="dataGrid"  
-                       AutoGenerateColumns="False" DockPanel.Dock="Top" ItemsSource="{Binding Path=ListaClientes}">
+                       AutoGenerateColumns="False" DockPanel.Dock="Top" ItemsSource="{Binding Path=ListaClientes}" SelectedItem="{Binding Path=ClienteSeleccionado}">
             <syncfusion:SfDataGrid.Columns>
                 <syncfusion:GridTextColumn MappingName="Id" Width="50" ValueBinding="{Binding Path=IdCliente}"/>
                 <syncfusion:GridImageColumn

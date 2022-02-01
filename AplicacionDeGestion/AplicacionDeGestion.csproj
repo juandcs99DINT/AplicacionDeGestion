@@ -295,6 +295,19 @@
   <ItemGroup>
     <Resource Include="assets\Icons\iconoAñadir.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\Icons\anadirCliente.png" />
+    <Resource Include="assets\Icons\eliminarCliente.png" />
+    <Resource Include="assets\Icons\editar.png" />
+    <Resource Include="assets\Icons\borrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\Icons\anadirCliente.ico" />
+    <Resource Include="assets\Icons\editar.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\Icons\añadirVehiculo.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

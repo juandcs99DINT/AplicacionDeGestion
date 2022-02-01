@@ -24,8 +24,10 @@ namespace AplicacionDeGestion.viewmodels
             AñadirClienteCommand = new RelayCommand(AñadirCliente);
             ModificarClienteCommand = new RelayCommand(ModificarCliente);
             EliminarClienteCommand = new RelayCommand(EliminarCliente);
+            DeseleccionarClienteCommand = new RelayCommand(DeseleccionarCliente);
         }
 
+        public RelayCommand DeseleccionarClienteCommand { get; }
         public RelayCommand AñadirClienteCommand { get; }
         public RelayCommand ModificarClienteCommand { get; }
         public RelayCommand EliminarClienteCommand { get; }
@@ -58,12 +60,13 @@ namespace AplicacionDeGestion.viewmodels
         private void AñadirCliente() => navigationService.AbrirDialogoCrearModificarCliente();
         private void ModificarCliente() => navigationService.AbrirDialogoCrearModificarCliente();
 
-
         private void EliminarCliente()
         {
-
-
-
+            if (dialogosService.DialogoConfirmacionAccion($"¿Estás seguro de querer eliminar el cliente {ClienteSeleccionado.Nombre} con DNI {ClienteSeleccionado.Documento}?") && datosService.EliminarCliente(ClienteSeleccionado) > 0)
+            {
+                dialogosService.DialogoInformacion("Has eliminado el cliente correctamente");
+                ListaClientes = datosService.GetClientes();
+            }
         }
     }
 }
