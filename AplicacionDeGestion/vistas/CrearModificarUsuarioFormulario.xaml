@@ -15,6 +15,11 @@
         </Grid.ColumnDefinitions>
 
         <Image Grid.Column="1" VerticalAlignment="Top" Height="200" Margin="10" Source="{Binding Path=UsuarioFormulario.Foto}" Stretch="UniformToFill"></Image>
+        <StackPanel Margin="35,10,35,50" Grid.Column="1" HorizontalAlignment="Center" Orientation="Horizontal">
+            <Button Width="70" Margin="10" VerticalAlignment="Bottom" x:Name="AceptarButton" Command="{Binding AceptarCommand}" Click="AceptarButton_Click" IsDefault="True" RenderTransformOrigin="0.5,0.5">Aceptar
+            </Button>
+            <Button Width="70" Margin="10" VerticalAlignment="Bottom" IsCancel="True">Cancelar</Button>
+        </StackPanel>
 
         <StackPanel>
             <inputLayout:SfTextInputLayout Margin="15" Hint="Nombre"                                      
