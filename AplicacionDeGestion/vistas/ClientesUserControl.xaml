@@ -10,9 +10,9 @@
     <DockPanel> 
         <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Height="60" >
 
-            <syncfusion:ButtonAdv SizeMode="Large" LargeIcon="/assets/Icons/customer.png" Label="Añadir" Width="60" Margin="2"/>
-            <syncfusion:ButtonAdv SizeMode="Large" LargeIcon="/assets/Icons/customer.png" Label="Editar" Width="60" Margin="2"/>
-            <syncfusion:ButtonAdv SizeMode="Large" LargeIcon="/assets/Icons/customer.png" Label="Eliminar" Width="60" Margin="2"/>
+            <syncfusion:ButtonAdv SizeMode="Large" LargeIcon="/assets/Icons/customer.png" Label="Añadir" Width="60" Margin="2" Command="{Binding Path=AñadirClienteCommand}"/>
+            <syncfusion:ButtonAdv SizeMode="Large" LargeIcon="/assets/Icons/customer.png" Label="Editar" Width="60" Margin="2" Command="{Binding Path=EditarClienteCommand}"/>
+            <syncfusion:ButtonAdv SizeMode="Large" LargeIcon="/assets/Icons/customer.png" Label="Eliminar" Width="60" Margin="2" Command="{Binding Path=EliminarClienteCommand}"/>
             
         </StackPanel>
         
@@ -21,20 +21,20 @@
         
         
         <syncfusion:SfDataGrid x:Name="dataGrid"  
-                       AutoGenerateColumns="False" DockPanel.Dock="Top">
+                       AutoGenerateColumns="False" DockPanel.Dock="Top" ItemsSource="{Binding Path=ListaClientes}">
             <syncfusion:SfDataGrid.Columns>
-                <syncfusion:GridTextColumn MappingName="Id" Width="50"/>
+                <syncfusion:GridTextColumn MappingName="Id" Width="50" ValueBinding="{Binding Path=IdCliente}"/>
                 <syncfusion:GridImageColumn
                                     Padding="2,2,2,2"
                                     HeaderText="Imagen"
                                     MappingName="ImageLink"
                                     TextAlignment="Center"
-                                    ValueBinding="{Binding Path=ImageLink}" />
-                <syncfusion:GridTextColumn MappingName="Documento"/>
-                <syncfusion:GridTextColumn MappingName="Nombre"/>
-                <syncfusion:GridTextColumn MappingName="Edad"/>
-                <syncfusion:GridTextColumn MappingName="Genero"/>
-                <syncfusion:GridTextColumn MappingName="Telefono"/>
+                                    ValueBinding="{Binding Path=Foto}" />
+                <syncfusion:GridTextColumn MappingName="Documento" ValueBinding="{Binding Path=Documento}"/>
+                <syncfusion:GridTextColumn MappingName="Nombre" ValueBinding="{Binding Path=Nombre}"/>
+                <syncfusion:GridTextColumn MappingName="Edad" ValueBinding="{Binding Path=Edad}"/>
+                <syncfusion:GridTextColumn MappingName="Genero" ValueBinding="{Binding Path=Genero}"/>
+                <syncfusion:GridTextColumn MappingName="Telefono" ValueBinding="{Binding Path=Telefono}"/>
                 
             </syncfusion:SfDataGrid.Columns>
         </syncfusion:SfDataGrid>

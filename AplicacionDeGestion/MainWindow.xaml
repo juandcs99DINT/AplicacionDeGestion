@@ -11,18 +11,18 @@
         <syncfusion:SfNavigationDrawer
         x:Name="navigationDrawer"
         DisplayMode="Compact">
-        
-        <syncfusion:NavigationItem Header="Clientes">
+
+            <syncfusion:NavigationItem Header="Clientes" Command="{Binding Path=CambiarAClientesCommand}">
                 <syncfusion:NavigationItem.Icon>
                     <Image Source="/assets/Icons/customer.png" Stretch="Uniform"/>
                 </syncfusion:NavigationItem.Icon>
             </syncfusion:NavigationItem>
-            <syncfusion:NavigationItem Header="Vehículos">
+            <syncfusion:NavigationItem Header="Vehículos" Command="{Binding Path=CambiarAVehiculosCommand}">
                 <syncfusion:NavigationItem.Icon>
                     <Image Source="/assets/Icons/clipboard.png" Stretch="Uniform"/>
                 </syncfusion:NavigationItem.Icon>
             </syncfusion:NavigationItem>
-            <syncfusion:NavigationItem Header="Estacionamiento">
+            <syncfusion:NavigationItem Header="Estacionamiento" Command="{Binding Path=CambiarAEstacionamientosCommand}">
             <syncfusion:NavigationItem.Icon>
                     <Image Source="/assets/Icons/parking.png" Stretch="Uniform"/>
                 </syncfusion:NavigationItem.Icon>
