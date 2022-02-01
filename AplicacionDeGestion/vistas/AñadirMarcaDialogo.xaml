@@ -5,7 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AplicacionDeGestion.vistas"
         xmlns:inputLayout="clr-namespace:Syncfusion.UI.Xaml.TextInputLayout;assembly=Syncfusion.SfTextInputLayout.WPF"
-        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         mc:Ignorable="d"
         Title="Añadir marca de vehículo" Icon="../assets/Icons/iconoAñadir.ico" Height="140" Width="300" ShowInTaskbar="False" ResizeMode="NoResize">
     <Window.Resources>
