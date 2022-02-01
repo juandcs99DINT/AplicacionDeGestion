@@ -27,5 +27,6 @@ namespace AplicacionDeGestion.vistas
             vm = new ClienteFormularioVM();
             this.DataContext = vm;
         }
+        private void AceptarButton_Click(object sender, RoutedEventArgs e) => DialogResult = true;
     }
 }
