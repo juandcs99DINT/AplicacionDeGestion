@@ -11,6 +11,7 @@ namespace AplicacionDeGestion.servicios
 {
     class DatosService
     {
+        private readonly DialogosService dialogosService = new DialogosService();
         SqliteConnection conexion = new SqliteConnection("Data Source=" + Properties.Settings.Default.rutaConexionBd);
 
         // Para controlar que no haya dos clientes con el mismo documento.
@@ -61,22 +62,26 @@ namespace AplicacionDeGestion.servicios
         public ObservableCollection<Cliente> GetClientes()
         {
             ObservableCollection<Cliente> listaClientes = new ObservableCollection<Cliente>();
-            conexion.Open();
-            SqliteCommand comando = conexion.CreateCommand();
-            comando.CommandText = "SELECT * FROM clientes";
-            SqliteDataReader cursorClientes = comando.ExecuteReader();
+          
+                conexion.Open();
+                SqliteCommand comando = conexion.CreateCommand();
+                comando.CommandText = "SELECT * FROM clientes";
+                SqliteDataReader cursorClientes = comando.ExecuteReader();
 
-            if (cursorClientes.HasRows)
-            {
-                while (cursorClientes.Read())
+                if (cursorClientes.HasRows)
                 {
-                    Cliente cliente = new Cliente(cursorClientes.GetInt32(0), (string)cursorClientes["nombre"], (string)cursorClientes["documento"],
-                        (string)cursorClientes["foto"], cursorClientes.GetInt32(4), (string)cursorClientes["genero"], (string)cursorClientes["telefono"]);
-                    listaClientes.Add(cliente);
+                    while (cursorClientes.Read())
+                    {
+                        Cliente cliente = new Cliente(cursorClientes.GetInt32(0), cursorClientes["nombre"] != DBNull.Value ? (string)cursorClientes["nombre"] : "", cursorClientes["documento"] != DBNull.Value ? (string)cursorClientes["documento"] : "",
+                            cursorClientes["foto"] != DBNull.Value ? (string)cursorClientes["foto"] : "", cursorClientes.GetInt32(4),
+                            cursorClientes["genero"] != DBNull.Value ? (string)cursorClientes["genero"] : "", cursorClientes["telefono"] != DBNull.Value ? (string)cursorClientes["telefono"] : "");
+                        listaClientes.Add(cliente);
+                    }
                 }
-            }
-            cursorClientes.Close();
-            conexion.Close();
+                cursorClientes.Close();
+                conexion.Close();
+            
+           
             return listaClientes;
         }
 

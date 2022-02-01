@@ -11,7 +11,7 @@
         <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Height="60" >
 
             <syncfusion:ButtonAdv SizeMode="Large" LargeIcon="/assets/Icons/customer.png" Label="Añadir" Width="60" Margin="2" Command="{Binding Path=AñadirClienteCommand}"/>
-            <syncfusion:ButtonAdv SizeMode="Large" LargeIcon="/assets/Icons/customer.png" Label="Editar" Width="60" Margin="2" Command="{Binding Path=EditarClienteCommand}"/>
+            <syncfusion:ButtonAdv SizeMode="Large" LargeIcon="/assets/Icons/customer.png" Label="Editar" Width="60" Margin="2" Command="{Binding Path=ModificarClienteCommand}"/>
             <syncfusion:ButtonAdv SizeMode="Large" LargeIcon="/assets/Icons/customer.png" Label="Eliminar" Width="60" Margin="2" Command="{Binding Path=EliminarClienteCommand}"/>
 
         </StackPanel>

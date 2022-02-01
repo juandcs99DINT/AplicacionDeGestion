@@ -100,7 +100,7 @@ namespace AplicacionDeGestion.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:/parking/parking.db")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\parking\\parking.db")]
         public string rutaConexionBd {
             get {
                 return ((string)(this["rutaConexionBd"]));
