@@ -5,8 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AplicacionDeGestion.vistas"
         mc:Ignorable="d"
-        Title="AñadirMarcaDialogo" Height="450" Width="800" ShowInTaskbar="False" ResizeMode="NoResize">
-    <Grid>
-        
-    </Grid>
+        Title="Añadir marca de vehículo" Icon="../assets/Icons/iconoAñadir.ico" Height="120" Width="300" ShowInTaskbar="False" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Width" Value="80"></Setter>
+            <Setter Property="Margin" Value="5,5,0,0"></Setter>
+        </Style>
+    </Window.Resources>
+
+    <StackPanel Margin="10">
+        <TextBlock>Añadir marca</TextBlock>
+        <TextBox Text="{Binding MarcaNueva}"></TextBox>
+        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+            <Button x:Name="AceptarButton" Command="{Binding AceptarCommand}" Click="AceptarButton_Click" IsDefault="True">Aceptar</Button>
+            <Button IsCancel="True">Cancelar</Button>
+        </StackPanel>
+    </StackPanel>
 </Window>

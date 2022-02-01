@@ -286,6 +286,9 @@
   <ItemGroup>
     <Resource Include="assets\Icons\parkingIcon.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\Icons\iconoAñadir.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
