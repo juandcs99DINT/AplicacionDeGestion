@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 
 namespace AplicacionDeGestion.servicios
 {
@@ -66,7 +67,6 @@ namespace AplicacionDeGestion.servicios
             }
         }
         */
-
         public FaceAttributes GetEdadGenero(string url)
         {
             var client = new RestClient(Properties.Settings.Default.endpointFace);
@@ -76,10 +76,30 @@ namespace AplicacionDeGestion.servicios
             request.AddParameter("application/json", JsonConvert.SerializeObject(url), ParameterType.RequestBody);
             request.AddParameter("returnFaceAttributes", "age,gender", ParameterType.QueryString);
             var response = client.Execute(request);
-            // HAY QUE TERMINARLO, LA PETICIÓN DEVUELVE MÁS COSAS, HAY QUE COGER SOLO EL FACEATTRIBUTES
-            FaceAttributes faceAttributes = JsonConvert.DeserializeObject<FaceAttributes>(response.Content);
-            return faceAttributes;
+            List<Root> listaRoots = JsonConvert.DeserializeObject<List<Root>>(response.Content);
+            return listaRoots[0].faceAttributes;
         }
+    }
+    // CLASES PARA DESERIALIZAR // SERVICIO FACE
+    public class FaceRectangle
+    {
+        public int top { get; set; }
+        public int left { get; set; }
+        public int width { get; set; }
+        public int height { get; set; }
+    }
+
+    public class FaceAttributes
+    {
+        public string gender { get; set; }
+        public double age { get; set; }
+    }
+
+    public class Root
+    {
+        public string faceId { get; set; }
+        public FaceRectangle faceRectangle { get; set; }
+        public FaceAttributes faceAttributes { get; set; }
     }
 }
 

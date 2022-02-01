@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace AplicacionDeGestion.vistas
 {
-    /// <summary>
-    /// Lógica de interacción para AñadirMarcaDialogo.xaml
-    /// </summary>
     public partial class AñadirMarcaDialogo : Window
     {
         private readonly AñadirMarcaVM vm;
