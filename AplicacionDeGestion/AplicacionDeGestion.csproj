@@ -183,7 +183,7 @@
     <Compile Include="viewmodels\EstacionamientosVM.cs" />
     <Compile Include="viewmodels\FinalizacionEstacionamientoVM.cs" />
     <Compile Include="viewmodels\MainWindowVM.cs" />
-    <Compile Include="viewmodels\UsuarioFormularioVM.cs" />
+    <Compile Include="viewmodels\ClienteFormularioVM.cs" />
     <Compile Include="viewmodels\VehiculoFormularioVM.cs" />
     <Compile Include="viewmodels\VehiculosVM.cs" />
     <Compile Include="vistas\AñadirMarcaDialogo.xaml.cs">

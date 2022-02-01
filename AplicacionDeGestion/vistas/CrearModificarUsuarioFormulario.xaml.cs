@@ -20,11 +20,11 @@ namespace AplicacionDeGestion.vistas
     /// </summary>
     public partial class CrearModificarUsuarioFormulario : Window
     {
-        private UsuarioFormularioVM vm;
+        private ClienteFormularioVM vm;
         public CrearModificarUsuarioFormulario()
         {
             InitializeComponent();
-            vm = new UsuarioFormularioVM();
+            vm = new ClienteFormularioVM();
             this.DataContext = vm;
         }
     }
