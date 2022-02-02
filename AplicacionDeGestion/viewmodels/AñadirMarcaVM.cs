@@ -12,6 +12,7 @@ namespace AplicacionDeGestion.viewmodels
 {
     class AñadirMarcaVM : ObservableObject
     {
+        private readonly DatosService datosService = new DatosService();
         public AñadirMarcaVM()
         {
             AceptarCommand = new RelayCommand(Aceptar);
@@ -25,6 +26,10 @@ namespace AplicacionDeGestion.viewmodels
             get => marcaNueva;
             set => SetProperty(ref marcaNueva, value);
         }
-        public void Aceptar() => WeakReferenceMessenger.Default.Send(new MarcaAñadidaMessage(MarcaNueva));
+        public void Aceptar()
+        {
+            bool datoCambiado = datosService.AñadirMarca(MarcaNueva) > 0;
+            WeakReferenceMessenger.Default.Send(new DatoAñadidoOModificadoMessage(datoCambiado));
+        }
     }
 }

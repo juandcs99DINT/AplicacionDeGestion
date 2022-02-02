@@ -199,10 +199,9 @@ namespace AplicacionDeGestion.servicios
                 conexion.Open();
                 SqliteCommand comando = conexion.CreateCommand();
                 comando.CommandText = "SELECT * FROM vehiculos WHERE matricula = @matricula";
-                SqliteDataReader cursorVehiculos = comando.ExecuteReader();
-
                 comando.Parameters.Add("@matricula", SqliteType.Text);
                 comando.Parameters["@matricula"].Value = matricula;
+                SqliteDataReader cursorVehiculos = comando.ExecuteReader();
 
                 if (cursorVehiculos.HasRows)
                 {
@@ -216,7 +215,7 @@ namespace AplicacionDeGestion.servicios
             }
             catch (Exception e)
             {
-                dialogosService.DialogoError(e.Message);
+                dialogosService.DialogoError("Error obteniendo el vehículo por matrícula");
             }
             return vehiculo;
         }
@@ -274,7 +273,7 @@ namespace AplicacionDeGestion.servicios
             }
             catch (Exception e)
             {
-                dialogosService.DialogoError(e.Message);
+                dialogosService.DialogoError("Error añadiendo un vehículo");
             }
             return filasAfectadas;
         }
@@ -389,9 +388,9 @@ namespace AplicacionDeGestion.servicios
             return filasAfectadas;
         }
 
-        public ObservableCollection<string> GetMarcas()
+        public ObservableCollection<int> GetMarcas()
         {
-            ObservableCollection<string> listaMarcas = new ObservableCollection<string>();
+            ObservableCollection<int> listaMarcas = new ObservableCollection<int>();
             try
             {
                 conexion.Open();
@@ -402,7 +401,7 @@ namespace AplicacionDeGestion.servicios
                 {
                     while (cursorMarcas.Read())
                     {
-                        listaMarcas.Add((string)cursorMarcas["marca"]);
+                        listaMarcas.Add(cursorMarcas.GetInt32(0));
                     }
                 }
                 cursorMarcas.Close();
@@ -413,6 +412,32 @@ namespace AplicacionDeGestion.servicios
                 dialogosService.DialogoError(e.Message);
             }
             return listaMarcas;
+        }
+
+        public string GetMarcaById(int id)
+        {
+            string marca = null;
+            try
+            {
+                conexion.Open();
+                SqliteCommand comando = conexion.CreateCommand();
+                comando.CommandText = "SELECT * FROM marcas WHERE id_marca = @idMarca";
+                comando.Parameters.Add("@idMarca", SqliteType.Integer);
+                comando.Parameters["@idMarca"].Value = id;
+                SqliteDataReader cursorMarcas = comando.ExecuteReader();
+                if (cursorMarcas.HasRows)
+                {
+                    cursorMarcas.Read();
+                    marca = (string)cursorMarcas["marca"];
+                }
+                cursorMarcas.Close();
+                conexion.Close();
+            }
+            catch (Exception e)
+            {
+                dialogosService.DialogoError(e.Message);
+            }
+            return marca;
         }
 
         public int AñadirMarca(string marca)
@@ -426,33 +451,6 @@ namespace AplicacionDeGestion.servicios
                     "VALUES (@marca)";
                 comando.Parameters.Add("@marca", SqliteType.Text);
                 comando.Parameters["@marca"].Value = marca;
-                filasAfectadas = comando.ExecuteNonQuery();
-                conexion.Close();
-            }
-            catch (Exception e)
-            {
-                dialogosService.DialogoError(e.Message);
-            }
-            return filasAfectadas;
-        }
-
-        public int IniciarEstacionamiento(Estacionamiento estacionamiento)
-        {
-            int filasAfectadas = 0;
-            try
-            {
-                conexion.Open();
-                SqliteCommand comando = conexion.CreateCommand();
-                comando.CommandText = "INSERT INTO estacionamientos (id_vehiculo, matricula, entrada, tipo) " +
-                    "VALUES (@idVehiculo, @matricula, @entrada, @tipo)";
-                comando.Parameters.Add("@idVehiculo", SqliteType.Integer);
-                comando.Parameters.Add("@matricula", SqliteType.Text);
-                comando.Parameters.Add("@entrada", SqliteType.Text);
-                comando.Parameters.Add("@tipo", SqliteType.Text);
-                comando.Parameters["@idVehiculo"].Value = estacionamiento.IdVehiculo ?? 0;
-                comando.Parameters["@matricula"].Value = estacionamiento.Matricula;
-                comando.Parameters["@entrada"].Value = estacionamiento.Entrada;
-                comando.Parameters["@tipo"].Value = estacionamiento.Tipo;
                 filasAfectadas = comando.ExecuteNonQuery();
                 conexion.Close();
             }

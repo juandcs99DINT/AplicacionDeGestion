@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AplicacionDeGestion.vistas"
+             xmlns:proyecto="clr-namespace:AplicacionDeGestion"
              mc:Ignorable="d"
              xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
              d:DesignHeight="450" d:DesignWidth="1000" Background="White">
@@ -28,6 +29,7 @@
                 </DataTrigger>
             </Style.Triggers>
         </Style>
+        <proyecto:MarcaConverter x:Key="marcaConverter"></proyecto:MarcaConverter>
     </UserControl.Resources>
     <DockPanel>
         <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Height="80" >
@@ -44,11 +46,10 @@
                 <syncfusion:GridTextColumn MappingName="Id Vehículo" Width="120" ValueBinding="{Binding Path=IdVehiculo}"/>
                 <syncfusion:GridTextColumn MappingName="Id Cliente" Width="120" ValueBinding="{Binding Path=IdCliente}"/>
                 <syncfusion:GridTextColumn MappingName="Matrícula" Width="120" ValueBinding="{Binding Path=Matricula}"/>
-                <syncfusion:GridTextColumn MappingName="Documento" ValueBinding="{Binding Path=IdMarca}"/>
+                <syncfusion:GridTextColumn MappingName="Marca" ValueBinding="{Binding Path=IdMarca}"/>
                 <syncfusion:GridTextColumn MappingName="Modelo" ValueBinding="{Binding Path=Modelo}"/>
                 <syncfusion:GridTextColumn MappingName="Tipo" ValueBinding="{Binding Path=Tipo}"/>
             </syncfusion:SfDataGrid.Columns>
         </syncfusion:SfDataGrid>
-
     </DockPanel>
 </UserControl>

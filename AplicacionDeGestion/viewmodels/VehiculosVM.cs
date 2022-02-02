@@ -77,6 +77,7 @@ namespace AplicacionDeGestion.viewmodels
             if (dialogosService.DialogoConfirmacionAccion($"¿Estás seguro de querer eliminar el vehiculo" +
                 $"con matrícula {VehiculoSeleccionado.Matricula} y perteneciente al cliente número {VehiculoSeleccionado.IdCliente}?"))
             {
+                datosService.EliminarVehiculo(VehiculoSeleccionado);
                 dialogosService.DialogoInformacion("Has eliminado el vehículo correctamente");
                 ListaVehiculos = datosService.GetVehiculos();
             }

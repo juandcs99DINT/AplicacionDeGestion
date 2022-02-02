@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:AplicacionDeGestion.vistas"
         xmlns:inputLayout="clr-namespace:Syncfusion.UI.Xaml.TextInputLayout;assembly=Syncfusion.SfTextInputLayout.WPF"
         mc:Ignorable="d"
-        Title="Añadir marca de vehículo" Icon="../assets/Icons/iconoAñadir.ico" Height="140" Width="300" ShowInTaskbar="False" ResizeMode="NoResize">
+        Title="Añadir marca de vehículo" Icon="../assets/Icons/iconoAñadir.ico" Height="150" Width="300" ShowInTaskbar="False" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style TargetType="{x:Type Button}">
             <Setter Property="Width" Value="80"></Setter>
@@ -21,7 +21,7 @@
         </inputLayout:SfTextInputLayout>
 
         <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-            <Button x:Name="AceptarButton" Command="{Binding AceptarCommand}" Click="AceptarButton_Click" IsDefault="True" RenderTransformOrigin="0.5,0.5">Aceptar
+            <Button x:Name="AceptarButton" Command="{Binding AceptarCommand}" Click="AceptarButton_Click" IsDefault="True">Aceptar
             </Button>
             <Button IsCancel="True">Cancelar</Button>
         </StackPanel>

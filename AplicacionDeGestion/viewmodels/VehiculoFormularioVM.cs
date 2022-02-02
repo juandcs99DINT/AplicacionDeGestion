@@ -16,20 +16,19 @@ namespace AplicacionDeGestion.viewmodels
     class VehiculoFormularioVM : ObservableObject
     {
         private readonly DialogosService dialogosService = new DialogosService();
-        private readonly AzureBlobStorageService azureBlobStorageService = new AzureBlobStorageService();
         private readonly DatosService datosService = new DatosService();
         private readonly NavigationService navigationService = new NavigationService();
 
         public VehiculoFormularioVM()
         {
             RecibirVehiculo();
-            AceptarCommand = new RelayCommand(AñadirModificarCliente);
-            ExaminarVehiculoCommand = new RelayCommand(ExaminarImagen);
+            RegistrarMarcaNueva();
+            ListaMarcas = datosService.GetMarcas();
+            AceptarCommand = new RelayCommand(AñadirModificarVehiculo);
             AñadirMarcaCommand = new RelayCommand(AbrirVentanaAñadirMarca);
         }
 
         public RelayCommand AceptarCommand { get; }
-        public RelayCommand ExaminarVehiculoCommand { get; }
         public RelayCommand AñadirMarcaCommand { get; }
 
         private Vehiculo vehiculo;
@@ -39,8 +38,8 @@ namespace AplicacionDeGestion.viewmodels
             set => SetProperty(ref vehiculo, value);
         }
 
-        private ObservableCollection<string> listaMarcas;
-        public ObservableCollection<string> ListaMarcas
+        private ObservableCollection<int> listaMarcas;
+        public ObservableCollection<int> ListaMarcas
         {
             get => listaMarcas;
             set => SetProperty(ref listaMarcas, value);
@@ -53,7 +52,7 @@ namespace AplicacionDeGestion.viewmodels
             set => SetProperty(ref añadirNuevoVehiculo, value);
         }
 
-        private void AñadirModificarCliente()
+        private void AñadirModificarVehiculo()
         {
             bool datoCambiado = false;
             if (AñadirNuevoVehiculo)
@@ -84,25 +83,19 @@ namespace AplicacionDeGestion.viewmodels
             }
         }
 
-        public void ExaminarImagen()
-        {
-            string rutaImagen = dialogosService.DialogoOpenFile();
-            if (rutaImagen.Length != 0)
-            {
-                BlobContainerClient blobContainerClient = azureBlobStorageService.SubirImagenAzure(rutaImagen);
-                string urlImagenAzure = azureBlobStorageService.ObtenerURLImagenAzure(blobContainerClient, rutaImagen);
-            }
-        }
-
         public void AbrirVentanaAñadirMarca() => navigationService.AbrirDialogoAñadirMarca();
-        public void RegistrarNacionalidadNueva()
+        public void RegistrarMarcaNueva()
         {
-            WeakReferenceMessenger.Default.Register<MarcaAñadidaMessage>(this, (r, m) =>
+            WeakReferenceMessenger.Default.Register<DatoAñadidoOModificadoMessage>(this, (r, m) =>
             {
-                ListaMarcas.Add(m.Value);
+                if (m.Value)
+                {
+                    ListaMarcas = datosService.GetMarcas();
+                }
             });
         }
 
     }
 }
+
 
