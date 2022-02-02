@@ -213,7 +213,7 @@ namespace AplicacionDeGestion.servicios
                 cursorVehiculos.Close();
                 conexion.Close();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 dialogosService.DialogoError("Error obteniendo el vehículo por matrícula");
             }
@@ -271,7 +271,7 @@ namespace AplicacionDeGestion.servicios
                 filasAfectadas = comando.ExecuteNonQuery();
                 conexion.Close();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 dialogosService.DialogoError("Error añadiendo un vehículo");
             }
@@ -388,9 +388,9 @@ namespace AplicacionDeGestion.servicios
             return filasAfectadas;
         }
 
-        public ObservableCollection<int> GetMarcas()
+        public ObservableCollection<Marca> GetMarcas()
         {
-            ObservableCollection<int> listaMarcas = new ObservableCollection<int>();
+            ObservableCollection<Marca> listaMarcas = new ObservableCollection<Marca>();
             try
             {
                 conexion.Open();
@@ -401,7 +401,7 @@ namespace AplicacionDeGestion.servicios
                 {
                     while (cursorMarcas.Read())
                     {
-                        listaMarcas.Add(cursorMarcas.GetInt32(0));
+                        listaMarcas.Add(new Marca(cursorMarcas.GetInt32(0), (string)cursorMarcas["marca"]));
                     }
                 }
                 cursorMarcas.Close();
@@ -414,9 +414,9 @@ namespace AplicacionDeGestion.servicios
             return listaMarcas;
         }
 
-        public string GetMarcaById(int id)
+        public Marca GetMarcaById(int id)
         {
-            string marca = null;
+            Marca marca = null;
             try
             {
                 conexion.Open();
@@ -428,7 +428,7 @@ namespace AplicacionDeGestion.servicios
                 if (cursorMarcas.HasRows)
                 {
                     cursorMarcas.Read();
-                    marca = (string)cursorMarcas["marca"];
+                    marca = new Marca(cursorMarcas.GetInt32(0), (string)cursorMarcas["marca"]);
                 }
                 cursorMarcas.Close();
                 conexion.Close();
