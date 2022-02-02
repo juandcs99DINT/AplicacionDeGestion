@@ -38,11 +38,18 @@ namespace AplicacionDeGestion.viewmodels
             set => SetProperty(ref vehiculo, value);
         }
 
-        private ObservableCollection<int> listaMarcas;
-        public ObservableCollection<int> ListaMarcas
+        private ObservableCollection<Marca> listaMarcas;
+        public ObservableCollection<Marca> ListaMarcas
         {
             get => listaMarcas;
             set => SetProperty(ref listaMarcas, value);
+        }
+
+        private Marca marcaSeleccionada;
+        public Marca MarcaSeleccionada
+        {
+            get => marcaSeleccionada;
+            set => SetProperty(ref marcaSeleccionada, value);
         }
 
         private Boolean añadirNuevoVehiculo;
@@ -55,6 +62,7 @@ namespace AplicacionDeGestion.viewmodels
         private void AñadirModificarVehiculo()
         {
             bool datoCambiado = false;
+            Vehiculo.IdMarca = MarcaSeleccionada.IdMarca;
             if (AñadirNuevoVehiculo)
             {
                 if (datosService.GetVehiculoByMatricula(Vehiculo.Matricula) == null)
@@ -94,7 +102,6 @@ namespace AplicacionDeGestion.viewmodels
                 }
             });
         }
-
     }
 }
 
