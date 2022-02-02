@@ -10,9 +10,7 @@
     <Grid>
         <syncfusion:SfNavigationDrawer
               x:Name="navigationDrawer"
-            DisplayMode="Compact"
-            
-            >
+            DisplayMode="Compact">
 
             <syncfusion:SfNavigationDrawer.ToggleButtonIconTemplate>
                 <DataTemplate>
@@ -34,8 +32,6 @@
                 </DataTemplate>
             </syncfusion:SfNavigationDrawer.ToggleButtonContentTemplate>
 
-
-
             <syncfusion:NavigationItem Header="Clientes" IsSelected="True" Command="{Binding Path=CambiarAClientesCommand}">
                 <syncfusion:NavigationItem.Icon>
                     <Image Source="/assets/Icons/customer.png" Stretch="Uniform"/>
@@ -53,7 +49,10 @@
         </syncfusion:NavigationItem>
 
             <syncfusion:SfNavigationDrawer.ContentView>
-                <ContentControl Content="{Binding Path=UserControlActual}"></ContentControl>
+                <Border BorderBrush="Gray"  BorderThickness="0.5" Margin="10">
+                    <ContentControl Content="{Binding Path=UserControlActual}"></ContentControl>
+                </Border>
+                
         </syncfusion:SfNavigationDrawer.ContentView>
     </syncfusion:SfNavigationDrawer>
        

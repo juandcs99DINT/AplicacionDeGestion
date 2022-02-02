@@ -4,9 +4,103 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AplicacionDeGestion.vistas"
+             xmlns:inputLayout="clr-namespace:Syncfusion.UI.Xaml.TextInputLayout;assembly=Syncfusion.SfTextInputLayout.WPF"
+                xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+              d:DesignHeight="450" d:DesignWidth="1000" Background="White">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type Border}">
+            <Setter Property="BorderBrush" Value="Gray"></Setter>
+            <Setter Property="BorderThickness" Value="5"></Setter>
+        </Style>
+        <Style TargetType="{x:Type Border}" x:Key="BordeAparcamiento">
+            <Setter Property="Margin" Value="10"></Setter>
+            <Setter Property="Background" Value="LightCyan"></Setter>
+            <Setter Property="Width" Value="105"></Setter>
+            <Setter Property="Height" Value="105"></Setter>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect></DropShadowEffect>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Margin" Value="10,5,10,10"></Setter>
+            <Setter Property="IsReadOnly" Value="True"></Setter>
+        </Style>
+        <DataTemplate x:Key="EstacionamientosTemplate">
+            <Border Style="{StaticResource BordeAparcamiento}">
+                <StackPanel HorizontalAlignment="Center">
+                    <Image Source="../assets/Icons/aparcamiento.png" Margin="5" Width="50"></Image>
+                    <Viewbox Margin="10,0,10,10">
+                        <TextBlock Text="{Binding Matricula}"></TextBlock>
+                    </Viewbox>
+                </StackPanel>
+            </Border>
+        </DataTemplate>
+        <Style TargetType="{x:Type StackPanel}" x:Key="FormularioStackPanel">
+            <Setter Property="Margin" Value="10"></Setter>
+            <Setter Property="Background" Value="LightGray"></Setter>
+            <Setter Property="IsEnabled" Value="True"></Setter>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=EstacionamientoSeleccionado}" Value="{x:Null}">
+                    <Setter Property="IsEnabled" Value="False"></Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="{x:Type syncfusion:ButtonAdv}" x:Key="EstiloButton">
+            <Setter Property="Margin" Value="10,0,10,10"></Setter>
+            <Setter Property="Width" Value="110"></Setter>
+            <Setter Property="Height" Value="40"></Setter>
+        </Style>
+        <Style TargetType="{x:Type inputLayout:SfTextInputLayout}">
+            <Setter Property="Margin" Value="10,0,10,0"></Setter>
+        </Style>
+        <Style TargetType="{x:Type ListBox}" x:Key="ListBoxEstilo">
+            <Setter Property="ItemTemplate" Value="{StaticResource EstacionamientosTemplate}"></Setter>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"></Setter>
+            <Setter Property="Margin" Value="10"></Setter>
+            <Setter Property="ItemsSource" Value="{Binding ListaEstacionamientos}"></Setter>
+            <Setter Property="SelectedItem" Value="{Binding EstacionamientoSeleccionado}"></Setter>
+            <Setter Property="ItemsPanel">
+                <Setter.Value>
+                    <ItemsPanelTemplate>
+                        <WrapPanel></WrapPanel>
+                    </ItemsPanelTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Border>
+        <Grid Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="300"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <ListBox x:Name="ListBoxEstacionamientos" Style="{StaticResource ListBoxEstilo}"></ListBox>
+            <StackPanel Style="{StaticResource FormularioStackPanel}" Grid.Column="1">
+                <inputLayout:SfTextInputLayout Margin="10,10,10,0" Hint="ID Estacionamiento"
+                                       HintFloatMode="Float">
+                    <TextBox Text="{Binding EstacionamientoSeleccionado.IdEstacionamiento}" IsReadOnly="True"></TextBox>
+                </inputLayout:SfTextInputLayout>
+                <inputLayout:SfTextInputLayout Hint="ID Vehículo"
+                                       HintFloatMode="Float">
+
+                    <TextBox Text="{Binding EstacionamientoSeleccionado.IdVehiculo}"></TextBox>
+                </inputLayout:SfTextInputLayout>
+                <inputLayout:SfTextInputLayout Hint="Matrícula"
+                                       HintFloatMode="Float">
+                    <TextBox Text="{Binding EstacionamientoSeleccionado.Matricula}"></TextBox>
+                </inputLayout:SfTextInputLayout>
+                <inputLayout:SfTextInputLayout Hint="Entrada"
+                                       HintFloatMode="Float">
+                    <TextBox Text="{Binding EstacionamientoSeleccionado.Entrada}"></TextBox>
+                </inputLayout:SfTextInputLayout>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <syncfusion:ButtonAdv Style="{StaticResource EstiloButton}" SmallIcon="../assets/Icons/borrar.png" Label="Limpiar sel." Command="{Binding DeseleccionarEstacionamientoCommand}"/>
+                    <syncfusion:ButtonAdv Style="{StaticResource EstiloButton}" SmallIcon="../assets/Icons/checkout.png" Label="Finalizar est." Command="{Binding FinalizarEstacionamientoCommand}"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Border>
 </UserControl>

@@ -323,6 +323,12 @@
   <ItemGroup>
     <Resource Include="assets\Icons\menu.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\Icons\checkout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\Icons\aparcamiento.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

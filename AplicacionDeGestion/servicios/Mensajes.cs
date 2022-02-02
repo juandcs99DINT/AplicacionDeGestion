@@ -15,4 +15,5 @@ namespace AplicacionDeGestion.servicios
 
     public class ClienteSeleccionadoMessage : RequestMessage<Cliente> { }
     public class VehiculoSeleccionadoMessage : RequestMessage<Vehiculo> { }
+    public  class EstacionamientoSeleccionadoMessage : RequestMessage<Estacionamiento> { }
 }

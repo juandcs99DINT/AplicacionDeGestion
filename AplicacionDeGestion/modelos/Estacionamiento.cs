@@ -11,6 +11,15 @@ namespace AplicacionDeGestion.modelos
     {
         public Estacionamiento() { }
 
+        public Estacionamiento(int idEstacionamiento, int idVehiculo, string matricula, string entrada, string tipo)
+        {
+            this.idEstacionamiento = idEstacionamiento;
+            this.idVehiculo = idVehiculo;
+            this.matricula = matricula;
+            this.entrada = entrada;
+            this.tipo = tipo;
+        }
+
         public Estacionamiento(int idEstacionamiento, int idVehiculo, string matricula, string entrada, string salida, float importe, string tipo)
         {
             this.idEstacionamiento = idEstacionamiento;

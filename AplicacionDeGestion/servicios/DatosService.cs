@@ -220,6 +220,38 @@ namespace AplicacionDeGestion.servicios
             return vehiculo;
         }
 
+        public ObservableCollection<Vehiculo> GetVehiculosByIdCliente(int idCliente)
+        {
+            ObservableCollection<Vehiculo> listaVehiculos = new ObservableCollection<Vehiculo>();
+            try
+            {
+                conexion.Open();
+                SqliteCommand comando = conexion.CreateCommand();
+                comando.CommandText = "SELECT * FROM vehiculos WHERE id_cliente = @idCliente";
+                comando.Parameters.Add("@idCliente", SqliteType.Integer);
+                comando.Parameters["@idCliente"].Value = idCliente;
+                SqliteDataReader cursorVehiculos = comando.ExecuteReader();
+
+                if (cursorVehiculos.HasRows)
+                {
+                    while (cursorVehiculos.Read())
+                    {
+                        Vehiculo vehiculo = new Vehiculo(cursorVehiculos.GetInt32(0), cursorVehiculos.GetInt32(1), cursorVehiculos["matricula"] != DBNull.Value ? (string)cursorVehiculos["matricula"] : "",
+                          cursorVehiculos.GetInt32(3), cursorVehiculos["modelo"] != DBNull.Value ? (string)cursorVehiculos["modelo"] : "", cursorVehiculos["tipo"] != DBNull.Value ? (string)cursorVehiculos["tipo"] : "");
+                        listaVehiculos.Add(vehiculo);
+                    }
+                }
+                cursorVehiculos.Close();
+                conexion.Close();
+            }
+            catch (Exception)
+            {
+                dialogosService.DialogoError("Error obteniendo el vehículo por el ID del cliente.");
+            }
+            return listaVehiculos;
+        }
+
+
         public ObservableCollection<Vehiculo> GetVehiculos()
         {
             ObservableCollection<Vehiculo> listaVehiculos = new ObservableCollection<Vehiculo>();
@@ -346,8 +378,8 @@ namespace AplicacionDeGestion.servicios
                     while (cursorEstacionamientos.Read())
                     {
                         Estacionamiento estacionamiento = new Estacionamiento(cursorEstacionamientos.GetInt32(0), cursorEstacionamientos.GetInt32(1), cursorEstacionamientos["matricula"] != DBNull.Value ? (string)cursorEstacionamientos["matricula"] : "",
-                            cursorEstacionamientos["entrada"] != DBNull.Value ? (string)cursorEstacionamientos["entrada"] : "", cursorEstacionamientos["salida"] != DBNull.Value ? (string)cursorEstacionamientos["salida"] : "",
-                            cursorEstacionamientos.GetFloat(5), cursorEstacionamientos["tipo"] != DBNull.Value ? (string)cursorEstacionamientos["tipo"] : "");
+                            cursorEstacionamientos["entrada"] != DBNull.Value ? (string)cursorEstacionamientos["entrada"] : "",
+                            cursorEstacionamientos["tipo"] != DBNull.Value ? (string)cursorEstacionamientos["tipo"] : "");
                         listaEstacionamientos.Add(estacionamiento);
                     }
                 }
@@ -460,8 +492,6 @@ namespace AplicacionDeGestion.servicios
             }
             return filasAfectadas;
         }
-
-        // Para controlar que un mismo vehículo no tenga dos estacionamientos activos al mismo tiempo.
         public Estacionamiento GetEstacionamientoByMatricula(string matricula)
         {
             Estacionamiento estacionamiento = null;
@@ -470,17 +500,15 @@ namespace AplicacionDeGestion.servicios
                 conexion.Open();
                 SqliteCommand comando = conexion.CreateCommand();
                 comando.CommandText = "SELECT * FROM estacionamientos WHERE matricula = @matricula";
-                SqliteDataReader cursorEstacionamientos = comando.ExecuteReader();
-
                 comando.Parameters.Add("@matricula", SqliteType.Text);
                 comando.Parameters["@matricula"].Value = matricula;
-
+                SqliteDataReader cursorEstacionamientos = comando.ExecuteReader();
                 if (cursorEstacionamientos.HasRows)
                 {
                     cursorEstacionamientos.Read();
                     estacionamiento = new Estacionamiento(cursorEstacionamientos.GetInt32(0), cursorEstacionamientos.GetInt32(1), cursorEstacionamientos["matricula"] != DBNull.Value ? (string)cursorEstacionamientos["matricula"] : "",
-                                cursorEstacionamientos["entrada"] != DBNull.Value ? (string)cursorEstacionamientos["entrada"] : "", cursorEstacionamientos["salida"] != DBNull.Value ? (string)cursorEstacionamientos["salida"] : "",
-                                cursorEstacionamientos.GetFloat(5), cursorEstacionamientos["tipo"] != DBNull.Value ? (string)cursorEstacionamientos["tipo"] : "");
+                             cursorEstacionamientos["entrada"] != DBNull.Value ? (string)cursorEstacionamientos["entrada"] : "",
+                             cursorEstacionamientos["tipo"] != DBNull.Value ? (string)cursorEstacionamientos["tipo"] : "");
                     cursorEstacionamientos.Close();
                     conexion.Close();
                 }
