@@ -308,6 +308,12 @@
   <ItemGroup>
     <Resource Include="assets\Icons\añadirVehiculo.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\Icons\iconoCoche.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\Icons\añadirVehiculo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

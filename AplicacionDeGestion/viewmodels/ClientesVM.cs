@@ -20,6 +20,7 @@ namespace AplicacionDeGestion.viewmodels
         public ClientesVM()
         {
             ListaClientes = datosService.GetClientes();
+            EsperarCambioEnLaLista();
             RegistrarEnvioClienteSeleccionado();
             AñadirClienteCommand = new RelayCommand(AñadirCliente);
             ModificarClienteCommand = new RelayCommand(ModificarCliente);
@@ -55,6 +56,14 @@ namespace AplicacionDeGestion.viewmodels
               {
                   m.Reply(r.ClienteSeleccionado);
               });
+        }
+
+        private void EsperarCambioEnLaLista()
+        {
+            WeakReferenceMessenger.Default.Register<ClienteNuevoModificadoMessage>(this, (r, m) =>
+            {
+             //   ListaClientes.Add
+            });
         }
 
         private void AñadirCliente() => navigationService.AbrirDialogoCrearModificarCliente();

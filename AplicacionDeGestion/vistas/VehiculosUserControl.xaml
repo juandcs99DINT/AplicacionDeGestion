@@ -4,9 +4,51 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AplicacionDeGestion.vistas"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+             mc:Ignorable="d"
+             xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+             d:DesignHeight="450" d:DesignWidth="1000" Background="White">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type syncfusion:ButtonAdv}">
+            <Setter Property="Width" Value="80"></Setter>
+            <Setter Property="Margin" Value="2"></Setter>
+            <Setter Property="SizeMode" Value="Large"></Setter>
+        </Style>
+        <Style TargetType="{x:Type syncfusion:ButtonAdv}" x:Key="AñadirVehiculoButton" BasedOn="{StaticResource {x:Type syncfusion:ButtonAdv}}">
+            <Setter Property="IsEnabled" Value="False"></Setter>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding VehiculoSeleccionado}" Value="{x:Null}">
+                    <Setter Property="IsEnabled" Value="True"></Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="{x:Type syncfusion:ButtonAdv}" x:Key="AccionesButton" BasedOn="{StaticResource {x:Type syncfusion:ButtonAdv}}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding VehiculoSeleccionado}" Value="{x:Null}">
+                    <Setter Property="IsEnabled" Value="False"></Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Height="80" >
+
+            <syncfusion:ButtonAdv Style="{StaticResource AñadirVehiculoButton}" LargeIcon="/assets/Icons/añadirVehiculo.png" Label="Añadir" Command="{Binding Path=AñadirVehiculoCommand}"/>
+            <syncfusion:ButtonAdv Style="{StaticResource AccionesButton}" LargeIcon="/assets/Icons/editar.png" Label="Editar" Command="{Binding Path=ModificarVehiculoCommand}"/>
+            <syncfusion:ButtonAdv Style="{StaticResource AccionesButton}" LargeIcon="/assets/Icons/eliminarCliente.png" Label="Eliminar" Command="{Binding Path=EliminarVehiculoCommand}"/>
+            <syncfusion:ButtonAdv Style="{StaticResource AccionesButton}" LargeIcon="/assets/Icons/borrar.png" Label="Deselección" Command="{Binding Path=DeseleccionarVehiculoCommand}"></syncfusion:ButtonAdv>
+        </StackPanel>
+
+        <syncfusion:SfDataGrid x:Name="dataGrid"  
+                       AutoGenerateColumns="False" DockPanel.Dock="Top" ItemsSource="{Binding Path=ListaVehiculos}" SelectedItem="{Binding Path=VehiculoSeleccionado}">
+            <syncfusion:SfDataGrid.Columns>
+                <syncfusion:GridTextColumn MappingName="Id Vehículo" Width="120" ValueBinding="{Binding Path=IdVehiculo}"/>
+                <syncfusion:GridTextColumn MappingName="Id Cliente" Width="120" ValueBinding="{Binding Path=IdCliente}"/>
+                <syncfusion:GridTextColumn MappingName="Matrícula" Width="120" ValueBinding="{Binding Path=Matricula}"/>
+                <syncfusion:GridTextColumn MappingName="Documento" ValueBinding="{Binding Path=IdMarca}"/>
+                <syncfusion:GridTextColumn MappingName="Modelo" ValueBinding="{Binding Path=Modelo}"/>
+                <syncfusion:GridTextColumn MappingName="Tipo" ValueBinding="{Binding Path=Tipo}"/>
+            </syncfusion:SfDataGrid.Columns>
+        </syncfusion:SfDataGrid>
+
+    </DockPanel>
 </UserControl>

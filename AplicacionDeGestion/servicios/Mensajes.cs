@@ -19,4 +19,5 @@ namespace AplicacionDeGestion.servicios
     }
 
     internal class ClienteSeleccionadoMessage : RequestMessage<Cliente> { }
+    internal class VehiculoSeleccionadoMessage : RequestMessage<Vehiculo> { }
 }

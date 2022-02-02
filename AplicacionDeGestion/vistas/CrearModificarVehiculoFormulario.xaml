@@ -5,8 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AplicacionDeGestion.vistas"
         mc:Ignorable="d"
-        Title="CrearModificarVehiculoFormulario" Height="450" Width="800" ShowInTaskbar="False" ResizeMode="NoResize">
+        xmlns:inputLayout="clr-namespace:Syncfusion.UI.Xaml.TextInputLayout;assembly=Syncfusion.SfTextInputLayout.WPF"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        Title="Vehículo formulario" Height="450" Width="600" ShowInTaskbar="False" ResizeMode="NoResize" Icon="../assets/Icons/añadirVehiculo.ico">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="250"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Margin="35,10,35,50" Grid.Column="1" HorizontalAlignment="Center" Orientation="Horizontal">
+            <Button Width="70" Margin="10" VerticalAlignment="Bottom" x:Name="AceptarButton" Command="{Binding AceptarCommand}" Click="AceptarButton_Click" IsDefault="True" RenderTransformOrigin="0.5,0.5">Aceptar
+            </Button>
+            <Button Width="70" Margin="10" VerticalAlignment="Bottom" IsCancel="True">Cancelar</Button>
+        </StackPanel>
+
+        <StackPanel>
+            <inputLayout:SfTextInputLayout Margin="15,15,15,0" Hint="Id del cliente"                                      
+                                       HintFloatMode="Float">
+                <TextBox Text="{Binding Path=Vehiculo.IdCliente}"></TextBox>
+            </inputLayout:SfTextInputLayout>
+            <inputLayout:SfTextInputLayout Margin="15,0" Hint="Matrícula"                                      
+                                       HintFloatMode="Float">
+                <TextBox IsReadOnly="True" Text="{Binding Path=Vehiculo.Matricula}"></TextBox>
+            </inputLayout:SfTextInputLayout>
+            <StackPanel Orientation="Horizontal" Margin="15,0">
+                <inputLayout:SfTextInputLayout Hint="Marca"
+                                       HintFloatMode="Float">
+                    <ComboBox Width="120" ItemsSource="{Binding ListaMarcas}" SelectedItem="{Binding Vehiculo.IdMarca}"></ComboBox>
+                </inputLayout:SfTextInputLayout>
+                <Button VerticalAlignment="Top" Margin="5" Width="30" Height="30" Command="{Binding AñadirMarcaCommand}">+</Button>
+            </StackPanel>
+           
+            <inputLayout:SfTextInputLayout Margin="15,0" Hint="Modelo"                                      
+                                       HintFloatMode="Float">
+                <TextBox Text="{Binding Path=Vehiculo.Modelo}"></TextBox>
+            </inputLayout:SfTextInputLayout>
+            <inputLayout:SfTextInputLayout Margin="15,0" Hint="Tipo"                                      
+                                       HintFloatMode="Float">
+                <TextBox Text="{Binding Path=Vehiculo.Tipo}"></TextBox>
+            </inputLayout:SfTextInputLayout>
+            <syncfusion:ButtonAdv Command="{Binding ExaminarVehiculoCommand}" HorizontalAlignment="Left" Width="120" Margin="15,0" SizeMode="Normal" Label="Fotografía" SmallIcon ="/assets/Icons/folder.png"/>
+        </StackPanel>
     </Grid>
 </Window>

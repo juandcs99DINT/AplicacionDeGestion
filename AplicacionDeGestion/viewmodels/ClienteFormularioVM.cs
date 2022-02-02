@@ -16,7 +16,6 @@ namespace AplicacionDeGestion.viewmodels
 {
     class ClienteFormularioVM : ObservableRecipient
     {
-        private readonly NavigationService navegacion = new NavigationService();
         private readonly DialogosService dialogosService = new DialogosService();
         private readonly AzureBlobStorageService azureBlobStorageService = new AzureBlobStorageService();
         private readonly AzureFaceService azureFaceService = new AzureFaceService();
@@ -51,7 +50,13 @@ namespace AplicacionDeGestion.viewmodels
         {
             if (añadirNuevoCliente)
             {
-                datosService.AñadirCliente(Cliente);
+                if(datosService.GetClienteByDocument(Cliente.Documento) == null)
+                {
+                    datosService.AñadirCliente(Cliente);
+                } else
+                {
+                    dialogosService.DialogoError("Ya existe un cliente con ese mismo documento.");
+                }
             }
             else
             {
@@ -70,8 +75,6 @@ namespace AplicacionDeGestion.viewmodels
             }
         }
 
-
-        // He puesto ésto aquí para que ya lo tengas.
         public void ExaminarImagen()
         {
             string rutaImagen = dialogosService.DialogoOpenFile();
@@ -87,7 +90,7 @@ namespace AplicacionDeGestion.viewmodels
         public void DeducirEdadYGenero(string url)
         {
             FaceAttributes faceAttributes = azureFaceService.GetEdadGenero(url);
-            Cliente.Genero = faceAttributes.gender;
+            Cliente.Genero = faceAttributes.gender == "female" ? "Mujer" : "Hombre";
             Cliente.Edad = Convert.ToInt32(faceAttributes.age);
         }
     }

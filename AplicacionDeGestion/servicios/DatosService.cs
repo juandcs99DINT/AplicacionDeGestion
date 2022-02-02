@@ -12,7 +12,7 @@ namespace AplicacionDeGestion.servicios
     class DatosService
     {
         private readonly DialogosService dialogosService = new DialogosService();
-        SqliteConnection conexion = new SqliteConnection("Data Source=" + Properties.Settings.Default.rutaConexionBd);
+        private readonly SqliteConnection conexion = new SqliteConnection("Data Source=" + Properties.Settings.Default.rutaConexionBd + "parking.db");
 
         // Para controlar que no haya dos clientes con el mismo documento.
         public Cliente GetClienteByDocument(string documento)
