@@ -9,8 +9,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Navigation;
-using NavigationService = AplicacionDeGestion.servicios.NavigationService;
 
 namespace AplicacionDeGestion.viewmodels
 {
@@ -48,17 +46,23 @@ namespace AplicacionDeGestion.viewmodels
 
         private void AñadirModificarCliente()
         {
+            bool datoCambiado = false;
             if (añadirNuevoCliente)
             {
-               
-                    datosService.AñadirCliente(Cliente);
-
+                if (datosService.GetClienteByDocument(Cliente.Documento) == null)
+                {
+                    datoCambiado = datosService.AñadirCliente(Cliente) > 0;
+                }
+                else
+                {
+                    dialogosService.DialogoError("Ya existe un cliente con ese documento. No se ha añadido el cliente nuevo.");
+                }
             }
             else
             {
-                datosService.ModificarCliente(Cliente);
+                datoCambiado = datosService.ModificarCliente(Cliente) > 0;
             }
-            WeakReferenceMessenger.Default.Send(new ClienteNuevoModificadoMessage(Cliente));
+            WeakReferenceMessenger.Default.Send(new DatoAñadidoOModificadoMessage(datoCambiado));
         }
 
         public void RecibirCliente()

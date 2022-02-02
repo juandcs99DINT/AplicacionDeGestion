@@ -13,11 +13,11 @@ namespace AplicacionDeGestion.servicios
         public MarcaAñadidaMessage(string marca) : base(marca) { }
     }
 
-    internal class ClienteNuevoModificadoMessage : ValueChangedMessage<Cliente>
+    public class DatoAñadidoOModificadoMessage : ValueChangedMessage<bool>
     {
-        public ClienteNuevoModificadoMessage(Cliente cliente) : base(cliente) { }
+        public DatoAñadidoOModificadoMessage(bool cambios) : base(cambios) { }
     }
 
-    internal class ClienteSeleccionadoMessage : RequestMessage<Cliente> { }
-    internal class VehiculoSeleccionadoMessage : RequestMessage<Vehiculo> { }
+    public class ClienteSeleccionadoMessage : RequestMessage<Cliente> { }
+    public class VehiculoSeleccionadoMessage : RequestMessage<Vehiculo> { }
 }

@@ -52,7 +52,6 @@
                 </syncfusion:NavigationItem.Icon>
         </syncfusion:NavigationItem>
 
-
             <syncfusion:SfNavigationDrawer.ContentView>
                 <ContentControl Content="{Binding Path=UserControlActual}"></ContentControl>
         </syncfusion:SfNavigationDrawer.ContentView>

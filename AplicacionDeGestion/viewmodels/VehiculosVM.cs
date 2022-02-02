@@ -60,6 +60,13 @@ namespace AplicacionDeGestion.viewmodels
 
         private void EsperarCambioEnLaLista()
         {
+            WeakReferenceMessenger.Default.Register<DatoAñadidoOModificadoMessage>(this, (r, m) =>
+            {
+                if (m.Value)
+                {
+                    ListaVehiculos = datosService.GetVehiculos();
+                }
+            });
         }
 
         private void AñadirVehiculo() => navigationService.AbrirDialogoCrearModificarVehiculo();

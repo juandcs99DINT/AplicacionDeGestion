@@ -9,7 +9,7 @@ using Microsoft.Toolkit.Mvvm.ComponentModel;
 
 namespace AplicacionDeGestion.modelos
 {
-    class Cliente : ObservableObject
+    public class Cliente : ObservableObject
     {
         public Cliente() { }
 

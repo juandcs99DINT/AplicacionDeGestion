@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AplicacionDeGestion.modelos
 {
-    class Vehiculo : ObservableObject
+    public class Vehiculo : ObservableObject
     {
         public Vehiculo() { }
 
@@ -28,8 +28,8 @@ namespace AplicacionDeGestion.modelos
             set => SetProperty(ref idVehiculo, value);
         }
 
-        private int idCliente;
-        public int IdCliente
+        private int? idCliente;
+        public int? IdCliente
         {
             get => idCliente;
             set => SetProperty(ref idCliente, value);
@@ -42,8 +42,8 @@ namespace AplicacionDeGestion.modelos
             set => SetProperty(ref matricula, value);
         }
 
-        private int idMarca;
-        public int IdMarca
+        private int? idMarca;
+        public int? IdMarca
         {
             get => idMarca;
             set => SetProperty(ref idMarca, value);

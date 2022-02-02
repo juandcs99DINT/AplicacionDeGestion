@@ -11,10 +11,13 @@ namespace AplicacionDeGestion.servicios
     class NavigationService
     {
         public NavigationService() { }
+        private static readonly UserControl pestañaClientes = new ClientesUserControl();
+        private static readonly UserControl pestañaVehiculos = new VehiculosUserControl();
+        private static readonly UserControl pestañaEstacionamientos = new EstacionamientosUserControl();
 
-        public UserControl CambiarAPestañaClientes() => new ClientesUserControl();
-        public UserControl CambiarAPestañaVehiculos() => new VehiculosUserControl();
-        public UserControl CambiarAPestañaEstacionamientos() => new EstacionamientosUserControl();
+        public UserControl CambiarAPestañaClientes() => pestañaClientes;
+        public UserControl CambiarAPestañaVehiculos() => pestañaVehiculos;
+        public UserControl CambiarAPestañaEstacionamientos() => pestañaEstacionamientos;
 
         public void AbrirDialogoAñadirMarca()
         {

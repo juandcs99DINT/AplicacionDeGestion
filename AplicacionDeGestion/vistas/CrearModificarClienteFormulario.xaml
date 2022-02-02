@@ -36,7 +36,7 @@
             </inputLayout:SfTextInputLayout>
             <inputLayout:SfTextInputLayout Margin="15,0" Hint="Genero"                                      
                                        HintFloatMode="Float">
-                <TextBox Text="{Binding Path=Cliente.Genero}"></TextBox>
+                <TextBox IsReadOnly="True" Text="{Binding Path=Cliente.Genero}"></TextBox>
             </inputLayout:SfTextInputLayout>
             <inputLayout:SfTextInputLayout Margin="15,0" Hint="Telefono"                                      
                                        HintFloatMode="Float">

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AplicacionDeGestion.modelos
 {
-    class Estacionamiento : ObservableObject
+    public class Estacionamiento : ObservableObject
     {
         public Estacionamiento() { }
 
@@ -29,8 +29,8 @@ namespace AplicacionDeGestion.modelos
             set => SetProperty(ref idEstacionamiento, value);
         }
 
-        private int idVehiculo;
-        public int IdVehiculo
+        private int? idVehiculo;
+        public int? IdVehiculo
         {
             get => idVehiculo;
             set => SetProperty(ref idVehiculo, value);

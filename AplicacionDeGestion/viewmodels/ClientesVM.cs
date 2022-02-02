@@ -60,9 +60,12 @@ namespace AplicacionDeGestion.viewmodels
 
         private void EsperarCambioEnLaLista()
         {
-            WeakReferenceMessenger.Default.Register<ClienteNuevoModificadoMessage>(this, (r, m) =>
+            WeakReferenceMessenger.Default.Register<DatoAñadidoOModificadoMessage>(this, (r, m) =>
             {
-             //   ListaClientes.Add
+                if (m.Value)
+                {
+                    ListaClientes = datosService.GetClientes();
+                }
             });
         }
 
@@ -71,11 +74,13 @@ namespace AplicacionDeGestion.viewmodels
 
         private void EliminarCliente()
         {
+
             if (dialogosService.DialogoConfirmacionAccion($"¿Estás seguro de querer eliminar el cliente {ClienteSeleccionado.Nombre} con DNI {ClienteSeleccionado.Documento}?") && datosService.EliminarCliente(ClienteSeleccionado) > 0)
             {
                 dialogosService.DialogoInformacion("Has eliminado el cliente correctamente");
                 ListaClientes = datosService.GetClientes();
             }
         }
+
     }
 }
