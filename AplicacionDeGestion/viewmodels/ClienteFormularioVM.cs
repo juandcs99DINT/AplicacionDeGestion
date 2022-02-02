@@ -50,13 +50,9 @@ namespace AplicacionDeGestion.viewmodels
         {
             if (añadirNuevoCliente)
             {
-                if(datosService.GetClienteByDocument(Cliente.Documento) == null)
-                {
+               
                     datosService.AñadirCliente(Cliente);
-                } else
-                {
-                    dialogosService.DialogoError("Ya existe un cliente con ese mismo documento.");
-                }
+
             }
             else
             {
