@@ -15,10 +15,10 @@
         </Grid.ColumnDefinitions>
 
         <Image Grid.Column="1" VerticalAlignment="Top" Height="200" Margin="10" Source="{Binding Path=Cliente.Foto}" Stretch="UniformToFill"></Image>
-        <StackPanel Margin="35,10,35,50" Grid.Column="1" HorizontalAlignment="Center" Orientation="Horizontal">
-            <Button Width="70" Margin="10" VerticalAlignment="Bottom" x:Name="AceptarButton" Command="{Binding AceptarCommand}" Click="AceptarButton_Click" IsDefault="True" RenderTransformOrigin="0.5,0.5">Aceptar
-            </Button>
-            <Button Width="70" Margin="10" VerticalAlignment="Bottom" IsCancel="True">Cancelar</Button>
+        <StackPanel Margin="30,5,30,45" Grid.Column="1" HorizontalAlignment="Center" Orientation="Horizontal">
+            <syncfusion:ButtonAdv Width="90" Margin="5" VerticalAlignment="Bottom" x:Name="AceptarButton" Command="{Binding AceptarCommand}" Click="AceptarButton_Click" IsDefault="True" Label="Aceptar" SmallIcon="/assets/Icons/accept.png">
+            </syncfusion:ButtonAdv>
+            <syncfusion:ButtonAdv Width="90" Margin="5" VerticalAlignment="Bottom" IsCancel="True" Label="Cancelar" SmallIcon="/assets/Icons/cancel.png"></syncfusion:ButtonAdv>
         </StackPanel>
 
         <StackPanel>

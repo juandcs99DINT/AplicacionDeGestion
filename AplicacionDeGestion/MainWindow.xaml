@@ -9,10 +9,34 @@
         Title="Gestion Parking" Icon="/assets/Icons/parkingIcon.ico" Height="650" Width="1005" MinHeight="450" MinWidth="800">
     <Grid>
         <syncfusion:SfNavigationDrawer
-        x:Name="navigationDrawer"
-        DisplayMode="Compact">
+              x:Name="navigationDrawer"
+            DisplayMode="Compact"
+            
+            >
 
-            <syncfusion:NavigationItem Header="Clientes" Command="{Binding Path=CambiarAClientesCommand}">
+            <syncfusion:SfNavigationDrawer.ToggleButtonIconTemplate>
+                <DataTemplate>
+                    <Image
+                    x:Name="image"
+                    Width="25"
+                    Height="25"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Source="/assets/Icons/menu.png" />
+                </DataTemplate>
+            </syncfusion:SfNavigationDrawer.ToggleButtonIconTemplate>
+            <syncfusion:SfNavigationDrawer.ToggleButtonContentTemplate>
+                <DataTemplate>
+                    <Label
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Content="Opciones" />
+                </DataTemplate>
+            </syncfusion:SfNavigationDrawer.ToggleButtonContentTemplate>
+
+
+
+            <syncfusion:NavigationItem Header="Clientes" IsSelected="True" Command="{Binding Path=CambiarAClientesCommand}">
                 <syncfusion:NavigationItem.Icon>
                     <Image Source="/assets/Icons/customer.png" Stretch="Uniform"/>
                 </syncfusion:NavigationItem.Icon>
@@ -27,8 +51,9 @@
                     <Image Source="/assets/Icons/parking.png" Stretch="Uniform"/>
                 </syncfusion:NavigationItem.Icon>
         </syncfusion:NavigationItem>
-        
-        <syncfusion:SfNavigationDrawer.ContentView>
+
+
+            <syncfusion:SfNavigationDrawer.ContentView>
                 <ContentControl Content="{Binding Path=UserControlActual}"></ContentControl>
         </syncfusion:SfNavigationDrawer.ContentView>
     </syncfusion:SfNavigationDrawer>
