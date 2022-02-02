@@ -20,9 +20,9 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Margin="35,10,35,50" Grid.Column="1" HorizontalAlignment="Center" Orientation="Horizontal">
-            <Button Width="70" Margin="10" VerticalAlignment="Bottom" x:Name="AceptarButton" Command="{Binding AceptarCommand}" Click="AceptarButton_Click" IsDefault="True" RenderTransformOrigin="0.5,0.5">Aceptar
-            </Button>
-            <Button Width="70" Margin="10" VerticalAlignment="Bottom" IsCancel="True">Cancelar</Button>
+            <syncfusion:ButtonAdv Width="80" Margin="5" VerticalAlignment="Bottom" x:Name="AceptarButton" Command="{Binding AceptarCommand}" Click="AceptarButton_Click" IsDefault="True" Label="Aceptar" SmallIcon="/assets/Icons/accept.png">
+            </syncfusion:ButtonAdv>
+            <syncfusion:ButtonAdv Width="80" Margin="5" VerticalAlignment="Bottom" IsCancel="True" Label="Cancelar" SmallIcon="/assets/Icons/cancel.png"></syncfusion:ButtonAdv>
         </StackPanel>
 
         <StackPanel>

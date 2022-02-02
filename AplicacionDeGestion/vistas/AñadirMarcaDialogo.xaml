@@ -5,10 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AplicacionDeGestion.vistas"
         xmlns:inputLayout="clr-namespace:Syncfusion.UI.Xaml.TextInputLayout;assembly=Syncfusion.SfTextInputLayout.WPF"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         mc:Ignorable="d"
         Title="Añadir marca de vehículo" Icon="../assets/Icons/iconoAñadir.ico" Height="150" Width="300" ShowInTaskbar="False" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
-        <Style TargetType="{x:Type Button}">
+        <Style TargetType="{x:Type syncfusion:ButtonAdv}">
             <Setter Property="Width" Value="80"></Setter>
             <Setter Property="Margin" Value="5,5,0,0"></Setter>
         </Style>
@@ -21,9 +22,9 @@
         </inputLayout:SfTextInputLayout>
 
         <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-            <Button x:Name="AceptarButton" Command="{Binding AceptarCommand}" Click="AceptarButton_Click" IsDefault="True">Aceptar
-            </Button>
-            <Button IsCancel="True">Cancelar</Button>
+            <syncfusion:ButtonAdv  Margin="5" VerticalAlignment="Bottom" x:Name="AceptarButton" Command="{Binding AceptarCommand}" Click="AceptarButton_Click" IsDefault="True" Label="Aceptar" SmallIcon="/assets/Icons/accept.png">
+            </syncfusion:ButtonAdv>
+            <syncfusion:ButtonAdv  Margin="5" VerticalAlignment="Bottom" IsCancel="True" Label="Cancelar" SmallIcon="/assets/Icons/cancel.png"></syncfusion:ButtonAdv>
         </StackPanel>
     </StackPanel>
 </Window>
