@@ -14,12 +14,6 @@
     <Setting Name="nombreContenedorBlob" Type="System.String" Scope="User">
       <Value Profile="(Default)">imagenes-peliculas</Value>
     </Setting>
-    <Setting Name="numeroPlazasCoche" Type="System.String" Scope="User">
-      <Value Profile="(Default)">50</Value>
-    </Setting>
-    <Setting Name="numeroPlazasMoto" Type="System.String" Scope="User">
-      <Value Profile="(Default)">50</Value>
-    </Setting>
     <Setting Name="rutaConexionBd" Type="System.String" Scope="Application">
       <Value Profile="(Default)">C:/parking/</Value>
     </Setting>

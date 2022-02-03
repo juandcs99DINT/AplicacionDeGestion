@@ -74,30 +74,6 @@ namespace AplicacionDeGestion.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("50")]
-        public string numeroPlazasCoche {
-            get {
-                return ((string)(this["numeroPlazasCoche"]));
-            }
-            set {
-                this["numeroPlazasCoche"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("50")]
-        public string numeroPlazasMoto {
-            get {
-                return ((string)(this["numeroPlazasMoto"]));
-            }
-            set {
-                this["numeroPlazasMoto"] = value;
-            }
-        }
-        
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("C:/parking/")]
