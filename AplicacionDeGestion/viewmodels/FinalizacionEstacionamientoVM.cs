@@ -25,7 +25,6 @@ namespace AplicacionDeGestion.viewmodels
         }
 
         public RelayCommand AceptarCommand { get; }
-        public RelayCommand AñadirMarcaCommand { get; }
 
         private Estacionamiento estacionamiento;
         public Estacionamiento Estacionamiento

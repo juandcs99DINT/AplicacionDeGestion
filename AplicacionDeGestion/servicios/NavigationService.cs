@@ -11,6 +11,7 @@ namespace AplicacionDeGestion.servicios
     class NavigationService
     {
         public NavigationService() { }
+
         private static readonly UserControl pestañaClientes = new ClientesUserControl();
         private static readonly UserControl pestañaVehiculos = new VehiculosUserControl();
         private static readonly UserControl pestañaEstacionamientos = new EstacionamientosUserControl();
