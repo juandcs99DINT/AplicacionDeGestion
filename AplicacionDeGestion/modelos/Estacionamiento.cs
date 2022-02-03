@@ -10,6 +10,13 @@ namespace AplicacionDeGestion.modelos
     public class Estacionamiento : ObservableObject
     {
         public Estacionamiento() { }
+        public Estacionamiento(int idEstacionamiento, string matricula, string entrada, string tipo)
+        {
+            this.idEstacionamiento = idEstacionamiento;
+            this.matricula = matricula;
+            this.entrada = entrada;
+            this.tipo = tipo;
+        }
 
         public Estacionamiento(int idEstacionamiento, int idVehiculo, string matricula, string entrada, string tipo)
         {

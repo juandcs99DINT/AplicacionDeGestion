@@ -377,9 +377,19 @@ namespace AplicacionDeGestion.servicios
                 {
                     while (cursorEstacionamientos.Read())
                     {
-                        Estacionamiento estacionamiento = new Estacionamiento(cursorEstacionamientos.GetInt32(0), cursorEstacionamientos.GetInt32(1), cursorEstacionamientos["matricula"] != DBNull.Value ? (string)cursorEstacionamientos["matricula"] : "",
-                            cursorEstacionamientos["entrada"] != DBNull.Value ? (string)cursorEstacionamientos["entrada"] : "",
-                            cursorEstacionamientos["tipo"] != DBNull.Value ? (string)cursorEstacionamientos["tipo"] : "");
+                        Estacionamiento estacionamiento;
+                        if (!cursorEstacionamientos.IsDBNull(1))
+                        {
+                            estacionamiento = new Estacionamiento(cursorEstacionamientos.GetInt32(0), cursorEstacionamientos.GetInt32(1), cursorEstacionamientos["matricula"] != DBNull.Value ? (string)cursorEstacionamientos["matricula"] : "",
+                                cursorEstacionamientos["entrada"] != DBNull.Value ? (string)cursorEstacionamientos["entrada"] : "",
+                                cursorEstacionamientos["tipo"] != DBNull.Value ? (string)cursorEstacionamientos["tipo"] : "");
+                        }
+                        else
+                        {
+                            estacionamiento = new Estacionamiento(cursorEstacionamientos.GetInt32(0), cursorEstacionamientos["matricula"] != DBNull.Value ? (string)cursorEstacionamientos["matricula"] : "",
+                                cursorEstacionamientos["entrada"] != DBNull.Value ? (string)cursorEstacionamientos["entrada"] : "",
+                                cursorEstacionamientos["tipo"] != DBNull.Value ? (string)cursorEstacionamientos["tipo"] : "");
+                        }
                         listaEstacionamientos.Add(estacionamiento);
                     }
                 }
@@ -506,9 +516,18 @@ namespace AplicacionDeGestion.servicios
                 if (cursorEstacionamientos.HasRows)
                 {
                     cursorEstacionamientos.Read();
-                    estacionamiento = new Estacionamiento(cursorEstacionamientos.GetInt32(0), cursorEstacionamientos.GetInt32(1), cursorEstacionamientos["matricula"] != DBNull.Value ? (string)cursorEstacionamientos["matricula"] : "",
-                             cursorEstacionamientos["entrada"] != DBNull.Value ? (string)cursorEstacionamientos["entrada"] : "",
-                             cursorEstacionamientos["tipo"] != DBNull.Value ? (string)cursorEstacionamientos["tipo"] : "");
+                    if (!cursorEstacionamientos.IsDBNull(1))
+                    {
+                        estacionamiento = new Estacionamiento(cursorEstacionamientos.GetInt32(0), cursorEstacionamientos.GetInt32(1), cursorEstacionamientos["matricula"] != DBNull.Value ? (string)cursorEstacionamientos["matricula"] : "",
+                            cursorEstacionamientos["entrada"] != DBNull.Value ? (string)cursorEstacionamientos["entrada"] : "",
+                            cursorEstacionamientos["tipo"] != DBNull.Value ? (string)cursorEstacionamientos["tipo"] : "");
+                    }
+                    else
+                    {
+                        estacionamiento = new Estacionamiento(cursorEstacionamientos.GetInt32(0), cursorEstacionamientos["matricula"] != DBNull.Value ? (string)cursorEstacionamientos["matricula"] : "",
+                            cursorEstacionamientos["entrada"] != DBNull.Value ? (string)cursorEstacionamientos["entrada"] : "",
+                            cursorEstacionamientos["tipo"] != DBNull.Value ? (string)cursorEstacionamientos["tipo"] : "");
+                    }
                     cursorEstacionamientos.Close();
                     conexion.Close();
                 }
