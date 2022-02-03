@@ -22,9 +22,23 @@
         </inputLayout:SfTextInputLayout>
 
         <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-            <syncfusion:ButtonAdv  Margin="5" VerticalAlignment="Bottom" x:Name="AceptarButton" Command="{Binding AceptarCommand}" Click="AceptarButton_Click" IsDefault="True" Label="Aceptar" SmallIcon="/assets/Icons/accept.png">
-            </syncfusion:ButtonAdv>
-            <syncfusion:ButtonAdv  Margin="5" VerticalAlignment="Bottom" IsCancel="True" Label="Cancelar" SmallIcon="/assets/Icons/cancel.png"></syncfusion:ButtonAdv>
+            <Button  Width="90" Margin="5" Height="25" VerticalAlignment="Bottom" x:Name="AceptarButton" Command="{Binding AceptarCommand}" Click="AceptarButton_Click" IsDefault="True" Template="{DynamicResource ButtonControlTemplate1}" >
+
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/assets/Icons/accept.png" Margin="-15,0,5,0"></Image>
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Aceptar</TextBlock>
+                </StackPanel>
+
+            </Button>
+
+            <Button Width="90" Margin="5" Height="25" VerticalAlignment="Bottom" IsCancel="True" Template="{DynamicResource ButtonControlTemplate1}">
+
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/assets/Icons/cancel.png" Margin="-15,0,5,0"></Image>
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Cancelar</TextBlock>
+                </StackPanel>
+
+            </Button>
         </StackPanel>
     </StackPanel>
 </Window>

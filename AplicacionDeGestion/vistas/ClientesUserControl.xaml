@@ -44,7 +44,6 @@
                 <syncfusion:GridTextColumn MappingName="Id" Width="50"  ValueBinding="{Binding Path=IdCliente}"/>
                 <syncfusion:GridImageColumn
                                     Padding="2,2,2,2"
-                                    ImageHeight="250"
                                     HeaderText="Imagen"
                                     MappingName="ImageLink"
                                     TextAlignment="Center"
@@ -56,6 +55,6 @@
                 <syncfusion:GridTextColumn MappingName="Telefono" ValueBinding="{Binding Path=Telefono}"/>
             </syncfusion:SfDataGrid.Columns>
         </syncfusion:SfDataGrid>
-        
+
     </DockPanel>
 </UserControl>
