@@ -11,6 +11,13 @@
         Title="Vehículo formulario" Height="450" Width="600" ShowInTaskbar="False" ResizeMode="NoResize" Icon="../assets/Icons/añadirVehiculo.ico">
     <Window.Resources>
         <proyecto:MarcaConverter x:Key="marcaConverter"></proyecto:MarcaConverter>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="Width" Value="90"></Setter>
+            <Setter Property="Height" Value="25"></Setter>
+            <Setter Property="VerticalAlignment" Value="Bottom"></Setter>
+            <Setter Property="Template" Value="{DynamicResource ButtonControlTemplate1}"></Setter>
+        </Style>
     </Window.Resources> 
    
     <Grid>
@@ -20,23 +27,18 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Margin="30,5,30,45" Grid.Column="1" HorizontalAlignment="Center" Orientation="Horizontal">
-            <Button  Width="90" Margin="5" Height="25" VerticalAlignment="Bottom" x:Name="AceptarButton" Command="{Binding AceptarCommand}" Click="AceptarButton_Click" IsDefault="True" Template="{DynamicResource ButtonControlTemplate1}" >
-
-                <StackPanel Orientation="Horizontal">
-                    <Image Source="/assets/Icons/accept.png" Margin="-15,0,5,0"></Image>
-                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Aceptar</TextBlock>
-                </StackPanel>
-
-            </Button>
-
-            <Button Width="90" Margin="5" Height="25" VerticalAlignment="Bottom" IsCancel="True" Template="{DynamicResource ButtonControlTemplate1}">
-
-                <StackPanel Orientation="Horizontal">
-                    <Image Source="/assets/Icons/cancel.png" Margin="-15,0,5,0"></Image>
-                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Cancelar</TextBlock>
-                </StackPanel>
-
-            </Button>
+        <Button x:Name="AceptarButton" Command="{Binding AceptarCommand}" Click="AceptarButton_Click" IsDefault="True">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/assets/Icons/accept.png" Margin="-15,0,5,0"></Image>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Aceptar</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button IsCancel="True">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/assets/Icons/cancel.png" Margin="-15,0,5,0"></Image>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Cancelar</TextBlock>
+            </StackPanel>
+        </Button>
         </StackPanel>
 
         <StackPanel>

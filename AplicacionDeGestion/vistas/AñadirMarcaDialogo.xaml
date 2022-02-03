@@ -13,6 +13,13 @@
             <Setter Property="Width" Value="80"></Setter>
             <Setter Property="Margin" Value="5,5,0,0"></Setter>
         </Style>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="Width" Value="90"></Setter>
+            <Setter Property="Height" Value="25"></Setter>
+            <Setter Property="VerticalAlignment" Value="Bottom"></Setter>
+            <Setter Property="Template" Value="{DynamicResource ButtonControlTemplate1}"></Setter>
+        </Style>
     </Window.Resources>
 
     <StackPanel Margin="10">
@@ -22,22 +29,17 @@
         </inputLayout:SfTextInputLayout>
 
         <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-            <Button  Width="90" Margin="5" Height="25" VerticalAlignment="Bottom" x:Name="AceptarButton" Command="{Binding AceptarCommand}" Click="AceptarButton_Click" IsDefault="True" Template="{DynamicResource ButtonControlTemplate1}" >
-
+            <Button x:Name="AceptarButton" Command="{Binding AceptarCommand}" Click="AceptarButton_Click" IsDefault="True">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/assets/Icons/accept.png" Margin="-15,0,5,0"></Image>
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Aceptar</TextBlock>
                 </StackPanel>
-
             </Button>
-
-            <Button Width="90" Margin="5" Height="25" VerticalAlignment="Bottom" IsCancel="True" Template="{DynamicResource ButtonControlTemplate1}">
-
+            <Button IsCancel="True">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/assets/Icons/cancel.png" Margin="-15,0,5,0"></Image>
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Cancelar</TextBlock>
                 </StackPanel>
-
             </Button>
         </StackPanel>
     </StackPanel>

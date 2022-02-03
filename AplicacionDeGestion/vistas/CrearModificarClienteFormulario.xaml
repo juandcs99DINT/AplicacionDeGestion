@@ -8,6 +8,15 @@
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         mc:Ignorable="d"
         Title="Cliente Formulario" Height="450" Width="600" ShowInTaskbar="False" ResizeMode="NoResize" Icon="../assets/Icons/anadirCliente.ico">
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="Width" Value="90"></Setter>
+            <Setter Property="Height" Value="25"></Setter>
+            <Setter Property="VerticalAlignment" Value="Bottom"></Setter>
+            <Setter Property="Template" Value="{DynamicResource ButtonControlTemplate1}"></Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -16,25 +25,18 @@
 
         <Image Grid.Column="1" VerticalAlignment="Top" Height="200" Margin="10" Source="{Binding Path=Cliente.Foto}" Stretch="UniformToFill"></Image>
         <StackPanel Margin="30,5,30,45" Grid.Column="1" HorizontalAlignment="Center" Orientation="Horizontal">
-
-            <Button  Width="90" Margin="5" Height="25" VerticalAlignment="Bottom" x:Name="AceptarButton" Command="{Binding AceptarCommand}" Click="AceptarButton_Click" IsDefault="True" Template="{DynamicResource ButtonControlTemplate1}" >
-
+            <Button x:Name="AceptarButton" Command="{Binding AceptarCommand}" Click="AceptarButton_Click" IsDefault="True">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/assets/Icons/accept.png" Margin="-15,0,5,0"></Image>
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Aceptar</TextBlock>
                 </StackPanel>
-                
             </Button>
-
-            <Button Width="90" Margin="5" Height="25" VerticalAlignment="Bottom" IsCancel="True" Template="{DynamicResource ButtonControlTemplate1}">
-
+            <Button IsCancel="True">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/assets/Icons/cancel.png" Margin="-15,0,5,0"></Image>
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Cancelar</TextBlock>
                 </StackPanel>
-
             </Button>
-            
         </StackPanel>
 
         <StackPanel>
