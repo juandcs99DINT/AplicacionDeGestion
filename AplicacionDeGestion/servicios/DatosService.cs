@@ -44,7 +44,7 @@ namespace AplicacionDeGestion.servicios
             return cliente;
         }
 
-        public Cliente GetClienteById(int id)
+        public Cliente GetClienteById(int? id)
         {
             Cliente cliente = null;
             try
@@ -220,7 +220,7 @@ namespace AplicacionDeGestion.servicios
             return vehiculo;
         }
 
-        public ObservableCollection<Vehiculo> GetVehiculosByIdCliente(int idCliente)
+        public ObservableCollection<Vehiculo> GetVehiculosByIdCliente(int? idCliente)
         {
             ObservableCollection<Vehiculo> listaVehiculos = new ObservableCollection<Vehiculo>();
             try

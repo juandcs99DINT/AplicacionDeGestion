@@ -41,11 +41,11 @@
         </StackPanel>
 
         <syncfusion:SfDataGrid x:Name="dataGrid"  
-                       AutoGenerateColumns="False" DockPanel.Dock="Top" ItemsSource="{Binding Path=ListaVehiculos}" SelectedItem="{Binding Path=VehiculoSeleccionado}">
+                       AutoGenerateColumns="False" ColumnSizer="Star" DockPanel.Dock="Top" ItemsSource="{Binding Path=ListaVehiculos}" SelectedItem="{Binding Path=VehiculoSeleccionado}">
             <syncfusion:SfDataGrid.Columns>
-                <syncfusion:GridTextColumn MappingName="Id Vehículo" Width="120" ValueBinding="{Binding Path=IdVehiculo}"/>
-                <syncfusion:GridTextColumn MappingName="Id Cliente" Width="120" ValueBinding="{Binding Path=IdCliente}"/>
-                <syncfusion:GridTextColumn MappingName="Matrícula" Width="120" ValueBinding="{Binding Path=Matricula}"/>
+                <syncfusion:GridTextColumn MappingName="Id Vehículo" ValueBinding="{Binding Path=IdVehiculo}"/>
+                <syncfusion:GridTextColumn MappingName="Id Cliente"  ValueBinding="{Binding Path=IdCliente}"/>
+                <syncfusion:GridTextColumn MappingName="Matrícula" ValueBinding="{Binding Path=Matricula}"/>
                 <syncfusion:GridTextColumn MappingName="Marca" ValueBinding="{Binding Path=IdMarca, Converter={StaticResource marcaConverter}}"/>
                 <syncfusion:GridTextColumn MappingName="Modelo" ValueBinding="{Binding Path=Modelo}"/>
                 <syncfusion:GridTextColumn MappingName="Tipo" ValueBinding="{Binding Path=Tipo}"/>

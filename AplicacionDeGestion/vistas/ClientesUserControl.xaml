@@ -39,7 +39,7 @@
         </StackPanel>
 
         <syncfusion:SfDataGrid x:Name="dataGrid"  
-                       AutoGenerateColumns="False" DockPanel.Dock="Top" ItemsSource="{Binding Path=ListaClientes}" SelectedItem="{Binding Path=ClienteSeleccionado}" RowHeight="100">
+                       AutoGenerateColumns="False" ColumnSizer="Star" DockPanel.Dock="Top" ItemsSource="{Binding Path=ListaClientes}" SelectedItem="{Binding Path=ClienteSeleccionado}" RowHeight="100">
             <syncfusion:SfDataGrid.Columns>
                 <syncfusion:GridTextColumn MappingName="Id" Width="50"  ValueBinding="{Binding Path=IdCliente}"/>
                 <syncfusion:GridImageColumn

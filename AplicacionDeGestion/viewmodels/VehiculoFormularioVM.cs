@@ -58,7 +58,6 @@ namespace AplicacionDeGestion.viewmodels
             get => añadirNuevoVehiculo;
             set => SetProperty(ref añadirNuevoVehiculo, value);
         }
-
         private void AñadirModificarVehiculo()
         {
             bool datoCambiado = false;
@@ -67,7 +66,13 @@ namespace AplicacionDeGestion.viewmodels
             {
                 if (datosService.GetVehiculoByMatricula(Vehiculo.Matricula) == null)
                 {
-                    datoCambiado = datosService.AñadirVehiculo(Vehiculo) > 0;
+                    if(datosService.GetClienteById(Vehiculo.IdCliente) != null)
+                    {
+                        datoCambiado = datosService.AñadirVehiculo(Vehiculo) > 0;
+                    } else
+                    {
+                        dialogosService.DialogoError("El ID del cliente no existe. El vehículo tiene que ir asociado a uno.");
+                    }
                 }
                 else
                 {
