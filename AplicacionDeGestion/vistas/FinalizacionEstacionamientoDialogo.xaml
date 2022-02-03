@@ -15,11 +15,9 @@
     </Window.Resources>
     <StackPanel Margin="15">
         <TextBlock Margin="3,0,0,0">ID Estacionamiento</TextBlock>
-        <Border>
-            <TextBox Text="{Binding Path=EstacionamientoSeleccionado.IdEstacionamiento}"></TextBox>
-        </Border>
+        <TextBox Text="{Binding Path=EstacionamientoSeleccionado.IdEstacionamiento}"></TextBox>
         <TextBlock Margin="3,8,0,0">ID Vehiculo</TextBlock>
-        <TextBox Text="{Binding Path=EstacionamientoSeleccionado.IdVehiculo}" Template="{DynamicResource TextBoxControlTemplate1}"></TextBox>
+        <TextBox Text="{Binding Path=EstacionamientoSeleccionado.IdVehiculo}"></TextBox>
         <TextBlock Margin="3,8,0,0">Matrícula</TextBlock>
         <TextBox Text="{Binding Path=EstacionamientoSeleccionado.Matricula}"></TextBox>
         <TextBlock Margin="3,8,0,0">Entrada</TextBlock>

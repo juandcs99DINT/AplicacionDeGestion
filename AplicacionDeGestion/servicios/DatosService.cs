@@ -406,7 +406,7 @@ namespace AplicacionDeGestion.servicios
                     "WHERE id_estacionamiento = @idEstacionamiento";
                 comando.Parameters.Add("@importe", SqliteType.Real);
                 comando.Parameters.Add("@idEstacionamiento", SqliteType.Integer);
-                comando.Parameters.Add("@matricula", SqliteType.Text);
+                comando.Parameters.Add("@salida", SqliteType.Text);
                 comando.Parameters["@importe"].Value = estacionamiento.Importe;
                 comando.Parameters["@idEstacionamiento"].Value = estacionamiento.IdEstacionamiento;
                 comando.Parameters["@salida"].Value = estacionamiento.Salida;

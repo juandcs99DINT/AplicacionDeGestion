@@ -26,37 +26,37 @@ namespace AplicacionDeGestion.viewmodels
 
         public RelayCommand AceptarCommand { get; }
 
-        private Estacionamiento estacionamiento;
-        public Estacionamiento Estacionamiento
+        private Estacionamiento estacionamientoSeleccionado;
+        public Estacionamiento EstacionamientoSeleccionado
         {
-            get => estacionamiento;
-            set => SetProperty(ref estacionamiento, value);
+            get => estacionamientoSeleccionado;
+            set => SetProperty(ref estacionamientoSeleccionado, value);
         }
 
         // AP1 - PARA INICIAR UN ESTACIONAMIENTO ES Estacionamiento.Entrada = DateTime.Now.ToString()
 
         private void CalcularImporteYSalida()
         {
-            DateTime entrada = Convert.ToDateTime(Estacionamiento.Entrada);
+            DateTime entrada = Convert.ToDateTime(EstacionamientoSeleccionado.Entrada);
             DateTime salida = DateTime.Now;
             TimeSpan diferenciaFechas = salida - entrada;
             int tiempoDentroDelParking = (int)diferenciaFechas.TotalSeconds / 60;
-            Vehiculo vehiculoCliente = datosService.GetVehiculoByMatricula(Estacionamiento.Matricula);
+            Vehiculo vehiculoCliente = datosService.GetVehiculoByMatricula(EstacionamientoSeleccionado.Matricula);
             float importe = Properties.Settings.Default.precioParking * tiempoDentroDelParking;
             if (vehiculoCliente != null)
             {
                 dialogosService.DialogoInformacion("El cliente es abonado. Así que tiene un 10% de descuento.");
                 importe *= 0.90f;
             }
-            Estacionamiento.Importe = importe;
-            Estacionamiento.Salida = salida.ToString();
+            EstacionamientoSeleccionado.Importe = importe;
+            EstacionamientoSeleccionado.Salida = salida.ToString();
         }
 
         private void FinalizarEstacionamiento()
         {
             bool datoCambiado = false;
             if (dialogosService.DialogoConfirmacionAccion($"¿Estás seguro de querer finalizar el estacionamiento?")
-                && datosService.FinalizarEstacionamiento(Estacionamiento) > 0)
+                && datosService.FinalizarEstacionamiento(EstacionamientoSeleccionado) > 0)
             {
                 dialogosService.DialogoInformacion("Has finalizado el estacionamiento correctamente");
                 datoCambiado = true;
@@ -70,7 +70,7 @@ namespace AplicacionDeGestion.viewmodels
 
         public void RecibirEstacionamiento()
         {
-            Estacionamiento = WeakReferenceMessenger.Default.Send<EstacionamientoSeleccionadoMessage>();
+            EstacionamientoSeleccionado = WeakReferenceMessenger.Default.Send<EstacionamientoSeleccionadoMessage>();
         }
     }
 }
