@@ -4,9 +4,37 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AplicacionDeGestion.vistas"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         mc:Ignorable="d"
         Title="FinalizacionEstacionamientoDialogo" Icon="../assets/Icons/checkout.png" Height="450" Width="300" ShowInTaskbar="False" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
-    <Grid>
-        
-    </Grid>
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="IsReadOnly" Value="True"></Setter>
+            <Setter Property="Template" Value="{DynamicResource TextBoxControlTemplate1}"></Setter>
+        </Style>
+    </Window.Resources>
+    <StackPanel Margin="15">
+        <TextBlock Margin="3,0,0,0">ID Estacionamiento</TextBlock>
+        <Border>
+            <TextBox Text="{Binding Path=EstacionamientoSeleccionado.IdEstacionamiento}"></TextBox>
+        </Border>
+        <TextBlock Margin="3,8,0,0">ID Vehiculo</TextBlock>
+        <TextBox Text="{Binding Path=EstacionamientoSeleccionado.IdVehiculo}" Template="{DynamicResource TextBoxControlTemplate1}"></TextBox>
+        <TextBlock Margin="3,8,0,0">Matrícula</TextBlock>
+        <TextBox Text="{Binding Path=EstacionamientoSeleccionado.Matricula}"></TextBox>
+        <TextBlock Margin="3,8,0,0">Entrada</TextBlock>
+        <TextBox Text="{Binding Path=EstacionamientoSeleccionado.Entrada}"></TextBox>
+        <TextBlock Margin="3,8,0,0">Salida</TextBlock>
+        <TextBox Text="{Binding Path=EstacionamientoSeleccionado.Salida}"></TextBox>
+        <TextBlock Margin="3,8,0,0">Tipo</TextBlock>
+        <TextBox Text="{Binding Path=EstacionamientoSeleccionado.Tipo}"></TextBox>
+        <TextBlock Margin="3,25,0,0">Importe</TextBlock>
+        <TextBox Text="{Binding Path=EstacionamientoSeleccionado.Importe}"></TextBox>
+
+        <StackPanel Margin="30,40,30,45" Grid.Column="1" HorizontalAlignment="Center" Orientation="Horizontal">
+            <syncfusion:ButtonAdv Width="90" Margin="5" VerticalAlignment="Bottom" x:Name="AceptarButton" Command="{Binding AceptarCommand}" Click="AceptarButton_Click" IsDefault="True" Label="Aceptar" SmallIcon="/assets/Icons/accept.png">
+            </syncfusion:ButtonAdv>
+            <syncfusion:ButtonAdv Width="90" Margin="5" VerticalAlignment="Bottom" IsCancel="True" Label="Cancelar" SmallIcon="/assets/Icons/cancel.png"></syncfusion:ButtonAdv>
+        </StackPanel>
+    </StackPanel>
 </Window>

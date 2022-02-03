@@ -27,5 +27,7 @@ namespace AplicacionDeGestion.vistas
             this.DataContext = vm;
             InitializeComponent();
         }
+
+        private void AceptarButton_Click(object sender, RoutedEventArgs e) => DialogResult = true;
     }
 }
