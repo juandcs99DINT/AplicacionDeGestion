@@ -50,17 +50,14 @@
                                        HintFloatMode="Float">
                 <TextBox Text="{Binding Path=Vehiculo.Matricula}"></TextBox>
             </inputLayout:SfTextInputLayout>
+            
             <StackPanel Orientation="Horizontal" Margin="15,0">
                 <inputLayout:SfTextInputLayout Hint="Marca"
                                        HintFloatMode="Float">
-                    <ComboBox Width="120" ItemsSource="{Binding Path=ListaMarcas}" SelectedItem="{Binding Path=MarcaSeleccionada}">
+                    <ComboBox Width="120" ItemsSource="{Binding ListaMarcas}" SelectedItem="{Binding MarcaSeleccionada}">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock>
-                                    <Run Text="{Binding Path=IdMarca}"/>
-                                    <Run Text="-"/>
-                                    <Run Text="{Binding Path=Nombre}"/>
-                                </TextBlock>
+                                <TextBlock Text="{Binding Path=Nombre}"></TextBlock>
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
                     </ComboBox>

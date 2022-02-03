@@ -175,7 +175,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="MarcaConverter.cs" />
+    <Compile Include="convertidores\MarcaConverter.cs" />
     <Compile Include="modelos\Cliente.cs" />
     <Compile Include="modelos\Estacionamiento.cs" />
     <Compile Include="modelos\Marca.cs" />

@@ -446,7 +446,7 @@ namespace AplicacionDeGestion.servicios
             return listaMarcas;
         }
 
-        public Marca GetMarcaById(int id)
+        public Marca GetMarcaById(int? id)
         {
             Marca marca = null;
             try

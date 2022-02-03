@@ -27,8 +27,8 @@ namespace AplicacionDeGestion.viewmodels
             set { SetProperty(ref cliente, value); }
         }
 
-        private Boolean añadirNuevoCliente;
-        public Boolean AñadirNuevoCliente
+        private bool añadirNuevoCliente;
+        public bool AñadirNuevoCliente
         {
             get => añadirNuevoCliente;
             set => SetProperty(ref añadirNuevoCliente, value);

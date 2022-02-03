@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace AplicacionDeGestion.viewmodels
 {
-    class VehiculoFormularioVM : ObservableObject
+    class VehiculoFormularioVM : ObservableRecipient
     {
         private readonly DialogosService dialogosService = new DialogosService();
         private readonly DatosService datosService = new DatosService();
@@ -52,8 +52,8 @@ namespace AplicacionDeGestion.viewmodels
             set => SetProperty(ref marcaSeleccionada, value);
         }
 
-        private Boolean añadirNuevoVehiculo;
-        public Boolean AñadirNuevoVehiculo
+        private bool añadirNuevoVehiculo;
+        public bool AñadirNuevoVehiculo
         {
             get => añadirNuevoVehiculo;
             set => SetProperty(ref añadirNuevoVehiculo, value);
@@ -93,6 +93,9 @@ namespace AplicacionDeGestion.viewmodels
             {
                 AñadirNuevoVehiculo = true;
                 Vehiculo = new Vehiculo();
+            } else
+            {
+                MarcaSeleccionada = datosService.GetMarcaById(Vehiculo.IdMarca);
             }
         }
 

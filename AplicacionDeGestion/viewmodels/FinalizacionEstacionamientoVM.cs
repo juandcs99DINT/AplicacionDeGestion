@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace AplicacionDeGestion.viewmodels
 {
-    class FinalizacionEstacionamientoVM : ObservableObject
+    class FinalizacionEstacionamientoVM : ObservableRecipient
     {
         private readonly DialogosService dialogosService = new DialogosService();
         private readonly DatosService datosService = new DatosService();
