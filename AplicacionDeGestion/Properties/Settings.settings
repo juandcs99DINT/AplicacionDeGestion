@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="precioParking" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">0.06</Value>
+      <Value Profile="(Default)">0.05</Value>
     </Setting>
     <Setting Name="licenciaSyncfusion" Type="System.String" Scope="User">
       <Value Profile="(Default)">NTY2OTI3QDMxMzkyZTM0MmUzMG85Q0toWFI2U2dGcVIwdjlXRHBDVGlHanpxZFlWVEJLcnZWUWtuSE5EekU9</Value>

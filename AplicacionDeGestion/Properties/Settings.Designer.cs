@@ -25,7 +25,7 @@ namespace AplicacionDeGestion.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0.06")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0.05")]
         public float precioParking {
             get {
                 return ((float)(this["precioParking"]));
