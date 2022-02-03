@@ -42,7 +42,7 @@ namespace AplicacionDeGestion.viewmodels
             TimeSpan diferenciaFechas = salida - entrada;
             int tiempoDentroDelParking = (int)diferenciaFechas.TotalSeconds / 60;
             Vehiculo vehiculoCliente = datosService.GetVehiculoByMatricula(EstacionamientoSeleccionado.Matricula);
-            float importe = Properties.Settings.Default.precioParking * tiempoDentroDelParking;
+            float importe = (float)Math.Round(Properties.Settings.Default.precioParking * tiempoDentroDelParking, 2);
             if (vehiculoCliente != null)
             {
                 dialogosService.DialogoInformacion("El cliente es abonado. Así que tiene un 10% de descuento.");

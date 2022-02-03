@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:AplicacionDeGestion.vistas"
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         mc:Ignorable="d"
-        Title="Finalizacion Estacionamiento" Icon="../assets/Icons/checkout.png" Height="450" Width="300" ShowInTaskbar="False" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
+        Title="Finalización estacionamiento" Icon="../assets/Icons/checkout.png" Height="450" Width="300" ShowInTaskbar="False" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
     <Window.Resources>
         <Style TargetType="{x:Type TextBox}">
             <Setter Property="IsReadOnly" Value="True"></Setter>
