@@ -329,6 +329,9 @@
   <ItemGroup>
     <Resource Include="assets\Icons\aparcamiento.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\Icons\refresh.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

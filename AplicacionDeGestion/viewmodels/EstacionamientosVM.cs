@@ -14,20 +14,21 @@ namespace AplicacionDeGestion.viewmodels
 {
     class EstacionamientosVM : ObservableObject
     {
-        private readonly DialogosService dialogosService = new DialogosService();
         private readonly DatosService datosService = new DatosService();
         private readonly NavigationService navigationService = new NavigationService();
         public EstacionamientosVM()
         {
             EsperarCambioEnLaLista();
             RegistrarEnvioEstacionamientoSeleccionado();
-            ListaEstacionamientos = datosService.GetEstacionamientos(true);
+            RefrescarLista();
             FinalizarEstacionamientoCommand = new RelayCommand(FinalizarEstacionamiento);
             DeseleccionarEstacionamientoCommand = new RelayCommand(DeseleccionarEstacionamiento);
+            RefrescarListaCommand = new RelayCommand(RefrescarLista);
         }
 
         public RelayCommand FinalizarEstacionamientoCommand { get; }
         public RelayCommand DeseleccionarEstacionamientoCommand { get; }
+        public RelayCommand RefrescarListaCommand { get; }
 
         private ObservableCollection<Estacionamiento> listaEstacionamientos;
         public ObservableCollection<Estacionamiento> ListaEstacionamientos
@@ -42,6 +43,9 @@ namespace AplicacionDeGestion.viewmodels
             get => estacionamientoSeleccionado;
             set => SetProperty(ref estacionamientoSeleccionado, value);
         }
+
+        private void RefrescarLista() => ListaEstacionamientos = datosService.GetEstacionamientos(true);
+       
         private void EsperarCambioEnLaLista()
         {
             WeakReferenceMessenger.Default.Register<DatoAñadidoOModificadoMessage>(this, (r, m) =>

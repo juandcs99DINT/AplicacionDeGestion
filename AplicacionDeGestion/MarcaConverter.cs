@@ -17,7 +17,7 @@ namespace AplicacionDeGestion
         {
             DatosService datosService = new DatosService();
             int valor = Int32.Parse(value.ToString());
-            return datosService.GetMarcaById(valor);
+            return datosService.GetMarcaById(valor).Nombre;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

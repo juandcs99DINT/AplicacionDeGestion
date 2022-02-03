@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AplicacionDeGestion.vistas"
         mc:Ignorable="d"
-        Title="FinalizacionEstacionamientoDialogo" Height="450" Width="800" ShowInTaskbar="False" ResizeMode="NoResize">
+        Title="FinalizacionEstacionamientoDialogo" Icon="../assets/Icons/checkout.png" Height="450" Width="300" ShowInTaskbar="False" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
     <Grid>
         
     </Grid>

@@ -17,7 +17,6 @@ namespace AplicacionDeGestion.viewmodels
         {
             navigationService = new NavigationService();
             UserControlActual = navigationService.CambiarAPestañaClientes();
-            
             CambiarAClientesCommand = new RelayCommand(CambiarAClientes);
             CambiarAVehiculosCommand = new RelayCommand(CambiarAVehiculos);
             CambiarAEstacionamientosCommand = new RelayCommand(CambiarAEstacionamientos);

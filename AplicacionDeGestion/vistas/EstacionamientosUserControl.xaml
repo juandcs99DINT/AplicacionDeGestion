@@ -31,16 +31,18 @@
         <DataTemplate x:Key="EstacionamientosTemplate">
             <Border Style="{StaticResource BordeAparcamiento}">
                 <StackPanel HorizontalAlignment="Center">
-                    <Image Source="../assets/Icons/aparcamiento.png" Margin="5" Width="50"></Image>
+                    <Image Source="../assets/Icons/parking.png" Margin="5" Width="50"></Image>
                     <Viewbox Margin="10,0,10,10">
                         <TextBlock Text="{Binding Matricula}"></TextBlock>
                     </Viewbox>
                 </StackPanel>
             </Border>
         </DataTemplate>
-        <Style TargetType="{x:Type StackPanel}" x:Key="FormularioStackPanel">
+        <Style TargetType="{x:Type StackPanel}" x:Key="StackPanelPrincipal">
             <Setter Property="Margin" Value="10"></Setter>
             <Setter Property="Background" Value="LightGray"></Setter>
+        </Style>
+        <Style TargetType="{x:Type StackPanel}" x:Key="FormularioStackPanel" BasedOn="{StaticResource StackPanelPrincipal}">
             <Setter Property="IsEnabled" Value="True"></Setter>
             <Style.Triggers>
                 <DataTrigger Binding="{Binding Path=EstacionamientoSeleccionado}" Value="{x:Null}">
@@ -78,28 +80,31 @@
                 <ColumnDefinition Width="300"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <ListBox x:Name="ListBoxEstacionamientos" Style="{StaticResource ListBoxEstilo}"></ListBox>
-            <StackPanel Style="{StaticResource FormularioStackPanel}" Grid.Column="1">
-                <inputLayout:SfTextInputLayout Margin="10,10,10,0" Hint="ID Estacionamiento"
+            <StackPanel Grid.Column="1" Style="{StaticResource StackPanelPrincipal}">
+                <StackPanel Style="{StaticResource FormularioStackPanel}">
+                    <inputLayout:SfTextInputLayout Margin="10,10,10,0" Hint="ID Estacionamiento"
                                        HintFloatMode="Float">
-                    <TextBox Text="{Binding EstacionamientoSeleccionado.IdEstacionamiento}" IsReadOnly="True"></TextBox>
-                </inputLayout:SfTextInputLayout>
-                <inputLayout:SfTextInputLayout Hint="ID Vehículo"
+                        <TextBox Text="{Binding EstacionamientoSeleccionado.IdEstacionamiento}" IsReadOnly="True"></TextBox>
+                    </inputLayout:SfTextInputLayout>
+                    <inputLayout:SfTextInputLayout Hint="ID Vehículo"
                                        HintFloatMode="Float">
 
-                    <TextBox Text="{Binding EstacionamientoSeleccionado.IdVehiculo}"></TextBox>
-                </inputLayout:SfTextInputLayout>
-                <inputLayout:SfTextInputLayout Hint="Matrícula"
+                        <TextBox Text="{Binding EstacionamientoSeleccionado.IdVehiculo}"></TextBox>
+                    </inputLayout:SfTextInputLayout>
+                    <inputLayout:SfTextInputLayout Hint="Matrícula"
                                        HintFloatMode="Float">
-                    <TextBox Text="{Binding EstacionamientoSeleccionado.Matricula}"></TextBox>
-                </inputLayout:SfTextInputLayout>
-                <inputLayout:SfTextInputLayout Hint="Entrada"
+                        <TextBox Text="{Binding EstacionamientoSeleccionado.Matricula}"></TextBox>
+                    </inputLayout:SfTextInputLayout>
+                    <inputLayout:SfTextInputLayout Hint="Entrada"
                                        HintFloatMode="Float">
-                    <TextBox Text="{Binding EstacionamientoSeleccionado.Entrada}"></TextBox>
-                </inputLayout:SfTextInputLayout>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <syncfusion:ButtonAdv Style="{StaticResource EstiloButton}" SmallIcon="../assets/Icons/borrar.png" Label="Limpiar sel." Command="{Binding DeseleccionarEstacionamientoCommand}"/>
-                    <syncfusion:ButtonAdv Style="{StaticResource EstiloButton}" SmallIcon="../assets/Icons/checkout.png" Label="Finalizar est." Command="{Binding FinalizarEstacionamientoCommand}"/>
+                        <TextBox Text="{Binding EstacionamientoSeleccionado.Entrada}"></TextBox>
+                    </inputLayout:SfTextInputLayout>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <syncfusion:ButtonAdv Style="{StaticResource EstiloButton}" SmallIcon="../assets/Icons/borrar.png" Label="Limpiar sel." Command="{Binding DeseleccionarEstacionamientoCommand}"/>
+                        <syncfusion:ButtonAdv Style="{StaticResource EstiloButton}" SmallIcon="../assets/Icons/checkout.png" Label="Finalizar est." Command="{Binding FinalizarEstacionamientoCommand}"/>
+                    </StackPanel>
                 </StackPanel>
+                <syncfusion:ButtonAdv Style="{StaticResource EstiloButton}" Height="50" SizeMode="Large" LargeIcon="../assets/Icons/refresh.png" Label="Refrescar lista" Command="{Binding RefrescarListaCommand}"/>
             </StackPanel>
         </Grid>
     </Border>
