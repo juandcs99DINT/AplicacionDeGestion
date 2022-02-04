@@ -40,7 +40,7 @@
         </StackPanel>
 
         <StackPanel>
-            <inputLayout:SfTextInputLayout Margin="15,15,15,0" Hint="Nombre"                                      
+            <inputLayout:SfTextInputLayout Margin="15,15,15,0" Hint="Nombre y Apellidos"                                      
                                        HintFloatMode="Float">
                 <TextBox Text="{Binding Path=Cliente.Nombre}"></TextBox>
             </inputLayout:SfTextInputLayout>
