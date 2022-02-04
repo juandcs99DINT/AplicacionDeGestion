@@ -31,6 +31,7 @@
         <Style TargetType="{x:Type syncfusion:SfDataGrid}" x:Key="DataGridEstilo">
             
            <!-- Background="#202020"  
+            
             AutoGenerateColumns="False" ColumnSizer="Star" DockPanel.Dock="Top" ItemsSource="{Binding Path=ListaClientes}" SelectedItem="{Binding Path=ClienteSeleccionado}" RowHeight="100"
             -->
             </Style>
