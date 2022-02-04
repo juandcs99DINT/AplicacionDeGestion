@@ -22,6 +22,7 @@ namespace AplicacionDeGestion.viewmodels
         public VehiculoFormularioVM()
         {
             RecibirVehiculo();
+            RecibirCliente();
             RegistrarMarcaNueva();
             ListaMarcas = datosService.GetMarcas();
             ListaTipoVehiculos = datosService.GetTipoVehiculos();
@@ -60,19 +61,20 @@ namespace AplicacionDeGestion.viewmodels
             set => SetProperty(ref marcaSeleccionada, value);
         }
 
-        private String tipoVehiculoSeleccionado;
-        public String TipoVehiculoSeleccionado
-        {
-            get => tipoVehiculoSeleccionado;
-            set => SetProperty(ref tipoVehiculoSeleccionado, value);
-        }
-
         private bool añadirNuevoVehiculo;
         public bool AñadirNuevoVehiculo
         {
             get => añadirNuevoVehiculo;
             set => SetProperty(ref añadirNuevoVehiculo, value);
         }
+
+        private Cliente cliente;
+        public Cliente Cliente
+        {
+            get => cliente;
+            set => SetProperty(ref cliente, value);
+        }
+
         private void AñadirModificarVehiculo()
         {
             bool datoCambiado = false;
@@ -111,6 +113,15 @@ namespace AplicacionDeGestion.viewmodels
             } else
             {
                 MarcaSeleccionada = datosService.GetMarcaById(Vehiculo.IdMarca);
+            }
+        }
+
+        public void RecibirCliente()
+        {
+            Cliente = WeakReferenceMessenger.Default.Send<ClienteSeleccionadoMessage>();
+            if (Cliente != null)
+            {
+                Vehiculo.IdCliente = Cliente.IdCliente;
             }
         }
 

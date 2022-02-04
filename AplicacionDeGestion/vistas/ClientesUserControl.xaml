@@ -37,8 +37,6 @@
             <Setter Property="SelectedItem" Value="{Binding Path=ClienteSeleccionado}"/>
             <Setter Property="RowHeight" Value="100"/>
             <Setter Property="Foreground" Value="White"/>
-
-
         </Style>
     </UserControl.Resources>
     <DockPanel>
@@ -46,6 +44,7 @@
             <syncfusion:ButtonAdv Style="{StaticResource AñadirClienteButton}" LargeIcon="/assets/Icons/anadirCliente.png" Label="Añadir" Command="{Binding Path=AñadirClienteCommand}"/>
             <syncfusion:ButtonAdv Style="{StaticResource AccionesButton}" LargeIcon="/assets/Icons/editar.png" Label="Editar" Command="{Binding Path=ModificarClienteCommand}"/>
             <syncfusion:ButtonAdv Style="{StaticResource AccionesButton}" LargeIcon="/assets/Icons/eliminarCliente.png" Label="Eliminar" Command="{Binding Path=EliminarClienteCommand}"/>
+            <syncfusion:ButtonAdv Style="{StaticResource AccionesButton}" LargeIcon="/assets/Icons/añadirVehiculo.png" Label="Añadir veh." Command="{Binding Path=AñadirVehiculoCommand}"></syncfusion:ButtonAdv>
             <syncfusion:ButtonAdv Style="{StaticResource AccionesButton}" LargeIcon="/assets/Icons/borrar.png" Label="Deselección" Command="{Binding Path=DeseleccionarClienteCommand}"/>
         </StackPanel>
 

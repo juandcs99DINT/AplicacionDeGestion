@@ -33,8 +33,6 @@ namespace AplicacionDeGestion.viewmodels
             set => SetProperty(ref estacionamientoSeleccionado, value);
         }
 
-        // AP1 - PARA INICIAR UN ESTACIONAMIENTO ES Estacionamiento.Entrada = DateTime.Now.ToString()
-
         private void CalcularImporteYSalida()
         {
             DateTime entrada = Convert.ToDateTime(EstacionamientoSeleccionado.Entrada);

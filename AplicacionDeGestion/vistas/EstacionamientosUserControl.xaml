@@ -82,6 +82,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
     </UserControl.Resources>
     <Border>
         <Grid Background="White">

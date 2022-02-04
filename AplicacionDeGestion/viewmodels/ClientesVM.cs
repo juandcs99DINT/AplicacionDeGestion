@@ -26,12 +26,14 @@ namespace AplicacionDeGestion.viewmodels
             ModificarClienteCommand = new RelayCommand(ModificarCliente);
             EliminarClienteCommand = new RelayCommand(EliminarCliente);
             DeseleccionarClienteCommand = new RelayCommand(DeseleccionarCliente);
+            AñadirVehiculoCommand = new RelayCommand(AñadirVehiculo);
         }
 
         public RelayCommand DeseleccionarClienteCommand { get; }
         public RelayCommand AñadirClienteCommand { get; }
         public RelayCommand ModificarClienteCommand { get; }
         public RelayCommand EliminarClienteCommand { get; }
+        public RelayCommand AñadirVehiculoCommand { get; }
 
         private ObservableCollection<Cliente> listaClientes;
         public ObservableCollection<Cliente> ListaClientes
@@ -71,6 +73,7 @@ namespace AplicacionDeGestion.viewmodels
 
         private void AñadirCliente() => navigationService.AbrirDialogoCrearModificarCliente();
         private void ModificarCliente() => navigationService.AbrirDialogoCrearModificarCliente();
+        private void AñadirVehiculo() => navigationService.AbrirDialogoCrearModificarVehiculo();
 
         private bool ComprobarParaEliminar()
         {

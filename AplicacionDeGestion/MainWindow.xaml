@@ -7,6 +7,11 @@
         xmlns:local="clr-namespace:AplicacionDeGestion"
         mc:Ignorable="d"
         Title="Gestion Parking" Icon="/assets/Icons/parkingIcon.ico" Height="650" Width="1005" MinHeight="450" MinWidth="800">
+    <Window.Resources>
+        <Style TargetType="{x:Type Image}">
+            <Setter Property="Stretch" Value="Uniform"></Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
         <syncfusion:SfNavigationDrawer
               x:Name="navigationDrawer"
@@ -34,28 +39,28 @@
 
             <syncfusion:NavigationItem Header="Clientes" IsSelected="True" Command="{Binding Path=CambiarAClientesCommand}">
                 <syncfusion:NavigationItem.Icon>
-                    <Image Source="/assets/Icons/customer.png" Stretch="Uniform"/>
+                    <Image Source="/assets/Icons/customer.png"/>
                 </syncfusion:NavigationItem.Icon>
             </syncfusion:NavigationItem>
             <syncfusion:NavigationItem Header="Vehículos" Command="{Binding Path=CambiarAVehiculosCommand}">
                 <syncfusion:NavigationItem.Icon>
-                    <Image Source="/assets/Icons/clipboard.png" Stretch="Uniform"/>
+                    <Image Source="/assets/Icons/clipboard.png"/>
                 </syncfusion:NavigationItem.Icon>
             </syncfusion:NavigationItem>
             <syncfusion:NavigationItem Header="Estacionamiento" Command="{Binding Path=CambiarAEstacionamientosCommand}">
-            <syncfusion:NavigationItem.Icon>
-                    <Image Source="/assets/Icons/parking.png" Stretch="Uniform"/>
+                <syncfusion:NavigationItem.Icon>
+                    <Image Source="/assets/Icons/parking.png"/>
                 </syncfusion:NavigationItem.Icon>
-        </syncfusion:NavigationItem>
+            </syncfusion:NavigationItem>
 
             <syncfusion:SfNavigationDrawer.ContentView>
-                <Border BorderBrush="Gray"  BorderThickness="0.5" Margin="10">
+                <Border BorderBrush="Gray" BorderThickness="0.5" Margin="10">
                     <ContentControl Content="{Binding Path=UserControlActual}"></ContentControl>
                 </Border>
-                
-        </syncfusion:SfNavigationDrawer.ContentView>
-    </syncfusion:SfNavigationDrawer>
-       
-        
+
+            </syncfusion:SfNavigationDrawer.ContentView>
+        </syncfusion:SfNavigationDrawer>
+
+
     </Grid>
 </Window>

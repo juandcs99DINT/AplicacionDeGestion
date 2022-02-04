@@ -29,6 +29,15 @@
                 </DataTrigger>
             </Style.Triggers>
         </Style>
+        <Style TargetType="{x:Type syncfusion:SfDataGrid}" x:Key="DataGridEstilo">
+            <Setter Property="Background" Value="#202020"/>
+            <Setter Property="AutoGenerateColumns" Value="False"/>
+            <Setter Property="ColumnSizer" Value="Star"/>
+            <Setter Property="DockPanel.Dock" Value="Top"/>
+            <Setter Property="ItemsSource" Value="{Binding Path=ListaVehiculos}"/>
+            <Setter Property="SelectedItem" Value="{Binding Path=VehiculoSeleccionado}"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
         <proyecto:MarcaConverter x:Key="marcaConverter"></proyecto:MarcaConverter>
     </UserControl.Resources>
     <DockPanel>
@@ -40,8 +49,7 @@
             <syncfusion:ButtonAdv Style="{StaticResource AccionesButton}" LargeIcon="/assets/Icons/borrar.png" Label="Deselección" Command="{Binding Path=DeseleccionarVehiculoCommand}"></syncfusion:ButtonAdv>
         </StackPanel>
 
-        <syncfusion:SfDataGrid x:Name="dataGrid"  
-                       AutoGenerateColumns="False" ColumnSizer="Star" DockPanel.Dock="Top" ItemsSource="{Binding Path=ListaVehiculos}" SelectedItem="{Binding Path=VehiculoSeleccionado}">
+        <syncfusion:SfDataGrid Style="{StaticResource DataGridEstilo}">
             <syncfusion:SfDataGrid.Columns>
                 <syncfusion:GridTextColumn MappingName="Id Vehículo" ValueBinding="{Binding Path=IdVehiculo}"/>
                 <syncfusion:GridTextColumn MappingName="Id Cliente"  ValueBinding="{Binding Path=IdCliente}"/>
