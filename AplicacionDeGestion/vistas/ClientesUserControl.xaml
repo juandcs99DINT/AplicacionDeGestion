@@ -28,18 +28,22 @@
                 </DataTrigger>
             </Style.Triggers>
         </Style>
+        <Style TargetType="{x:Type syncfusion:SfDataGrid}" x:Key="DataGridEstilo">
+            
+           <!-- Background="#202020"  
+            AutoGenerateColumns="False" ColumnSizer="Star" DockPanel.Dock="Top" ItemsSource="{Binding Path=ListaClientes}" SelectedItem="{Binding Path=ClienteSeleccionado}" RowHeight="100"
+            -->
+            </Style>
     </UserControl.Resources>
     <DockPanel>
         <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Height="80" >
-
             <syncfusion:ButtonAdv Style="{StaticResource AñadirClienteButton}" LargeIcon="/assets/Icons/anadirCliente.png" Label="Añadir" Command="{Binding Path=AñadirClienteCommand}"/>
             <syncfusion:ButtonAdv Style="{StaticResource AccionesButton}" LargeIcon="/assets/Icons/editar.png" Label="Editar" Command="{Binding Path=ModificarClienteCommand}"/>
             <syncfusion:ButtonAdv Style="{StaticResource AccionesButton}" LargeIcon="/assets/Icons/eliminarCliente.png" Label="Eliminar" Command="{Binding Path=EliminarClienteCommand}"/>
             <syncfusion:ButtonAdv Style="{StaticResource AccionesButton}" LargeIcon="/assets/Icons/borrar.png" Label="Deselección" Command="{Binding Path=DeseleccionarClienteCommand}"/>
         </StackPanel>
 
-        <syncfusion:SfDataGrid x:Name="dataGrid"  
-                       AutoGenerateColumns="False" ColumnSizer="Star" DockPanel.Dock="Top" ItemsSource="{Binding Path=ListaClientes}" SelectedItem="{Binding Path=ClienteSeleccionado}" RowHeight="100">
+        <syncfusion:SfDataGrid Style="{StaticResource DataGridEstilo}">
             <syncfusion:SfDataGrid.Columns>
                 <syncfusion:GridTextColumn MappingName="Id" Width="50"  ValueBinding="{Binding Path=IdCliente}"/>
                 <syncfusion:GridImageColumn
