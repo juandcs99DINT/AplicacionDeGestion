@@ -24,6 +24,7 @@ namespace AplicacionDeGestion.viewmodels
             RecibirVehiculo();
             RegistrarMarcaNueva();
             ListaMarcas = datosService.GetMarcas();
+            ListaTipoVehiculos = datosService.GetTipoVehiculos();
             AceptarCommand = new RelayCommand(AñadirModificarVehiculo);
             AñadirMarcaCommand = new RelayCommand(AbrirVentanaAñadirMarca);
         }
@@ -45,11 +46,25 @@ namespace AplicacionDeGestion.viewmodels
             set => SetProperty(ref listaMarcas, value);
         }
 
+        private ObservableCollection<string> listaTipoVehiculos;
+        public ObservableCollection<string> ListaTipoVehiculos
+        {
+            get => listaTipoVehiculos;
+            set => SetProperty(ref listaTipoVehiculos, value);
+        }
+
         private Marca marcaSeleccionada;
         public Marca MarcaSeleccionada
         {
             get => marcaSeleccionada;
             set => SetProperty(ref marcaSeleccionada, value);
+        }
+
+        private String tipoVehiculoSeleccionado;
+        public String TipoVehiculoSeleccionado
+        {
+            get => tipoVehiculoSeleccionado;
+            set => SetProperty(ref tipoVehiculoSeleccionado, value);
         }
 
         private bool añadirNuevoVehiculo;
