@@ -7,7 +7,7 @@
              xmlns:inputLayout="clr-namespace:Syncfusion.UI.Xaml.TextInputLayout;assembly=Syncfusion.SfTextInputLayout.WPF"
                 xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
              mc:Ignorable="d" 
-              d:DesignHeight="450" d:DesignWidth="1000" Background="White">
+              d:DesignHeight="450" d:DesignWidth="1000">
     <UserControl.Resources>
         <Style TargetType="{x:Type Border}">
             <Setter Property="BorderBrush" Value="Gray"></Setter>
