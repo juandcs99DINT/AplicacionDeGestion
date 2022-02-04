@@ -29,12 +29,17 @@
             </Style.Triggers>
         </Style>
         <Style TargetType="{x:Type syncfusion:SfDataGrid}" x:Key="DataGridEstilo">
-            
-           <!-- Background="#202020"  
-            
-            AutoGenerateColumns="False" ColumnSizer="Star" DockPanel.Dock="Top" ItemsSource="{Binding Path=ListaClientes}" SelectedItem="{Binding Path=ClienteSeleccionado}" RowHeight="100"
-            -->
-            </Style>
+            <Setter Property="Background" Value="#202020"/>
+            <Setter Property="AutoGenerateColumns" Value="False"/>
+            <Setter Property="ColumnSizer" Value="Star"/>
+            <Setter Property="DockPanel.Dock" Value="Top"/>
+            <Setter Property="ItemsSource" Value="{Binding Path=ListaClientes}"/>
+            <Setter Property="SelectedItem" Value="{Binding Path=ClienteSeleccionado}"/>
+            <Setter Property="RowHeight" Value="100"/>
+            <Setter Property="Foreground" Value="White"/>
+
+
+        </Style>
     </UserControl.Resources>
     <DockPanel>
         <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Height="80" >
