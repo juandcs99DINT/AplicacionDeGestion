@@ -28,10 +28,20 @@
             <Setter Property="Margin" Value="10,5,10,10"></Setter>
             <Setter Property="IsReadOnly" Value="True"></Setter>
         </Style>
+        <Style TargetType="{x:Type Image}" x:Key="VehiculoImage">
+            <Setter Property="Source" Value="../assets/Icons/moto.png"></Setter>
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="Width" Value="50"></Setter>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Tipo}" Value="Coche">
+                    <Setter Property="Source" Value="../assets/Icons/coche.png"></Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
         <DataTemplate x:Key="EstacionamientosTemplate">
             <Border Style="{StaticResource BordeAparcamiento}">
                 <StackPanel HorizontalAlignment="Center">
-                    <Image Source="../assets/Icons/parking.png" Margin="5" Width="50"></Image>
+                    <Image Style="{StaticResource VehiculoImage}"></Image>
                     <Viewbox Margin="10,0,10,10">
                         <TextBlock Text="{Binding Matricula}"></TextBlock>
                     </Viewbox>
@@ -98,6 +108,10 @@
                     <inputLayout:SfTextInputLayout Hint="Entrada"
                                        HintFloatMode="Float">
                         <TextBox Text="{Binding EstacionamientoSeleccionado.Entrada}"></TextBox>
+                    </inputLayout:SfTextInputLayout>
+                    <inputLayout:SfTextInputLayout Hint="Tipo"
+                                       HintFloatMode="Float">
+                        <TextBox Text="{Binding EstacionamientoSeleccionado.Tipo}"></TextBox>
                     </inputLayout:SfTextInputLayout>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <syncfusion:ButtonAdv Style="{StaticResource EstiloButton}" SmallIcon="../assets/Icons/borrar.png" Label="Limpiar sel." Command="{Binding DeseleccionarEstacionamientoCommand}"/>

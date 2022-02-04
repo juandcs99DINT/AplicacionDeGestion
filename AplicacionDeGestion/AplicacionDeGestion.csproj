@@ -335,6 +335,10 @@
   <ItemGroup>
     <Resource Include="assets\Icons\mas.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\Icons\coche.png" />
+    <Resource Include="assets\Icons\moto.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
