@@ -17,6 +17,7 @@
             <Setter Property="Height" Value="25"></Setter>
             <Setter Property="VerticalAlignment" Value="Bottom"></Setter>
             <Setter Property="Template" Value="{DynamicResource ButtonControlTemplate1}"></Setter>
+            
         </Style>
     </Window.Resources> 
    

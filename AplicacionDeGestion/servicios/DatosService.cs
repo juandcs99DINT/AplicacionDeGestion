@@ -363,6 +363,14 @@ namespace AplicacionDeGestion.servicios
             return filasAfectadas;
         }
 
+        public ObservableCollection<string> GetTipoVehiculos()
+        {
+            return new ObservableCollection<string>
+            {
+                "Coche", "Moto"
+            };
+        }
+
         public ObservableCollection<Estacionamiento> GetEstacionamientos(bool mostrarNoTerminados)
         {
             ObservableCollection<Estacionamiento> listaEstacionamientos = new ObservableCollection<Estacionamiento>();
