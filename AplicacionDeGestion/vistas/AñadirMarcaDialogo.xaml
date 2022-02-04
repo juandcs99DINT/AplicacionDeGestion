@@ -7,7 +7,7 @@
         xmlns:inputLayout="clr-namespace:Syncfusion.UI.Xaml.TextInputLayout;assembly=Syncfusion.SfTextInputLayout.WPF"
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         mc:Ignorable="d"
-        Title="Añadir marca de vehículo" Icon="../assets/Icons/iconoAñadir.ico" Height="150" Width="300" ShowInTaskbar="False" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Añadir marca de vehículo" Icon="../assets/Icons/iconoAñadir.ico" Height="180" Width="300" ShowInTaskbar="False" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style TargetType="{x:Type syncfusion:ButtonAdv}">
             <Setter Property="Width" Value="80"></Setter>
