@@ -71,10 +71,18 @@
                                        HintFloatMode="Float">
                 <TextBox Text="{Binding Path=Vehiculo.Modelo}"></TextBox>
             </inputLayout:SfTextInputLayout>
-            <inputLayout:SfTextInputLayout Margin="15,0" Hint="Tipo"                                      
+            <StackPanel Orientation="Horizontal" Margin="15,0">
+                <inputLayout:SfTextInputLayout Hint="Tipo"
                                        HintFloatMode="Float">
-                <TextBox Text="{Binding Path=Vehiculo.Tipo}"></TextBox>
-            </inputLayout:SfTextInputLayout>
+                    <ComboBox Width="120" ItemsSource="{Binding ListaTipoVehiculos}" SelectedItem="{Binding TipoVehiculoSeleccionado}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=Nombre}"></TextBlock>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </inputLayout:SfTextInputLayout>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Window>
