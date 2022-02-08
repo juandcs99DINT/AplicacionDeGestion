@@ -21,6 +21,16 @@ namespace AplicacionDeGestion.modelos
             this.tipo = tipo;
         }
 
+        public Vehiculo(Vehiculo vehiculo)
+        {
+            this.idVehiculo = vehiculo.idVehiculo;
+            this.idCliente = vehiculo.idCliente;
+            this.matricula = vehiculo.matricula;
+            this.idMarca = vehiculo.idMarca;
+            this.modelo = vehiculo.modelo;
+            this.tipo = vehiculo.tipo;
+        }
+
         private int idVehiculo;
         public int IdVehiculo
         {

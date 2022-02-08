@@ -24,6 +24,17 @@ namespace AplicacionDeGestion.modelos
             this.telefono = telefono;
         }
 
+        public Cliente(Cliente cliente)
+        {
+            this.idCliente = cliente.idCliente;
+            this.nombre = cliente.nombre;
+            this.documento = cliente.documento;
+            this.foto = cliente.foto;
+            this.edad = cliente.edad;
+            this.genero = cliente.genero;
+            this.telefono = cliente.telefono;
+        }
+
         private int idCliente;
         public int IdCliente
         {

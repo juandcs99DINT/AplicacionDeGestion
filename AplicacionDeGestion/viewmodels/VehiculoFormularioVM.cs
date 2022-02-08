@@ -54,13 +54,6 @@ namespace AplicacionDeGestion.viewmodels
             set => SetProperty(ref listaTipoVehiculos, value);
         }
 
-        private Marca marcaSeleccionada;
-        public Marca MarcaSeleccionada
-        {
-            get => marcaSeleccionada;
-            set => SetProperty(ref marcaSeleccionada, value);
-        }
-
         private bool añadirNuevoVehiculo;
         public bool AñadirNuevoVehiculo
         {
@@ -78,7 +71,6 @@ namespace AplicacionDeGestion.viewmodels
         private void AñadirModificarVehiculo()
         {
             bool datoCambiado = false;
-            Vehiculo.IdMarca = MarcaSeleccionada.IdMarca;
             if (AñadirNuevoVehiculo)
             {
                 if (datosService.GetVehiculoByMatricula(Vehiculo.Matricula) == null)
@@ -105,14 +97,11 @@ namespace AplicacionDeGestion.viewmodels
 
         public void RecibirVehiculo()
         {
-            Vehiculo = WeakReferenceMessenger.Default.Send<VehiculoSeleccionadoMessage>();
+            Vehiculo = new Vehiculo(WeakReferenceMessenger.Default.Send<VehiculoSeleccionadoMessage>());
             if (Vehiculo == null)
             {
                 AñadirNuevoVehiculo = true;
                 Vehiculo = new Vehiculo();
-            } else
-            {
-                MarcaSeleccionada = datosService.GetMarcaById(Vehiculo.IdMarca);
             }
         }
 

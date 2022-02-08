@@ -61,13 +61,7 @@
             <StackPanel Orientation="Horizontal" Margin="15,0">
                 <inputLayout:SfTextInputLayout Hint="Marca"
                                        HintFloatMode="Float">
-                    <ComboBox Width="120" ItemsSource="{Binding ListaMarcas}" SelectedItem="{Binding MarcaSeleccionada}">
-                        <ComboBox.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Path=Nombre}"></TextBlock>
-                            </DataTemplate>
-                        </ComboBox.ItemTemplate>
-                    </ComboBox>
+                    <ComboBox Width="120" ItemsSource="{Binding ListaMarcas}" DisplayMemberPath="Nombre" SelectedValuePath="IdMarca" SelectedValue="{Binding Vehiculo.IdMarca}"></ComboBox>
                 </inputLayout:SfTextInputLayout>
                 <Button VerticalAlignment="Top" Margin="5" Width="30" Height="30" Command="{Binding AñadirMarcaCommand}" Template="{DynamicResource ButtonControlTemplate2}">
                     <Image Source="/assets/Icons/mas.png" Stretch="UniformToFill" VerticalAlignment="Center" HorizontalAlignment="Center"/>
