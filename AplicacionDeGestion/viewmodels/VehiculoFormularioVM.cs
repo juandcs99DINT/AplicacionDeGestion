@@ -75,10 +75,11 @@ namespace AplicacionDeGestion.viewmodels
             {
                 if (datosService.GetVehiculoByMatricula(Vehiculo.Matricula) == null)
                 {
-                    if(datosService.GetClienteById(Vehiculo.IdCliente) != null)
+                    if (datosService.GetClienteById(Vehiculo.IdCliente) != null)
                     {
                         datoCambiado = datosService.AñadirVehiculo(Vehiculo) > 0;
-                    } else
+                    }
+                    else
                     {
                         dialogosService.DialogoError("El ID del cliente no existe. El vehículo tiene que ir asociado a uno.");
                     }
@@ -97,18 +98,22 @@ namespace AplicacionDeGestion.viewmodels
 
         public void RecibirVehiculo()
         {
-            Vehiculo = new Vehiculo(WeakReferenceMessenger.Default.Send<VehiculoSeleccionadoMessage>());
+            Vehiculo = WeakReferenceMessenger.Default.Send<VehiculoSeleccionadoMessage>();
             if (Vehiculo == null)
             {
                 AñadirNuevoVehiculo = true;
                 Vehiculo = new Vehiculo();
+            }
+            else
+            {
+                Vehiculo = new Vehiculo(Vehiculo);
             }
         }
 
         public void RecibirCliente()
         {
             Cliente = WeakReferenceMessenger.Default.Send<ClienteSeleccionadoMessage>();
-            if (Cliente != null)
+            if (Cliente != null && Vehiculo.IdCliente == null)
             {
                 Vehiculo.IdCliente = Cliente.IdCliente;
             }

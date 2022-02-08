@@ -15,9 +15,9 @@ namespace AplicacionDeGestion.servicios
         private readonly SqliteConnection conexion = new SqliteConnection("Data Source=" + Properties.Settings.Default.rutaConexionBd + "parking.db");
 
         /// <summary>
-        /// Método que obtiene el cliente en base a su número de documento.
+        /// Método que obtiene un cliente según el documento pasado por parámetro.
         /// </summary>
-        /// <param name="documento">Documento del cliente a buscar</param>
+        /// <param name="documento">Documento del cliente a obtener</param>
         /// <returns>Clase Cliente con todos sus atributos.</returns>
         public Cliente GetClienteByDocument(string documento)
         {
@@ -49,10 +49,10 @@ namespace AplicacionDeGestion.servicios
         }
 
         /// <summary>
-        /// 
+        /// Método que obtiene un cliente según el id pasado por parámetro.
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">Id del cliente a obtener</param>
+        /// <returns>Clase Cliente con todos sus atributos.</returns>
         public Cliente GetClienteById(int? id)
         {
             Cliente cliente = null;
@@ -83,6 +83,10 @@ namespace AplicacionDeGestion.servicios
             return cliente;
         }
 
+        /// <summary>
+        /// Método que obtiene la lista de clientes completa de la base de datos.
+        /// </summary>
+        /// <returns>Lista de clientes.</returns>
         public ObservableCollection<Cliente> GetClientes()
         {
             ObservableCollection<Cliente> listaClientes = new ObservableCollection<Cliente>();
@@ -113,6 +117,11 @@ namespace AplicacionDeGestion.servicios
             return listaClientes;
         }
 
+        /// <summary>
+        /// Método que añade el cliente pasado por parámetro a la base de datos.
+        /// </summary>
+        /// <param name="cliente">Cliente a añadir.</param>
+        /// <returns>Registros insertados.</returns>
         public int AñadirCliente(Cliente cliente)
         {
             int filasAfectadas = 0;
@@ -144,6 +153,11 @@ namespace AplicacionDeGestion.servicios
             return filasAfectadas;
         }
 
+        /// <summary>
+        /// Método que modifica el cliente existente pasado por parámetro en la base de datos.
+        /// </summary>
+        /// <param name="cliente">Cliente a modificar</param>
+        /// <returns>Registros modificados.</returns>
         public int ModificarCliente(Cliente cliente)
         {
             int filasAfectadas = 0;
@@ -179,6 +193,11 @@ namespace AplicacionDeGestion.servicios
             return filasAfectadas;
         }
 
+        /// <summary>
+        /// Método que elimina un cliente pasado por parámetro de la base de datos
+        /// </summary>
+        /// <param name="cliente">Cliente a eliminar</param>
+        /// <returns>Registros eliminados.</returns>
         public int EliminarCliente(Cliente cliente)
         {
             int filasAfectadas = 0;
@@ -199,7 +218,12 @@ namespace AplicacionDeGestion.servicios
             return filasAfectadas;
         }
 
-        // Para controlar que no haya dos vehículos con la misma matrícula.
+        /// <summary>
+        /// Método que obtiene un vehículo según su matrícula pasada por parámetro. Se utiliza para controlar
+        /// que no haya más de un vehículo con la misma matrícula en la base de datos.
+        /// </summary>
+        /// <param name="matricula">Matrícula a buscar</param>
+        /// <returns>Vehículo con esa matricula o null si no existe.</returns>
         public Vehiculo GetVehiculoByMatricula(string matricula)
         {
             Vehiculo vehiculo = null;
@@ -229,6 +253,11 @@ namespace AplicacionDeGestion.servicios
             return vehiculo;
         }
 
+        /// <summary>
+        /// Método que obtiene la lista de vehículos pertenecientes a un cliente según su Id.
+        /// </summary>
+        /// <param name="idCliente">Id del cliente</param>
+        /// <returns>Lista de vehículos pertenecientes al cliente.</returns>
         public ObservableCollection<Vehiculo> GetVehiculosByIdCliente(int? idCliente)
         {
             ObservableCollection<Vehiculo> listaVehiculos = new ObservableCollection<Vehiculo>();
@@ -261,6 +290,10 @@ namespace AplicacionDeGestion.servicios
         }
 
 
+        /// <summary>
+        /// Método que obtiene la lista de vehículos completa de la base de datos.
+        /// </summary>
+        /// <returns>Lista de vehículos</returns>
         public ObservableCollection<Vehiculo> GetVehiculos()
         {
             ObservableCollection<Vehiculo> listaVehiculos = new ObservableCollection<Vehiculo>();
@@ -290,6 +323,11 @@ namespace AplicacionDeGestion.servicios
             return listaVehiculos;
         }
 
+        /// <summary>
+        /// Método que añade un vehículo pasado por parámetro a la base de datos.
+        /// </summary>
+        /// <param name="vehiculo">Vehículo a añadirw</param>
+        /// <returns>Registros insertados.</returns>
         public int AñadirVehiculo(Vehiculo vehiculo)
         {
             int filasAfectadas = 0;
@@ -319,6 +357,11 @@ namespace AplicacionDeGestion.servicios
             return filasAfectadas;
         }
 
+        /// <summary>
+        /// Método que modifica un vehículo ya existente pasado por parámetro en la base de datos.
+        /// </summary>
+        /// <param name="vehiculo"></param>
+        /// <returns>Registros modificados.</returns>
         public int ModificarVehiculo(Vehiculo vehiculo)
         {
             int filasAfectadas = 0;
@@ -352,6 +395,11 @@ namespace AplicacionDeGestion.servicios
             return filasAfectadas;
         }
 
+        /// <summary>
+        /// Método que elimina un vehículo de la base de datos.
+        /// </summary>
+        /// <param name="vehiculo">Vehiculo a eliminar</param>
+        /// <returns>Registros eliminados.</returns>
         public int EliminarVehiculo(Vehiculo vehiculo)
         {
             int filasAfectadas = 0;
@@ -372,6 +420,10 @@ namespace AplicacionDeGestion.servicios
             return filasAfectadas;
         }
 
+        /// <summary>
+        /// Método que devuelve una lista de tipos de vehículo.
+        /// </summary>
+        /// <returns>Lista de string</returns>
         public ObservableCollection<string> GetTipoVehiculos()
         {
             return new ObservableCollection<string>
@@ -380,6 +432,12 @@ namespace AplicacionDeGestion.servicios
             };
         }
 
+        /// <summary>
+        /// Método que obtiene una lista de vehículos de la base de datos, que mostrará todos o solo los finalizados
+        /// según el valor pasado por parámetro.
+        /// </summary>
+        /// <param name="mostrarNoTerminados">Parámetro para filtrar por terminados o no</param>
+        /// <returns>Lista de estacionamientos.</returns>
         public ObservableCollection<Estacionamiento> GetEstacionamientos(bool mostrarNoTerminados)
         {
             ObservableCollection<Estacionamiento> listaEstacionamientos = new ObservableCollection<Estacionamiento>();
@@ -421,6 +479,11 @@ namespace AplicacionDeGestion.servicios
             return listaEstacionamientos;
         }
 
+        /// <summary>
+        ///  Método que actualiza algunos campos en la base de datos para darlo por finalizado.
+        /// </summary>
+        /// <param name="estacionamiento">Estacionamiento a finalizar</param>
+        /// <returns>Registros modificados.</returns>
         public int FinalizarEstacionamiento(Estacionamiento estacionamiento)
         {
             int filasAfectadas = 0;
@@ -447,6 +510,10 @@ namespace AplicacionDeGestion.servicios
             return filasAfectadas;
         }
 
+        /// <summary>
+        /// Método que devuelve una lista de marcas guardadas en la base de datos.
+        /// </summary>
+        /// <returns>Lista de marcas</returns>
         public ObservableCollection<Marca> GetMarcas()
         {
             ObservableCollection<Marca> listaMarcas = new ObservableCollection<Marca>();
@@ -473,6 +540,11 @@ namespace AplicacionDeGestion.servicios
             return listaMarcas;
         }
 
+        /// <summary>
+        /// Método que devuelve un objeto marca según su id pasado por parámetro
+        /// </summary>
+        /// <param name="id">Id de la marca a buscar</param>
+        /// <returns>Marca con ese id o null si no existe.</returns>
         public Marca GetMarcaById(int? id)
         {
             Marca marca = null;
@@ -499,6 +571,11 @@ namespace AplicacionDeGestion.servicios
             return marca;
         }
 
+        /// <summary>
+        /// Método que añade una nueva marca a la base de datos.
+        /// </summary>
+        /// <param name="marca">Nombre de la marca a añadir</param>
+        /// <returns>Registros insertados.</returns>
         public int AñadirMarca(string marca)
         {
             int filasAfectadas = 0;
@@ -519,6 +596,12 @@ namespace AplicacionDeGestion.servicios
             }
             return filasAfectadas;
         }
+
+        /// <summary>
+        /// Método que obtiene el estacionamiento según su matrícula pasada por parámetro.
+        /// </summary>
+        /// <param name="matricula">Matricula a buscar</param>
+        /// <returns>Estacionamiento con esa matricula o null si no existe.</returns>
         public Estacionamiento GetEstacionamientoByMatricula(string matricula)
         {
             Estacionamiento estacionamiento = null;
