@@ -16,6 +16,11 @@ namespace AplicacionDeGestion.servicios
     class AzureFaceService
     {
         private readonly DialogosService dialogosService = new DialogosService();
+        /// <summary>
+        /// Método que devuelve una clase con los atributos faciales en base a la imagen de una persona.
+        /// </summary>
+        /// <param name="url">URL de la imagen alojada en Azure.</param>
+        /// <returns>Clase que contiene los atributos faciales (género y edad).</returns>
         public FaceAttributes GetEdadGenero(string url)
         {
             FaceAttributes faceAttributes = new FaceAttributes();

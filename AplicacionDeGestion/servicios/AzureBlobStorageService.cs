@@ -11,6 +11,11 @@ namespace AplicacionDeGestion.servicios
     class AzureBlobStorageService
     {
         private readonly DialogosService dialogosService = new DialogosService();
+        /// <summary>
+        /// Sube una imagen guardada en nuestro sistema al almacén de Azure.
+        /// </summary>
+        /// <param name="rutaImagen">Ruta de la imagen local</param>
+        /// <returns>Referencia al almacén de blobs alojado en Azure</returns>
         public BlobContainerClient SubirImagenAzure(string rutaImagen)
         {
             string cadenaConexion = Properties.Settings.Default.cadenaConexionBlobStorage;
@@ -33,7 +38,12 @@ namespace AplicacionDeGestion.servicios
             }
             return clienteContenedor;
         }
-
+        /// <summary>
+        /// Método que obtiene la URL de la imagen que hemos alojado en Azure anteriormente.
+        /// </summary>
+        /// <param name="clienteContenedor">Referencia al almacén de blobs que obtenemos del anterior método. </param>
+        /// <param name="rutaImagen">Ruta de la imagen local</param>
+        /// <returns>URL de la imagen alojada en Azure.</returns>
         public string ObtenerURLImagenAzure(BlobContainerClient clienteContenedor, string rutaImagen)
         {
             BlobClient clienteBlobImagen = null;

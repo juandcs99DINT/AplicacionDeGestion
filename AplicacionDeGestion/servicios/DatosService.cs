@@ -14,7 +14,11 @@ namespace AplicacionDeGestion.servicios
         private readonly DialogosService dialogosService = new DialogosService();
         private readonly SqliteConnection conexion = new SqliteConnection("Data Source=" + Properties.Settings.Default.rutaConexionBd + "parking.db");
 
-        // Para controlar que no haya dos clientes con el mismo documento.
+        /// <summary>
+        /// Método que obtiene el cliente en base a su número de documento.
+        /// </summary>
+        /// <param name="documento">Documento del cliente a buscar</param>
+        /// <returns>Clase Cliente con todos sus atributos.</returns>
         public Cliente GetClienteByDocument(string documento)
         {
             Cliente cliente = null;
@@ -44,6 +48,11 @@ namespace AplicacionDeGestion.servicios
             return cliente;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Cliente GetClienteById(int? id)
         {
             Cliente cliente = null;

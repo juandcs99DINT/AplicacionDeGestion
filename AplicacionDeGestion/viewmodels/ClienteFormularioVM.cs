@@ -67,11 +67,14 @@ namespace AplicacionDeGestion.viewmodels
 
         public void RecibirCliente()
         {
-            Cliente = new Cliente(WeakReferenceMessenger.Default.Send<ClienteSeleccionadoMessage>());
+            Cliente = WeakReferenceMessenger.Default.Send<ClienteSeleccionadoMessage>();
             if (Cliente == null)
             {
                 AñadirNuevoCliente = true;
                 Cliente = new Cliente();
+            } else
+            {
+                Cliente = new Cliente(Cliente);
             }
         }
 

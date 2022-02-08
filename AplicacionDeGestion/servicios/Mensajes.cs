@@ -1,4 +1,4 @@
-﻿                        using AplicacionDeGestion.modelos;
+﻿using AplicacionDeGestion.modelos;
 using Microsoft.Toolkit.Mvvm.Messaging.Messages;
 using System;
 using System.Collections.Generic;
