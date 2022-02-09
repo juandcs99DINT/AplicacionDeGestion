@@ -39,9 +39,9 @@ namespace AplicacionDeGestion.servicios
             return clienteContenedor;
         }
         /// <summary>
-        /// Método que obtiene la URL de la imagen que hemos alojado en Azure anteriormente.
+        /// Obtiene la URL de la imagen que hemos alojado en Azure anteriormente.
         /// </summary>
-        /// <param name="clienteContenedor">Referencia al almacén de blobs que obtenemos del anterior método. </param>
+        /// <param name="clienteContenedor">Objeto referencia al almacén de blobs.</param>
         /// <param name="rutaImagen">Ruta de la imagen local</param>
         /// <returns>URL de la imagen alojada en Azure.</returns>
         public string ObtenerURLImagenAzure(BlobContainerClient clienteContenedor, string rutaImagen)

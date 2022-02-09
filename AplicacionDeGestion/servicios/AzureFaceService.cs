@@ -17,7 +17,7 @@ namespace AplicacionDeGestion.servicios
     {
         private readonly DialogosService dialogosService = new DialogosService();
         /// <summary>
-        /// Método que devuelve una clase con los atributos faciales en base a la imagen de una persona.
+        /// Devuelve una clase con los atributos faciales en base a la imagen de una persona.
         /// </summary>
         /// <param name="url">URL de la imagen alojada en Azure.</param>
         /// <returns>Clase que contiene los atributos faciales (género y edad).</returns>
