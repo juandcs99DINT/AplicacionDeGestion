@@ -49,15 +49,22 @@
             </syncfusion:NavigationItem>
             <syncfusion:NavigationItem Header="Estacionamiento" Command="{Binding Path=CambiarAEstacionamientosCommand}">
                 <syncfusion:NavigationItem.Icon>
-                    <Image Source="/assets/Icons/parking.png"/>
+                    <Image Source="/assets/Icons/estacionamiento.png"/>
                 </syncfusion:NavigationItem.Icon>
             </syncfusion:NavigationItem>
+
+            <syncfusion:SfNavigationDrawer.FooterItems>
+                <syncfusion:NavigationItem Margin="0,0,0,5" Header="Manual de usuario" Command="{Binding Path=AbrirManualUsuarioCommand}">
+                    <syncfusion:NavigationItem.Icon>
+                        <Image Source="/assets/Icons/informacion.png"/>
+                    </syncfusion:NavigationItem.Icon>
+                </syncfusion:NavigationItem>
+            </syncfusion:SfNavigationDrawer.FooterItems>
 
             <syncfusion:SfNavigationDrawer.ContentView>
                 <Border BorderBrush="Gray" BorderThickness="0.5" Margin="10">
                     <ContentControl Content="{Binding Path=UserControlActual}"></ContentControl>
                 </Border>
-
             </syncfusion:SfNavigationDrawer.ContentView>
         </syncfusion:SfNavigationDrawer>
 

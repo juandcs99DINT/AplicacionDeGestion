@@ -149,6 +149,7 @@
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -275,6 +276,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="assets\manual_usuario\Manual de usuario.chm" />
+    <None Include="assets\manual_usuario\Manual usuario.hnd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -339,6 +342,10 @@
   <ItemGroup>
     <Resource Include="assets\Icons\coche.png" />
     <Resource Include="assets\Icons\moto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\Icons\estacionamiento.png" />
+    <Resource Include="assets\Icons\informacion.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

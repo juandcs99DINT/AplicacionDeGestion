@@ -1,9 +1,5 @@
 ﻿using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace AplicacionDeGestion.servicios
@@ -77,6 +73,10 @@ namespace AplicacionDeGestion.servicios
             MessageBox.Show(mensaje, "Parking", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
 
+        /// <summary>
+        /// Manual de usuario con todas las instrucciones para utilizar el programa
+        /// </summary>
+        public void DialogoManualUsuario() => System.Windows.Forms.Help.ShowHelp(null, @"../../assets/manual_usuario/ManualUsuario.chm");
 
     }
 }
