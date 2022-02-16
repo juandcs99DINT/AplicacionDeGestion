@@ -276,8 +276,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="assets\manual_usuario\Manual de usuario.chm" />
-    <None Include="assets\manual_usuario\Manual usuario.hnd" />
+    <None Include="assets\manual_usuario\manual.hnd" />
+    <None Include="assets\manual_usuario\manual_usuario.chm" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

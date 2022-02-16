@@ -76,7 +76,7 @@ namespace AplicacionDeGestion.servicios
         /// <summary>
         /// Manual de usuario con todas las instrucciones para utilizar el programa
         /// </summary>
-        public void DialogoManualUsuario() => System.Windows.Forms.Help.ShowHelp(null, @"../../assets/manual_usuario/ManualUsuario.chm");
+        public void DialogoManualUsuario() => System.Windows.Forms.Help.ShowHelp(null, @"../../assets/manual_usuario/manual_usuario.chm");
 
     }
 }
